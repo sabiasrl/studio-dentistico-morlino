@@ -1,7 +1,7 @@
 BEGIN:VCARD
 VERSION:3.0
-FN:Studio Dentistico Dott.ssa Marianna Morlino
-N:Morlino\;Studio Dentistico Dott.ssa Marianna\;\;\;
+FN:Studio Dentistico Marianna Morlino
+N:Morlino;Marianna;;;Dott.ssa
 ORG:Studio Dentistico Dott.ssa Marianna Morlino
 TITLE:Studio professionale
 TEL;TYPE=WORK,VOICE:+393714196466
