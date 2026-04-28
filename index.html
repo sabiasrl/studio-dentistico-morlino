@@ -702,20 +702,37 @@
       }
       .nav .nav-top-logo {
         display: inline-flex;
-        flex-direction: column;
+        flex-direction: row;
         align-items: center;
         justify-content: center;
-        gap: 0;
-        margin-top: auto;
+        gap: 0.75rem;
+        margin-top: 0;
+        margin-bottom: 0.8rem;
         color: var(--color-charcoal);
       }
       .nav .nav-top-logo img {
-        width: min(72vw, 280px);
-        height: auto;
+        width: 40px;
+        height: 40px;
         object-fit: contain;
-        aspect-ratio: auto;
-        border-radius: var(--radius);
-        box-shadow: var(--shadow-soft);
+        aspect-ratio: 1 / 1;
+        border-radius: 999px;
+        box-shadow: none;
+      }
+      .nav .nav-top-logo .logo-text {
+        display: flex;
+        flex-direction: column;
+        line-height: 1.2;
+      }
+      .nav .nav-top-logo .logo-studio {
+        text-transform: uppercase;
+        font-size: 0.95rem;
+        font-weight: 700;
+        color: var(--color-charcoal);
+      }
+      .nav .nav-top-logo .logo-name {
+        font-size: 0.78rem;
+        font-weight: 500;
+        color: var(--color-text-accent);
       }
       .nav > a:not(.nav-top-logo) {
         width: 100%;
@@ -741,13 +758,17 @@
       </a>
       <button class="menu-toggle" aria-label="Menu" aria-expanded="false" aria-controls="site-nav">☰</button>
       <nav class="nav" id="site-nav">
+        <a href="#top" class="nav-top-logo" aria-label="Torna in alto">
+          <img src="assets/logo.png" alt="" class="logo-icon" width="40" height="40">
+          <span class="logo-text">
+            <span class="logo-studio">Studio Dentistico</span>
+            <span class="logo-name">Dott.ssa Marianna Morlino</span>
+          </span>
+        </a>
         <a href="#servizi">Servizi</a>
-        <a href="#chi-siamo">Chi sono</a>
+        <a href="#chi-siamo">Lo studio</a>
         <a href="#galleria">Consigli utili</a>
         <a href="#contatti">Contatti</a>
-        <a href="#top" class="nav-top-logo" aria-label="Torna in alto">
-          <img src="assets/logo.png" alt="" width="54" height="54">
-        </a>
       </nav>
     </div>
   </header>
@@ -828,7 +849,7 @@
 
     <section id="chi-siamo" class="about">
       <div class="section-title">
-        <h2>Chi sono</h2>
+        <h2>Lo studio</h2>
       </div>
       <div class="about-grid">
         <div class="about-image">
