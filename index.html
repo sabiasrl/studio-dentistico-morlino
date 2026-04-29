@@ -1172,17 +1172,23 @@
 
   <script id="gallery-read-more-script">
     (function () {
-      if (window.innerWidth > 640) return;
+      var MOBILE_BREAKPOINT = 640;
+      var TEASER_LENGTH = 220;
 
-      document.querySelectorAll('.gallery-card__text').forEach(function (textEl) {
-        if (!textEl) return;
-        var fullHTML = textEl.innerHTML.trim();
-        var fullText = textEl.textContent.trim();
-        if (fullText.length <= 220) return;
+      function ensureOriginalContent(textEl) {
+        if (textEl.dataset.originalHtml) return;
+        textEl.dataset.originalHtml = textEl.innerHTML.trim();
+        textEl.dataset.originalText = textEl.textContent.trim();
+      }
+
+      function applyMobileReadMore(textEl) {
+        ensureOriginalContent(textEl);
+        if ((textEl.dataset.originalText || '').length <= TEASER_LENGTH) return;
+        if (textEl.querySelector('.gallery-card__teaser')) return;
 
         var teaser = document.createElement('span');
         teaser.className = 'gallery-card__teaser';
-        teaser.textContent = fullText.slice(0, 220).trimEnd() + '...';
+        teaser.textContent = textEl.dataset.originalText.slice(0, TEASER_LENGTH).trimEnd() + '...';
 
         var moreBtn = document.createElement('button');
         moreBtn.type = 'button';
@@ -1191,9 +1197,10 @@
 
         var full = document.createElement('span');
         full.className = 'gallery-card__full';
-        full.innerHTML = fullHTML;
+        full.innerHTML = textEl.dataset.originalHtml;
 
         textEl.innerHTML = '';
+        textEl.classList.remove('is-expanded');
         textEl.classList.add('is-collapsed');
         textEl.appendChild(teaser);
         textEl.appendChild(moreBtn);
@@ -1202,7 +1209,29 @@
         moreBtn.addEventListener('click', function () {
           textEl.classList.add('is-expanded');
         });
-      });
+      }
+
+      function restoreDesktopText(textEl) {
+        ensureOriginalContent(textEl);
+        if (!textEl.querySelector('.gallery-card__teaser')) return;
+        textEl.innerHTML = textEl.dataset.originalHtml;
+        textEl.classList.remove('is-collapsed');
+        textEl.classList.remove('is-expanded');
+      }
+
+      function syncGalleryText() {
+        var isMobile = window.innerWidth <= MOBILE_BREAKPOINT;
+        document.querySelectorAll('.gallery-card__text').forEach(function (textEl) {
+          if (isMobile) {
+            applyMobileReadMore(textEl);
+          } else {
+            restoreDesktopText(textEl);
+          }
+        });
+      }
+
+      syncGalleryText();
+      window.addEventListener('resize', syncGalleryText);
     })();
   </script>
 
