@@ -250,7 +250,23 @@
       font-size: 1.1rem;
       color: var(--color-text-accent);
       font-weight: 600;
+      margin-bottom: 0.35rem;
+    }
+    .hero-contact {
       margin-bottom: 2rem;
+    }
+    .hero-contact-line {
+      display: block;
+      font-size: 0.98rem;
+      font-weight: 500;
+      color: var(--color-stone);
+    }
+    .hero-contact-line + .hero-contact-line {
+      margin-top: 0.2rem;
+    }
+    .hero-contact-line a {
+      color: var(--color-text-accent);
+      font-weight: 600;
     }
     .hero-cta {
       display: flex;
@@ -785,10 +801,13 @@
   <main>
     <section class="hero">
       <div class="hero-content">
-        <span class="hero-badge">Ortodonzia</span>
         <h1 class="hero-title"><span class="logo-studio">Studio Dentistico</span><br><span class="hero-subtitle-name">Dott.ssa Marianna Morlino</span></h1>
         <p class="hero-subtitle">Il tuo sorriso è la nostra priorità. Cure dentali e ortodontiche di qualità.</p>
-        <p class="hero-location">Atella, Potenza (PZ) — Basilicata</p>
+        <p class="hero-contact">
+          <span class="hero-contact-line">Corso Papa Giovanni XXIII, 132</span>
+          <span class="hero-contact-line">85020 Atella (PZ)</span>
+          <span class="hero-contact-line"><a href="tel:+393714196466">371 419 6466</a></span>
+        </p>
         <div class="hero-cta">
           <a href="tel:+393714196466" class="hero-round-btn hero-round-btn--phone" aria-label="Chiama lo studio" title="Chiama">
             <svg viewBox="0 0 24 24" aria-hidden="true" focusable="false">
@@ -843,15 +862,15 @@
       <div class="services-list-wrap">
         <h3 class="services-list-title">Tutti i servizi dello studio</h3>
         <ul class="services-list">
-          <li>Igiene orale e sbiancamento dentale</li>
           <li>Ortodonzia e gnatologia</li>
           <li>Implantologia</li>
-          <li>Endodonzia</li>
-          <li>Chirurgia orale</li>
           <li>Protesi fissa e mobile</li>
+          <li>Chirurgia orale</li>
+          <li>Endodonzia</li>
+          <li>Igiene orale e sbiancamento dentale</li>
           <li>Radiografia ortopanoramica (OPT)</li>
           <li>Scanner intraorale per impronta ottica</li>
-          <li>Terapia tecar per apparato temporo-mandibolare</li>
+          <li>Tecar Velvet TMJ</li>
         </ul>
       </div>
     </section>
