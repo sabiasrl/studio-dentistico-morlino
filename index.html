@@ -953,19 +953,55 @@
       transition: var(--transition);
     }
     .footer-social a:hover { background: #00BFFF; color: white; }
-    .footer p { color: rgba(255,255,255,0.8); font-size: 0.9rem; }
+    .footer p {
+      color: rgba(255,255,255,0.8);
+    }
+    .footer-brandline {
+      font-size: 0.95rem;
+      line-height: 1.45;
+    }
     .footer-fiscal {
-      margin-top: 0.55rem;
+      margin-top: 0;
       font-size: 0.82rem;
       line-height: 1.55;
       color: rgba(255,255,255,0.72);
       letter-spacing: 0.02em;
     }
-    .footer-fiscal strong {
-      color: rgba(255,255,255,0.92);
-      font-weight: 600;
+    .footer-tagline-mobile + .footer-fiscal {
+      margin-top: 0.5rem;
+    }
+    .footer-fiscal + .footer-fiscal {
+      margin-top: 0.38rem;
+    }
+    .footer-powered {
+      margin-top: 0.6rem;
+      text-align: center;
+      font-size: 0.82rem;
+      line-height: 1.55;
+      color: rgba(255,255,255,0.72);
+      letter-spacing: 0.02em;
+    }
+    .footer-powered a {
+      display: inline-flex;
+      align-items: center;
+      gap: 0.45rem;
+      color: inherit;
+      text-decoration: none;
+      font-size: inherit;
+    }
+    .footer-powered a:hover {
+      color: rgba(255,255,255,0.95);
+    }
+    .footer-powered img {
+      height: 14px;
+      width: auto;
+      flex-shrink: 0;
+      display: block;
     }
     .footer a { color: white; }
+    .footer .footer-powered a {
+      color: inherit;
+    }
     .footer strong,
     footer .logo-studio {
       color: #ffffff;
@@ -1059,6 +1095,9 @@
       }
       .footer-tagline-mobile {
         display: block;
+        font-size: 0.95rem;
+        line-height: 1.45;
+        color: rgba(255,255,255,0.8);
       }
     }
     body.menu-open {
@@ -1486,12 +1525,12 @@
     <div class="footer-inner">
       <p class="footer-brandline"><strong><span class="logo-studio">Studio Dentistico</span> Dott.ssa Marianna Morlino</strong> — Ortodonzia e cure dentali ad Atella (PZ)</p>
       <p class="footer-tagline-mobile">Ortodonzia e cure dentali ad Atella (PZ)</p>
-      <p style="margin-top: 0.5rem;">© 2026 <span class="logo-studio">Studio Dentistico</span> Dott.ssa Marianna Morlino. Tutti i diritti riservati.</p>
-      <p class="footer-fiscal"><strong>P.IVA</strong> IT 01843060763 — <strong>C.F.</strong> MRL MNN 84C60 G942Z</p>
-      <p style="margin-top: 0.6rem; text-align: center;">
-        <a href="https://www.sabiasrl.com" target="_blank" rel="noopener noreferrer" style="display: inline-flex; align-items: center; gap: 0.45rem; color: inherit; text-decoration: none;">
+      <p class="footer-fiscal">P.IVA IT 01843060763 — C.F. MRL MNN 84C60 G942Z</p>
+      <p class="footer-fiscal">© 2026 Studio Dentistico Dott.ssa Marianna Morlino. Tutti i diritti riservati.</p>
+      <p class="footer-powered">
+        <a href="https://www.sabiasrl.com" target="_blank" rel="noopener noreferrer">
           <span>Powered by</span>
-          <img src="assets/powered-by.png" alt="Sabia Srl" style="height: 14px; width: auto;" loading="lazy" decoding="async" />
+          <img src="assets/powered-by.png" alt="Sabia Srl" loading="lazy" decoding="async" />
         </a>
       </p>
     </div>
