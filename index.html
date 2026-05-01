@@ -337,37 +337,93 @@
     .services { background: var(--color-bg-alt); }
     .services-grid {
       display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
-      gap: 2rem;
+      grid-template-columns: repeat(1, minmax(0, 1fr));
+      gap: 1rem;
+      align-items: stretch;
+    }
+    @media (min-width: 640px) {
+      .services-grid {
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+      }
+    }
+    .service-card--media {
+      display: none;
+    }
+    @media (min-width: 992px) {
+      .services-grid {
+        grid-template-columns: repeat(3, minmax(0, 1fr));
+        grid-auto-rows: minmax(220px, auto);
+      }
+      .service-card--text {
+        grid-row: span 1;
+      }
+      .service-card--media {
+        display: flex;
+        grid-row: span 2;
+      }
+    }
+    @media (min-width: 1280px) {
+      .services-grid {
+        grid-template-columns: repeat(4, minmax(0, 1fr));
+      }
     }
     .service-card {
-      padding: 2rem;
+      padding: 0;
       background: white;
       border-radius: var(--radius);
       transition: var(--transition);
       border: 1px solid rgba(0, 119, 182, 0.1);
       box-shadow: var(--shadow-soft);
+      display: flex;
+      flex-direction: column;
+      height: 100%;
+      min-height: 0;
+      overflow: hidden;
     }
     .service-card:hover {
       border-color: rgba(0, 119, 182, 0.25);
       transform: translateY(-4px);
       box-shadow: var(--shadow-medium);
     }
-    .service-icon {
-      width: 48px;
-      height: 48px;
-      background: var(--gradient-tooth);
-      border-radius: 12px;
-      display: grid;
-      place-items: center;
-      font-size: 1.5rem;
-      margin-bottom: 1rem;
-      line-height: 1;
-      text-align: center;
-      padding: 0;
+    .service-card__image {
+      flex-shrink: 0;
+      overflow: hidden;
+      aspect-ratio: 16 / 10;
+      background: #eef7fc;
+      border-radius: 0;
+      border: none;
+      border-bottom: 1px solid rgba(0, 119, 182, 0.1);
     }
-    .service-card h3 { margin-bottom: 0.5rem; color: var(--color-charcoal); }
-    .service-card p { color: var(--color-stone); font-size: 0.95rem; }
+    .service-card__image img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      display: block;
+    }
+    .service-card__top-accent {
+      flex-shrink: 0;
+      height: 4px;
+      background: var(--gradient-tooth);
+    }
+    .service-card__body {
+      padding: 1.25rem 1.35rem 1.45rem;
+      display: flex;
+      flex-direction: column;
+      gap: 0.6rem;
+      flex: 1;
+    }
+    .service-card h3 {
+      margin: 0;
+      color: var(--color-charcoal);
+      font-size: clamp(1.05rem, 1.8vw, 1.15rem);
+    }
+    .service-card p {
+      margin: 0;
+      color: var(--color-stone);
+      font-size: 0.95rem;
+      flex: 1;
+      line-height: 1.55;
+    }
     .services-list-wrap {
       margin-top: 2.25rem;
       padding: 1.5rem;
@@ -405,9 +461,6 @@
       background: var(--color-text-accent);
     }
     @media (min-width: 992px) {
-      .services-grid {
-        grid-template-columns: repeat(3, minmax(0, 1fr));
-      }
       .services-list {
         grid-template-columns: repeat(2, minmax(0, 1fr));
       }
@@ -457,17 +510,25 @@
     .gallery { background: white; }
     .gallery-grid {
       display: grid;
-      grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+      grid-template-columns: repeat(1, minmax(0, 1fr));
       gap: 1rem;
     }
-    @media (max-width: 640px) {
-      .services-grid {
+    @media (min-width: 641px) {
+      .gallery-grid {
         grid-template-columns: repeat(2, minmax(0, 1fr));
-        gap: 0.8rem;
       }
-      .service-icon {
-        margin-inline: 0;
+    }
+    @media (min-width: 900px) {
+      .gallery-grid {
+        grid-template-columns: repeat(3, minmax(0, 1fr));
       }
+    }
+    @media (min-width: 1200px) {
+      .gallery-grid {
+        grid-template-columns: repeat(4, minmax(0, 1fr));
+      }
+    }
+    @media (max-width: 640px) {
       .gallery-grid {
         grid-template-columns: 1fr;
         gap: 0.75rem;
@@ -521,6 +582,40 @@
       box-shadow: var(--shadow-medium);
       border-color: rgba(0, 119, 182, 0.24);
     }
+    .gallery-card--extra {
+      position: relative;
+      border: 2px solid rgba(0, 191, 255, 0.55);
+      box-shadow:
+        0 4px 28px rgba(0, 191, 255, 0.16),
+        var(--shadow-soft);
+    }
+    .gallery-card--extra:hover {
+      border-color: rgba(0, 191, 255, 0.9);
+      box-shadow:
+        0 12px 40px rgba(0, 191, 255, 0.22),
+        var(--shadow-medium);
+    }
+    .gallery-card--extra .gallery-card__content {
+      background: linear-gradient(180deg, rgba(160, 224, 255, 0.14) 0%, rgba(255, 255, 255, 0) 55%);
+    }
+    .gallery-card__extra-badge {
+      position: absolute;
+      top: 0.55rem;
+      right: 0.55rem;
+      z-index: 3;
+      padding: 0.32rem 0.6rem;
+      max-width: calc(100% - 1.5rem);
+      font-size: 0.62rem;
+      font-weight: 700;
+      letter-spacing: 0.06em;
+      text-transform: uppercase;
+      line-height: 1.2;
+      color: var(--color-white);
+      background: linear-gradient(135deg, var(--color-text-accent) 0%, var(--color-cyan-dark) 100%);
+      border-radius: 8px;
+      box-shadow: 0 2px 12px rgba(0, 119, 182, 0.38);
+      pointer-events: none;
+    }
     .gallery-card__media {
       display: block;
       aspect-ratio: 1;
@@ -559,6 +654,174 @@
       font-weight: 600;
       color: var(--color-text-accent);
     }
+    .gallery-card__subtitle-line {
+      display: block;
+      margin-top: 0.35rem;
+      font-size: 0.8rem;
+      font-weight: 500;
+      color: var(--color-stone);
+      line-height: 1.35;
+    }
+    body.body--modular-overlay-open {
+      overflow: hidden;
+    }
+    .modular-overlay {
+      position: fixed;
+      inset: 0;
+      z-index: 2000;
+      display: flex;
+      align-items: flex-start;
+      justify-content: center;
+      padding: 5rem 1rem 1.5rem;
+      overflow-y: auto;
+      -webkit-overflow-scrolling: touch;
+      opacity: 0;
+      visibility: hidden;
+      pointer-events: none;
+      transition: opacity 0.28s ease, visibility 0.28s ease;
+    }
+    .modular-overlay.is-open {
+      opacity: 1;
+      visibility: visible;
+      pointer-events: auto;
+    }
+    .modular-overlay__backdrop {
+      position: fixed;
+      inset: 0;
+      background: rgba(26, 42, 58, 0.52);
+      backdrop-filter: blur(5px);
+      -webkit-backdrop-filter: blur(5px);
+      border: none;
+      padding: 0;
+      margin: 0;
+      cursor: pointer;
+    }
+    .modular-overlay__panel {
+      position: relative;
+      z-index: 1;
+      width: min(760px, 100%);
+      margin-bottom: 2rem;
+      background: var(--color-bg-alt);
+      border-radius: var(--radius-lg);
+      box-shadow: var(--shadow-medium);
+      padding: 1.65rem 1.25rem 1.85rem;
+      border: 1px solid rgba(0, 119, 182, 0.14);
+    }
+    .modular-overlay__close {
+      position: absolute;
+      top: 0.75rem;
+      right: 0.75rem;
+      width: 40px;
+      height: 40px;
+      border-radius: 999px;
+      border: none;
+      background: rgba(255, 255, 255, 0.95);
+      color: var(--color-charcoal);
+      font-size: 1.35rem;
+      line-height: 1;
+      cursor: pointer;
+      display: grid;
+      place-items: center;
+      box-shadow: var(--shadow-soft);
+      transition: var(--transition);
+    }
+    .modular-overlay__close:hover {
+      background: #fff;
+      color: var(--color-text-accent);
+    }
+    .modular-overlay__title {
+      text-align: center;
+      font-size: clamp(1.55rem, 4vw, 2.05rem);
+      font-weight: 600;
+      margin: 0 2.25rem 0.35rem 0;
+      color: var(--color-charcoal);
+      line-height: 1.2;
+    }
+    .modular-overlay__tagline {
+      text-align: center;
+      margin: 0 1.5rem 0.45rem;
+      color: var(--color-stone);
+      font-weight: 500;
+      font-size: 1rem;
+      line-height: 1.35;
+    }
+    .modular-overlay__tagline + .modular-overlay__stack {
+      margin-top: 0.65rem;
+    }
+    .modular-overlay__stack {
+      display: flex;
+      flex-direction: column;
+      gap: 1rem;
+    }
+    .modular-overlay__figure {
+      margin: 0;
+      border-radius: var(--radius);
+      overflow: hidden;
+      border: 1px solid rgba(0, 119, 182, 0.12);
+      background: #fff;
+      box-shadow: var(--shadow-soft);
+    }
+    .modular-overlay__figure img {
+      width: 100%;
+      height: auto;
+      display: block;
+    }
+    .modular-overlay__prose {
+      text-align: left;
+      margin-top: 0.15rem;
+    }
+    .modular-overlay__prose p {
+      margin: 0;
+      font-size: 0.94rem;
+      color: var(--color-stone);
+      line-height: 1.58;
+    }
+    .modular-overlay__prose p + p {
+      margin-top: 0.85rem;
+    }
+    .modular-overlay__prose a {
+      font-weight: 600;
+    }
+    .modular-overlay__prose strong {
+      color: var(--color-charcoal);
+      font-weight: 600;
+    }
+    #velvet-tmj-overlay .modular-overlay__interleave {
+      display: flex;
+      flex-direction: column;
+      gap: 1.15rem;
+      margin-top: 0.35rem;
+    }
+    #velvet-tmj-overlay .modular-overlay__interleave-row {
+      display: flex;
+      flex-direction: column;
+      gap: 0.75rem;
+    }
+    #velvet-tmj-overlay .modular-overlay__interleave-row .modular-overlay__prose {
+      margin-top: 0;
+    }
+    #velvet-tmj-overlay .modular-overlay__interleave-row--chess {
+      display: flex;
+      flex-direction: column;
+      gap: 0.75rem;
+    }
+    @media (min-width: 992px) {
+      #velvet-tmj-overlay .modular-overlay__interleave-row--chess {
+        flex-direction: row;
+        align-items: center;
+        gap: 1.25rem;
+      }
+      #velvet-tmj-overlay .modular-overlay__interleave-row--chess-img-first .modular-overlay__figure,
+      #velvet-tmj-overlay .modular-overlay__interleave-row--chess-img-first .modular-overlay__prose,
+      #velvet-tmj-overlay .modular-overlay__interleave-row--chess-text-first .modular-overlay__figure,
+      #velvet-tmj-overlay .modular-overlay__interleave-row--chess-text-first .modular-overlay__prose {
+        flex: 1;
+        min-width: 0;
+      }
+      #velvet-tmj-overlay .modular-overlay__interleave-row--chess-text-first {
+        flex-direction: row-reverse;
+      }
+    }
 
     /* Contact */
     .contact { background: white; }
@@ -573,19 +836,6 @@
     }
     @media (max-width: 480px) {
       .contact-item { flex-wrap: wrap; }
-      .contact-item a {
-        font-size: 0.85rem;
-        word-break: break-all;
-      }
-      .contact-item:has(.contact-email) {
-        flex-direction: column;
-        align-items: flex-start;
-        gap: 0.25rem;
-      }
-      .contact-email {
-        font-size: clamp(0.65rem, 3vw, 0.85rem) !important;
-        overflow-wrap: anywhere;
-      }
       .contact-item--phone {
         flex-wrap: nowrap;
         align-items: center;
@@ -607,8 +857,8 @@
       }
     }
     .contact-info h3 {
-      margin-bottom: 1rem;
-      line-height: 1.25;
+      margin-bottom: 2.6rem;
+      line-height: 1.1;
     }
     .contact-item {
       display: flex;
@@ -620,6 +870,23 @@
     .contact-item--phone {
       align-items: center;
       flex-wrap: nowrap;
+    }
+    .contact-phone-actions {
+      display: flex;
+      flex-wrap: wrap;
+      align-items: center;
+      gap: 0.5rem;
+      flex: 1;
+      min-width: 0;
+    }
+    .contact-phone-actions > a[href^="tel:"] {
+      flex: 0 0 auto;
+      white-space: nowrap;
+    }
+    .contact-item--phone .contact-phone-actions .vcard-on-phone-wrap {
+      flex: 0 1 auto;
+      min-width: min-content;
+      margin-left: 0;
     }
     .contact-item--phone-book {
       display: none;
@@ -687,6 +954,17 @@
     }
     .footer-social a:hover { background: #00BFFF; color: white; }
     .footer p { color: rgba(255,255,255,0.8); font-size: 0.9rem; }
+    .footer-fiscal {
+      margin-top: 0.55rem;
+      font-size: 0.82rem;
+      line-height: 1.55;
+      color: rgba(255,255,255,0.72);
+      letter-spacing: 0.02em;
+    }
+    .footer-fiscal strong {
+      color: rgba(255,255,255,0.92);
+      font-weight: 600;
+    }
     .footer a { color: white; }
     .footer strong,
     footer .logo-studio {
@@ -807,8 +1085,8 @@
             <span class="logo-name">Dott.ssa Marianna Morlino</span>
           </span>
         </a>
-        <a href="#servizi">Servizi</a>
         <a href="#chi-siamo">Lo studio</a>
+        <a href="#servizi">Servizi</a>
         <a href="#galleria">Consigli utili</a>
         <a href="#contatti">Contatti</a>
       </nav>
@@ -845,35 +1123,14 @@
       </div>
     </section>
 
-    <section id="servizi" class="services">
-      <div class="section-title">
-        <h2>In evidenza</h2>
-        <p>I nostri servizi</p>
-      </div>
-      <div class="services-grid">
-        <div class="service-card">
-          <h3>Ortodonzia</h3>
-          <p>Apparecchi fissi e mobili, allineatori trasparenti per un sorriso perfetto a ogni età.</p>
+    <section id="chi-siamo" class="about">
+      <div class="about-grid">
+        <div class="about-image">
+          <img src="assets/logo-big.jpg" alt="Studio Dentistico Morlino - Interno" onerror="this.src='data:image/svg+xml,%3Csvg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 600 400%22%3E%3Crect fill=%22%23e0f4ff%22 width=%22600%22 height=%22400%22/%3E%3Ctext x=%2250%25%22 y=%2250%25%22 dominant-baseline=%22middle%22 text-anchor=%22middle%22 fill=%22%230077B6%22 font-size=%2224%22 font-family=%22sans-serif%22%3EStudio Dentistico Morlino%3C/text%3E%3C/svg%3E'">
         </div>
-        <div class="service-card">
-          <h3>Igiene orale</h3>
-          <p>Pulizia professionale, prevenzione e controlli periodici per la salute dei tuoi denti.</p>
-        </div>
-        <div class="service-card">
-          <h3>Odontoiatria generale</h3>
-          <p>Otturazioni, devitalizzazioni, estrazioni e cure conservative.</p>
-        </div>
-        <div class="service-card">
-          <h3>Estetica dentale</h3>
-          <p>Sbiancamento, faccette e soluzioni per valorizzare il tuo sorriso.</p>
-        </div>
-        <div class="service-card">
-          <h3>Implantologia</h3>
-          <p>Interventi implantari per sostituire denti mancanti in modo stabile e naturale.</p>
-        </div>
-        <div class="service-card">
-          <h3>Protesi fissa e mobile</h3>
-          <p>Soluzioni protesiche personalizzate per ripristinare funzione, comfort ed estetica.</p>
+        <div class="about-text">
+          <p>Lo <span class="logo-studio">Studio Dentistico</span> della Dott.ssa Marianna Morlino è il punto di riferimento per l'ortodonzia e le cure dentali ad Atella, in provincia di Potenza. Situato nel cuore della Basilicata, offriamo un servizio professionale e personalizzato a pazienti di ogni età.</p>
+          <p>Il nostro obiettivo è prenderti cura del tuo sorriso con competenza, tecnologia all'avanguardia e un'attenzione costante al tuo benessere. Scegli lo <span class="logo-studio">Studio Dentistico</span> della Dott.ssa Marianna Morlino per le tue cure dentali.</p>
         </div>
       </div>
       <div class="services-list-wrap">
@@ -892,26 +1149,91 @@
       </div>
     </section>
 
-    <section id="chi-siamo" class="about">
+    <section id="servizi" class="services">
       <div class="section-title">
-        <h2>Lo studio</h2>
+        <h2>In evidenza</h2>
+        <p>I nostri servizi</p>
       </div>
-      <div class="about-grid">
-        <div class="about-image">
-          <img src="assets/logo-big.jpg" alt="Studio Dentistico Morlino - Interno" onerror="this.src='data:image/svg+xml,%3Csvg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 600 400%22%3E%3Crect fill=%22%23e0f4ff%22 width=%22600%22 height=%22400%22/%3E%3Ctext x=%2250%25%22 y=%2250%25%22 dominant-baseline=%22middle%22 text-anchor=%22middle%22 fill=%22%230077B6%22 font-size=%2224%22 font-family=%22sans-serif%22%3EStudio Dentistico Morlino%3C/text%3E%3C/svg%3E'">
+      <div class="services-grid">
+        <div class="service-card service-card--text">
+          <div class="service-card__top-accent" aria-hidden="true"></div>
+          <div class="service-card__body">
+            <h3>Ortodonzia</h3>
+            <p>Apparecchi fissi e mobili, allineatori trasparenti per un sorriso perfetto a ogni età.</p>
+          </div>
         </div>
-        <div class="about-text">
-          <p>Lo <span class="logo-studio">Studio Dentistico</span> della Dott.ssa Marianna Morlino è il punto di riferimento per l'ortodonzia e le cure dentali ad Atella, in provincia di Potenza. Situato nel cuore della Basilicata, offriamo un servizio professionale e personalizzato a pazienti di ogni età.</p>
-          <p>Il nostro obiettivo è prenderti cura del tuo sorriso con competenza, tecnologia all'avanguardia e un'attenzione costante al tuo benessere. Scegli lo <span class="logo-studio">Studio Dentistico</span> della Dott.ssa Marianna Morlino per le tue cure dentali.</p>
+        <div class="service-card service-card--text">
+          <div class="service-card__top-accent" aria-hidden="true"></div>
+          <div class="service-card__body">
+            <h3>Igiene orale</h3>
+            <p>Pulizia professionale, prevenzione e controlli periodici per la salute dei tuoi denti.</p>
+          </div>
+        </div>
+        <div class="service-card service-card--media">
+          <div class="service-card__image">
+            <img src="assets/images/velvet-tmj-full.png" alt="Velvet TMJ">
+          </div>
+          <div class="service-card__body">
+            <h3>Velvet TMJ</h3>
+            <p>Tecnologia non invasiva che combina diatermia ed elettroporazione per il benessere dell'apparato temporo-mandibolare.</p>
+          </div>
+        </div>
+        <div class="service-card service-card--text">
+          <div class="service-card__top-accent" aria-hidden="true"></div>
+          <div class="service-card__body">
+            <h3>Odontoiatria generale</h3>
+            <p>Otturazioni, devitalizzazioni, estrazioni e cure conservative.</p>
+          </div>
+        </div>
+        <div class="service-card service-card--media">
+          <div class="service-card__image">
+            <img src="assets/images/whitening-blancone.jpeg" alt="Whitening professionale">
+          </div>
+          <div class="service-card__body">
+            <h3>Whitening</h3>
+            <p>Trattamento professionale per uno sbiancamento efficace e sicuro, pensato per valorizzare il tuo sorriso.</p>
+          </div>
+        </div>
+        <div class="service-card service-card--text">
+          <div class="service-card__top-accent" aria-hidden="true"></div>
+          <div class="service-card__body">
+            <h3>Estetica dentale</h3>
+            <p>Sbiancamento, faccette e soluzioni per valorizzare il tuo sorriso.</p>
+          </div>
+        </div>
+        <div class="service-card service-card--text">
+          <div class="service-card__top-accent" aria-hidden="true"></div>
+          <div class="service-card__body">
+            <h3>Implantologia</h3>
+            <p>Interventi implantari per sostituire denti mancanti in modo stabile e naturale.</p>
+          </div>
+        </div>
+        <div class="service-card service-card--text">
+          <div class="service-card__top-accent" aria-hidden="true"></div>
+          <div class="service-card__body">
+            <h3>Protesi fissa e mobile</h3>
+            <p>Soluzioni protesiche personalizzate per ripristinare funzione, comfort ed estetica.</p>
+          </div>
         </div>
       </div>
     </section>
 
     <section id="galleria" class="gallery">
       <div class="gallery-grid">
+        <article class="gallery-card gallery-card--extra">
+          <span class="gallery-card__extra-badge" aria-hidden="true">Approfondimento</span>
+          <a href="#" class="gallery-card__media" data-modular-overlay-open="velvet-tmj-overlay" aria-haspopup="dialog">
+            <img src="assets/images/velvet-tmj-full.png" alt="Velvet TMJ">
+          </a>
+          <div class="gallery-card__content">
+            <h3 class="gallery-card__title"><a href="#" data-modular-overlay-open="velvet-tmj-overlay" aria-haspopup="dialog">Velvet TMJ</a></h3>
+            <p class="gallery-card__text">Nel nostro studio utilizziamo Velvet TMJ, un medical device che combina diatermia ed elettroporazione per trattamenti non invasivi verso il benessere dell'apparato temporo-mandibolare e del cavo orale.</p>
+            <p class="gallery-card__text"><a href="#" class="gallery-card__link" data-modular-overlay-open="velvet-tmj-overlay" aria-haspopup="dialog">Per saperne di più</a></p>
+          </div>
+        </article>
         <article class="gallery-card">
           <a href="https://www.facebook.com/photo/?fbid=1319553045663125&set=pb.100028253273647.-2207520000" target="_blank" rel="noopener" class="gallery-card__media">
-            <img src="assets/images/488362767_1592274948390932_7407037657774404361_n.jpg" alt="Studio Dentistico Marianna Morlino - Galleria">
+            <img src="assets/images/card-digrignamento-notturno.png" alt="Studio Dentistico Marianna Morlino - Galleria">
           </a>
           <div class="gallery-card__content">
             <h3 class="gallery-card__title"><a href="https://www.facebook.com/photo/?fbid=1319553045663125&set=pb.100028253273647.-2207520000" target="_blank" rel="noopener">Digrignamento notturno</a></h3>
@@ -920,7 +1242,7 @@
         </article>
         <article class="gallery-card">
           <a href="https://www.facebook.com/photo/?fbid=1319549202330176&set=pb.100028253273647.-2207520000" target="_blank" rel="noopener" class="gallery-card__media">
-            <img src="assets/images/488639977_1592274641724296_4509219964748345642_n.jpg" alt="Studio Dentistico Marianna Morlino - Galleria">
+            <img src="assets/images/card-click-mandibolare.png" alt="Studio Dentistico Marianna Morlino - Galleria">
           </a>
           <div class="gallery-card__content">
             <h3 class="gallery-card__title"><a href="https://www.facebook.com/photo/?fbid=1319549202330176&set=pb.100028253273647.-2207520000" target="_blank" rel="noopener">Click mandibolare</a></h3>
@@ -929,7 +1251,7 @@
         </article>
         <article class="gallery-card">
           <a href="https://www.facebook.com/photo.php?fbid=1354720838813012&set=pb.100028253273647.-2207520000&type=3" target="_blank" rel="noopener" class="gallery-card__media">
-            <img src="assets/images/488721832_1594000134885080_4028501412989047461_n.jpg" alt="Acufene e contratture mandibolari">
+            <img src="assets/images/card-acufene-e-benessere-mandibolare.png" alt="Acufene e contratture mandibolari">
           </a>
           <div class="gallery-card__content">
             <h3 class="gallery-card__title"><a href="https://www.facebook.com/photo.php?fbid=1354720838813012&set=pb.100028253273647.-2207520000&type=3" target="_blank" rel="noopener">Acufene e benessere mandibolare</a></h3>
@@ -938,7 +1260,7 @@
         </article>
         <article class="gallery-card">
           <a href="https://www.facebook.com/photo.php?fbid=1319560422329054&set=pb.100028253273647.-2207520000&type=3" target="_blank" rel="noopener" class="gallery-card__media">
-            <img src="assets/images/488933513_1592443548374072_2043138846540098592_n.jpg" alt="Studio Dentistico Marianna Morlino - Galleria">
+            <img src="assets/images/card-dolore-facciale-e-mandibolare.png" alt="Studio Dentistico Marianna Morlino - Galleria">
           </a>
           <div class="gallery-card__content">
             <h3 class="gallery-card__title"><a href="https://www.facebook.com/photo.php?fbid=1319560422329054&set=pb.100028253273647.-2207520000&type=3" target="_blank" rel="noopener">Dolore facciale e mandibolare</a></h3>
@@ -947,7 +1269,7 @@
         </article>
         <article class="gallery-card">
           <a href="https://www.facebook.com/photo/?fbid=1336374897314273&set=pb.100028253273647.-2207520000" target="_blank" rel="noopener" class="gallery-card__media">
-            <img src="assets/images/489096994_1593551154929978_8810028885539260450_n.jpg" alt="Studio Dentistico Marianna Morlino - Galleria">
+            <img src="assets/images/card-salute-orale-e-prevenzione.png" alt="Studio Dentistico Marianna Morlino - Galleria">
           </a>
           <div class="gallery-card__content">
             <h3 class="gallery-card__title"><a href="https://www.facebook.com/photo/?fbid=1336374897314273&set=pb.100028253273647.-2207520000" target="_blank" rel="noopener">Salute orale e prevenzione</a></h3>
@@ -956,7 +1278,7 @@
         </article>
         <article class="gallery-card">
           <a href="https://www.facebook.com/photo/?fbid=1354720088813087&set=pb.100028253273647.-2207520000" target="_blank" rel="noopener" class="gallery-card__media">
-            <img src="assets/images/489124853_1594000351551725_1489981569284503760_n.jpg" alt="Studio Dentistico Marianna Morlino - Galleria">
+            <img src="assets/images/card-infiammazioni-a-bocca-e-mandibola.png" alt="Studio Dentistico Marianna Morlino - Galleria">
           </a>
           <div class="gallery-card__content">
             <h3 class="gallery-card__title"><a href="https://www.facebook.com/photo/?fbid=1354720088813087&set=pb.100028253273647.-2207520000" target="_blank" rel="noopener">Infiammazioni a bocca e mandibola</a></h3>
@@ -965,7 +1287,7 @@
         </article>
         <article class="gallery-card">
           <a href="https://www.facebook.com/photo/?fbid=1336367260648370&set=pb.100028253273647.-2207520000" target="_blank" rel="noopener" class="gallery-card__media">
-            <img src="assets/images/489462937_1593551144929979_8033784536742543805_n.jpg" alt="Studio Dentistico Marianna Morlino - Galleria">
+            <img src="assets/images/card-cose-unalgia-mandibolare.png" alt="Studio Dentistico Marianna Morlino - Galleria">
           </a>
           <div class="gallery-card__content">
             <h3 class="gallery-card__title"><a href="https://www.facebook.com/photo/?fbid=1336367260648370&set=pb.100028253273647.-2207520000" target="_blank" rel="noopener">Cos'e' un'algia mandibolare</a></h3>
@@ -974,7 +1296,7 @@
         </article>
         <article class="gallery-card">
           <a href="https://www.facebook.com/photo/?fbid=1354719375479825&set=pb.100028253273647.-2207520000" target="_blank" rel="noopener" class="gallery-card__media">
-            <img src="assets/images/489526890_1594000411551719_6212836423236053646_n.jpg" alt="Studio Dentistico Marianna Morlino - Galleria">
+            <img src="assets/images/card-riabilitazione-mandibolare.png" alt="Studio Dentistico Marianna Morlino - Galleria">
           </a>
           <div class="gallery-card__content">
             <h3 class="gallery-card__title"><a href="https://www.facebook.com/photo/?fbid=1354719375479825&set=pb.100028253273647.-2207520000" target="_blank" rel="noopener">Riabilitazione mandibolare</a></h3>
@@ -983,7 +1305,7 @@
         </article>
         <article class="gallery-card">
           <a href="https://www.facebook.com/photo/?fbid=1354709028814193&set=pb.100028253273647.-2207520000" target="_blank" rel="noopener" class="gallery-card__media">
-            <img src="assets/images/489784279_1594000454885048_8041011091436788304_n.jpg" alt="Studio Dentistico Marianna Morlino - Galleria">
+            <img src="assets/images/card-visita-senza-paura.png" alt="Studio Dentistico Marianna Morlino - Galleria">
           </a>
           <div class="gallery-card__content">
             <h3 class="gallery-card__title"><a href="https://www.facebook.com/photo/?fbid=1354709028814193&set=pb.100028253273647.-2207520000" target="_blank" rel="noopener">Visita senza paura</a></h3>
@@ -992,12 +1314,31 @@
         </article>
         <article class="gallery-card">
           <a href="https://www.facebook.com/photo/?fbid=1336366440648452&set=pb.100028253273647.-2207520000" target="_blank" rel="noopener" class="gallery-card__media">
-            <img src="assets/images/489815987_1593551058263321_4821209944720870949_n.jpg" alt="Studio Dentistico Marianna Morlino - Galleria">
+            <img src="assets/images/card-infiammazioni-mandibolari.png" alt="Studio Dentistico Marianna Morlino - Galleria">
           </a>
           <div class="gallery-card__content">
             <h3 class="gallery-card__title"><a href="https://www.facebook.com/photo/?fbid=1336366440648452&set=pb.100028253273647.-2207520000" target="_blank" rel="noopener">Infiammazioni mandibolari</a></h3>
             <p class="gallery-card__text">Le infiammazioni mandibolari sono campanelli d'allarme spesso trascurati, potenziali precursori di dolori cronici. Il nostro approccio, basato su trattamenti odontoiatrici non invasivi, mira a prevenire e risolvere queste problematiche. Non aspettare che il dolore diventi cronico: affidati a noi per un trattamento tempestivo e mirato. Grazie all'innovativa tecnologia di Velvet TMJ, garantiamo soluzioni efficaci e senza dolore, per ripristinare il benessere del tuo apparato temporo mandibolare con un approccio innovativo, sicuro e non invasivo. La tua salute dentale e' la nostra priorita'.</p>
 </div>
+        </article>
+        <article class="gallery-card">
+          <div class="gallery-card__media">
+            <img src="assets/images/card-sinergia-vincente.png" alt="Sinergia vincente con Velvet TMJ">
+          </div>
+          <div class="gallery-card__content">
+            <h3 class="gallery-card__title">Sinergia vincente con Velvet TMJ</h3>
+            <p class="gallery-card__text">Presso lo Studio dentistico Morlino utilizziamo Velvet TMJ, un medical device in grado di offrirti un'esperienza diversa da quelle precedenti. La sinergia tra diatermia ed elettroporazione tratta in maniera non invasiva ed efficace:<br>📌 Acufene<br>📌 Bruxismo<br>📌 Click mandibolare<br>📌 Mal di testa<br>📌 Dolore cervicale<br>📌 Edemi e tumefazioni<br>📌 Trismi e contratture muscolari<br>📌 Difficolta'/dolore nell'apertura della bocca e nei movimenti mandibolari<br>📌 Nevralgie cervico-facciali<br>Chiedi allo staff se Velvet TMJ puo' essere la soluzione al tuo problema e trasforma la tua visita in un'esperienza positiva!</p>
+          </div>
+        </article>
+        <article class="gallery-card gallery-card--extra">
+          <span class="gallery-card__extra-badge" aria-hidden="true">Approfondimento</span>
+          <a href="#" class="gallery-card__media" data-modular-overlay-open="disturbi-del-sonno-overlay" aria-haspopup="dialog">
+            <img src="assets/images/infocard-1.png" alt="">
+          </a>
+          <div class="gallery-card__content">
+            <h3 class="gallery-card__title"><a href="#" data-modular-overlay-open="disturbi-del-sonno-overlay" aria-haspopup="dialog">Disturbi del sonno<span class="gallery-card__subtitle-line">in età pediatrica o adolescente</span></a></h3>
+            <p class="gallery-card__text"><a href="#" class="gallery-card__link" data-modular-overlay-open="disturbi-del-sonno-overlay" aria-haspopup="dialog">Per saperne di più</a></p>
+          </div>
         </article>
       </div>
     </section>
@@ -1015,11 +1356,13 @@
           </div>
           <div class="contact-item">
             <strong>📧 Email:</strong>
-            <a href="mailto:morlino.studiodentistico@gmail.com" class="contact-email">morlino.studiodentistico@gmail.com</a>
+            <a href="mailto:morlino.studiodentistico@gmail.com">morlino.studiodentistico@gmail.com</a>
           </div>
           <div class="contact-item contact-item--phone">
             <strong>📞 Telefono:</strong>
-            <a href="tel:+393714196466">+39 371 419 6466</a>
+            <span class="contact-phone-actions">
+              <a href="tel:+393714196466">371 419 6466</a>
+            </span>
           </div>
           <div class="contact-item contact-social-line">
             <strong>🌐 Social:</strong>
@@ -1070,11 +1413,81 @@
     </section>
   </main>
 
+  <div id="disturbi-del-sonno-overlay" class="modular-overlay" aria-hidden="true" role="dialog" aria-modal="true" aria-labelledby="disturbi-overlay-title">
+    <button type="button" class="modular-overlay__backdrop js-modular-overlay-close" tabindex="-1" aria-label="Chiudi finestra"></button>
+    <div class="modular-overlay__panel">
+      <button type="button" class="modular-overlay__close js-modular-overlay-close" aria-label="Chiudi">&times;</button>
+      <h2 id="disturbi-overlay-title" class="modular-overlay__title">Disturbi del sonno</h2>
+      <p class="modular-overlay__tagline">in età pediatrica o adolescente</p>
+      <div class="modular-overlay__stack">
+        <figure class="modular-overlay__figure">
+          <img src="assets/images/infocard-1.png" alt="" loading="lazy" decoding="async">
+        </figure>
+        <figure class="modular-overlay__figure">
+          <img src="assets/images/infocard-2.png" alt="" loading="lazy" decoding="async">
+        </figure>
+        <figure class="modular-overlay__figure">
+          <img src="assets/images/infocard-3.png" alt="" loading="lazy" decoding="async">
+        </figure>
+      </div>
+    </div>
+  </div>
+
+  <div id="velvet-tmj-overlay" class="modular-overlay" aria-hidden="true" role="dialog" aria-modal="true" aria-labelledby="velvet-tmj-overlay-title">
+    <button type="button" class="modular-overlay__backdrop js-modular-overlay-close" tabindex="-1" aria-label="Chiudi finestra"></button>
+    <div class="modular-overlay__panel">
+      <button type="button" class="modular-overlay__close js-modular-overlay-close" aria-label="Chiudi">&times;</button>
+      <h2 id="velvet-tmj-overlay-title" class="modular-overlay__title">Velvet TMJ</h2>
+      <p class="modular-overlay__tagline">Diatermia ed elettroporazione per percorsi non invasivi volti al comfort e al benessere<br>dell'apparato temporo-mandibolare e delle regioni peri-orali correlate.</p>
+      <div class="modular-overlay__interleave">
+        <div class="modular-overlay__interleave-row">
+          <figure class="modular-overlay__figure">
+            <img src="assets/images/velvet-tmj.png" alt="Velvet TMJ: panoramica del sistema e del percorso in studio" loading="lazy" decoding="async">
+          </figure>
+          <div class="modular-overlay__prose">
+            <p>L'immagine introduce il sistema <strong>Velvet TMJ</strong> così come lo proponiamo nello <strong>Studio Dentistico Morlino</strong>: un medical device che integra due modalità complementari — <strong>diatermia</strong> e <strong>elettroporazione</strong> — tramite <strong>trasduttori dedicati</strong>, in percorsi <strong>non invasivi</strong> pensati per il comfort del paziente e per il benessere dell'<strong>apparato temporo-mandibolare</strong> e delle regioni peri-orali correlate.</p>
+          </div>
+        </div>
+        <div class="modular-overlay__interleave-row modular-overlay__interleave-row--chess modular-overlay__interleave-row--chess-img-first">
+          <figure class="modular-overlay__figure">
+            <img src="assets/images/velvet-tmj-diatermia.png" alt="Velvet TMJ: diatermia DCR — capacità e ambito di applicazione" loading="lazy" decoding="async">
+          </figure>
+          <div class="modular-overlay__prose">
+            <p>La scheda sulla <strong>diatermia DCR</strong> sintetizza come questa modalità si inserisce nel sistema e quali obiettivi di benessere muscolo-scheletrico può affiancare, nei limiti delle indicazioni del fabbricante; modalità, tempi e intensità li definiamo sempre in sede, sulla base della <strong>visita</strong> e dell'anamnesi.</p>
+          </div>
+        </div>
+        <div class="modular-overlay__interleave-row modular-overlay__interleave-row--chess modular-overlay__interleave-row--chess-text-first">
+          <figure class="modular-overlay__figure">
+            <img src="assets/images/velvet-tmj-trasduttore-diatermia-dcr.png" alt="Trasduttore diatermia DCR per Velvet TMJ" loading="lazy" decoding="async">
+          </figure>
+          <div class="modular-overlay__prose">
+            <p>Il <strong>trasduttore diatermia DCR</strong> è l'applicatore dedicato alla modalità diatermica: consente di lavorare sul piano concordato dal protocollo clinico, con effetto tipicamente rivolto ai tessuti profondi e al comfort muscolare, nel rispetto delle controindicazioni.</p>
+          </div>
+        </div>
+        <div class="modular-overlay__interleave-row modular-overlay__interleave-row--chess modular-overlay__interleave-row--chess-img-first">
+          <figure class="modular-overlay__figure">
+            <img src="assets/images/velvet-tmj-trasduttore-elettroporazione.png" alt="Trasduttore elettroporazione per Velvet TMJ" loading="lazy" decoding="async">
+          </figure>
+          <div class="modular-overlay__prose">
+            <p>Il <strong>trasduttore elettroporazione</strong> affianca il percorso quando è indicato dal caso: si alterna o si combina con la diatermia secondo il piano personalizzato, così da modulare il trattamento in modo coerente con valutazione specialistica e istruzioni del produttore.</p>
+          </div>
+        </div>
+        <div class="modular-overlay__interleave-row">
+          <div class="modular-overlay__prose">
+            <p>In modo trasversale possiamo considerare Velvet TMJ in situazioni che coinvolgono <strong>bruxismo</strong>, <strong>click</strong> mandibolare, <strong>dolori</strong> facciali o cervicali di origine miofasciale, <strong>limitazioni</strong> in apertura, tensioni muscolari o <strong>edemi</strong> peri-mandibolari; nulla sostituisce visita, anamnesi e eventuali approfondimenti diagnostici.</p>
+            <p>Il dispositivo si colloca nella <strong>sinergia</strong> con ortodonzia e prevenzione dello studio. Per appuntamenti e informazioni: <a href="tel:+393714196466">371 4196466</a>.</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
   <footer>
     <div class="footer-inner">
       <p class="footer-brandline"><strong><span class="logo-studio">Studio Dentistico</span> Dott.ssa Marianna Morlino</strong> — Ortodonzia e cure dentali ad Atella (PZ)</p>
       <p class="footer-tagline-mobile">Ortodonzia e cure dentali ad Atella (PZ)</p>
       <p style="margin-top: 0.5rem;">© 2026 <span class="logo-studio">Studio Dentistico</span> Dott.ssa Marianna Morlino. Tutti i diritti riservati.</p>
+      <p class="footer-fiscal"><strong>P.IVA</strong> IT 01843060763 — <strong>C.F.</strong> MRL MNN 84C60 G942Z</p>
       <p style="margin-top: 0.6rem; text-align: center;">
         <a href="https://www.sabiasrl.com" target="_blank" rel="noopener noreferrer" style="display: inline-flex; align-items: center; gap: 0.45rem; color: inherit; text-decoration: none;">
           <span>Powered by</span>
@@ -1113,6 +1526,57 @@
     });
   </script>
 
+  <script id="modular-overlay-script">
+    (function () {
+      function refreshBodyScrollLock() {
+        if (document.querySelector('.modular-overlay.is-open')) {
+          document.body.classList.add('body--modular-overlay-open');
+        } else {
+          document.body.classList.remove('body--modular-overlay-open');
+        }
+      }
+
+      function openOverlayById(id) {
+        var el = document.getElementById(id);
+        if (!el || !el.classList.contains('modular-overlay')) return;
+        document.querySelectorAll('.modular-overlay.is-open').forEach(function (o) {
+          o.classList.remove('is-open');
+          o.setAttribute('aria-hidden', 'true');
+        });
+        el.classList.add('is-open');
+        el.setAttribute('aria-hidden', 'false');
+        refreshBodyScrollLock();
+      }
+
+      function closeOverlayEl(overlay) {
+        if (!overlay) return;
+        overlay.classList.remove('is-open');
+        overlay.setAttribute('aria-hidden', 'true');
+        refreshBodyScrollLock();
+      }
+
+      document.querySelectorAll('[data-modular-overlay-open]').forEach(function (btn) {
+        btn.addEventListener('click', function (e) {
+          e.preventDefault();
+          var id = btn.getAttribute('data-modular-overlay-open');
+          if (id) openOverlayById(id);
+        });
+      });
+
+      document.querySelectorAll('.js-modular-overlay-close').forEach(function (btn) {
+        btn.addEventListener('click', function () {
+          closeOverlayEl(btn.closest('.modular-overlay'));
+        });
+      });
+
+      document.addEventListener('keydown', function (e) {
+        if (e.key !== 'Escape') return;
+        var open = document.querySelector('.modular-overlay.is-open');
+        if (open) closeOverlayEl(open);
+      });
+    })();
+  </script>
+
 
   <style id="vcard-on-phone-style">
     .vcard-on-phone-wrap {
@@ -1123,7 +1587,7 @@
       margin-left: 0.2rem;
       vertical-align: middle;
       white-space: nowrap;
-      flex-shrink: 0;
+      flex-shrink: 1;
     }
 
     .vcard-on-phone__icon {
@@ -1143,8 +1607,8 @@
 
     .vcard-on-phone-text {
       white-space: nowrap;
-      line-height: 1.1;
-      font-size: 0.9rem;
+      line-height: 1.45;
+      font-size: 0.97rem;
       font-weight: 600;
       color: var(--color-text-accent);
       text-decoration: underline;
