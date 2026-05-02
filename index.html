@@ -335,6 +335,14 @@
 
     /* Services */
     .services { background: var(--color-bg-alt); }
+    @media (max-width: 639px) {
+      #servizi .services-grid > .hide-on-mobile {
+        display: none !important;
+      }
+      #galleria .gallery-grid > article.hide-on-mobile {
+        display: none !important;
+      }
+    }
     .services-grid {
       display: grid;
       grid-template-columns: repeat(1, minmax(0, 1fr));
@@ -1459,7 +1467,7 @@
             <p>Interventi implantari per sostituire denti mancanti in modo stabile e naturale.</p>
           </div>
         </div>
-        <div class="service-card service-card--image-only">
+        <div class="service-card service-card--image-only hide-on-mobile">
           <div class="service-card__figure">
             <img src="assets/images/morlino-main-door.webp" alt="Ingresso dello Studio Dentistico Morlino" loading="lazy" decoding="async">
           </div>
@@ -1483,12 +1491,12 @@
             <p>Estrazioni e interventi di chirurgia orale ambulatoriale quando indicati, dopo valutazione in studio.</p>
           </div>
         </div>
-        <div class="service-card service-card--image-only">
+        <div class="service-card service-card--image-only hide-on-mobile">
           <div class="service-card__figure">
             <img src="assets/images/morlino-waiting-room.webp" alt="Sala di attesa dello studio" loading="lazy" decoding="async">
           </div>
         </div>
-        <div class="service-card service-card--image-only">
+        <div class="service-card service-card--image-only hide-on-mobile">
           <div class="service-card__figure">
             <img src="assets/images/opt.png" alt="Ortopantomogramma: radiografia ortopanoramica delle arcate dentali" loading="lazy" decoding="async">
           </div>
@@ -1500,7 +1508,7 @@
             <p>Cure canalari conservative per trattenere il dente naturale con tecniche moderne.</p>
           </div>
         </div>
-        <div class="service-card service-card--image-only service-card--image-contain">
+        <div class="service-card service-card--image-only service-card--image-contain hide-on-mobile">
           <div class="service-card__figure">
             <img src="assets/images/thoot-icon.png" alt="Odontoiatria e sorriso" loading="lazy" decoding="async">
           </div>
@@ -1514,7 +1522,7 @@
             <p>Pulizia professionale, prevenzione e controlli periodici; sbiancamento efficace e sicuro su indicazione clinica.</p>
           </div>
         </div>
-        <div class="service-card service-card--image-only">
+        <div class="service-card service-card--image-only hide-on-mobile">
           <div class="service-card__figure">
             <img src="assets/images/igiene-orale-piacere.webp" alt="Piacere nell'igiene orale e nella cura delle gengive" loading="lazy" decoding="async">
           </div>
@@ -1530,7 +1538,7 @@
             <p class="service-card__more-row"><a href="#" class="service-card__more-link" data-modular-overlay-open="velvet-tmj-overlay" aria-haspopup="dialog">Informazioni sul trattamento</a></p>
           </div>
         </div>
-        <div class="service-card service-card--media service-card--extra">
+        <div class="service-card service-card--media service-card--extra hide-on-mobile">
           <span class="gallery-card__extra-badge" aria-hidden="true">Approfondimento</span>
           <div class="service-card__image">
             <img src="assets/images/card-sinergia-vincente.png" alt="Sinergia vincente con Velvet TMJ">
@@ -1557,7 +1565,7 @@
             <p>Impronta digitale veloce e confortevole, senza paste tradizionali, per progetti protesici e ortodontici precisi.</p>
           </div>
         </div>
-        <div class="service-card service-card--media service-card--extra service-card--disturbi-sonno">
+        <div class="service-card service-card--media service-card--extra service-card--disturbi-sonno hide-on-mobile">
           <span class="gallery-card__extra-badge" aria-hidden="true">Approfondimento</span>
           <div class="service-card__image">
             <img src="assets/images/infocard-2.png" alt="Disturbi del sonno">
@@ -1583,7 +1591,7 @@
             <p class="gallery-card__text"><a href="#" class="gallery-card__link" data-modular-overlay-open="velvet-tmj-overlay" aria-haspopup="dialog">Informazioni sul trattamento</a></p>
           </div>
         </article>
-        <article class="gallery-card gallery-card--extra">
+        <article class="gallery-card gallery-card--extra hide-on-mobile">
           <span class="gallery-card__extra-badge" aria-hidden="true">Approfondimento</span>
           <a href="#" class="gallery-card__media" data-modular-overlay-open="velvet-consigli-overlay" aria-haspopup="dialog">
             <img src="assets/images/card-sinergia-vincente.png" alt="Sinergia vincente con Velvet TMJ">
