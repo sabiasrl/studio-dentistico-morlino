@@ -368,6 +368,10 @@
       .service-card--text {
         grid-row: span 1;
       }
+      .service-card--image-only {
+        grid-row: span 1;
+        min-height: 0;
+      }
       .service-card--media {
         display: flex;
         grid-row: span 2;
@@ -421,6 +425,75 @@
       width: 100%;
       height: 100%;
       object-fit: cover;
+      display: block;
+    }
+    .service-card--image-only {
+      display: flex;
+      flex-direction: column;
+      min-height: 0;
+      overflow: hidden;
+    }
+    .service-card--image-only .service-card__figure {
+      flex: 1 1 auto;
+      margin: 0;
+      position: relative;
+      overflow: hidden;
+      min-height: 10rem;
+      background: #eef7fc;
+    }
+    @media (min-width: 992px) {
+      /* Evita altezza 0 in griglia densa (figure con min-height 0 + cella ambigua = card “invisibile”). */
+      .service-card--image-only .service-card__figure {
+        min-height: 10.5rem;
+        flex: 1;
+      }
+    }
+    .service-card--image-only .service-card__figure img {
+      position: absolute;
+      inset: 0;
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      object-position: center;
+      display: block;
+    }
+    .service-card--image-only.service-card--image-contain .service-card__figure {
+      padding: 0.85rem;
+      box-sizing: border-box;
+    }
+    .service-card--image-only.service-card--image-contain .service-card__figure img {
+      object-fit: contain;
+    }
+    /* Aligner PNG: sempre a tutta larghezza nel card, niente ritaglio, ratio naturale */
+    .service-card.service-card--image-only.service-card--image-fullwidth {
+      height: auto;
+      align-self: start;
+      background: #fff;
+    }
+    .service-card--image-only.service-card--image-fullwidth .service-card__figure {
+      position: static;
+      flex: 0 1 auto;
+      min-height: 0;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      padding: 0.65rem;
+      box-sizing: border-box;
+      background: #fff;
+    }
+    @media (min-width: 992px) {
+      .service-card--image-only.service-card--image-fullwidth .service-card__figure {
+        min-height: 0;
+      }
+    }
+    .service-card--image-only.service-card--image-fullwidth .service-card__figure img {
+      position: static;
+      inset: auto;
+      width: 100%;
+      max-width: 100%;
+      height: auto;
+      object-fit: contain;
+      object-position: center;
       display: block;
     }
     .service-card__top-accent {
@@ -1359,19 +1432,24 @@
     </section>
 
     <section id="servizi" class="services">
-      <div class="section-title">
+      <!-- <div class="section-title">
         <h2>In evidenza</h2>
         <p>I nostri servizi</p>
-      </div>
+      </div> -->
       <div class="services-grid">
         <div class="service-card service-card--media service-card--extra">
           <div class="service-card__image">
-            <img src="assets/images/brackets-types.png" alt="Tipi di brackets e soluzioni ortodontiche">
+            <img src="assets/images/brackets-silver-ceramic.png" alt="Brackets in metallo e ceramica per ortodonzia" loading="lazy" decoding="async">
           </div>
           <div class="service-card__body">
             <h3>Ortodonzia e gnatologia</h3>
             <p>Apparecchi fissi e mobili, allineatori trasparenti per un sorriso perfetto a ogni età; integrazione con la valutazione gnatologica quando necessario.</p>
-            <p class="service-card__more-row"><a href="#" class="service-card__more-link" data-modular-overlay-open="ortodonzia-overlay" aria-haspopup="dialog">I servizi</a></p>
+            <p class="service-card__more-row"><a href="#" class="service-card__more-link" data-modular-overlay-open="ortodonzia-overlay" aria-haspopup="dialog">Maggiori informazioni</a></p>
+          </div>
+        </div>
+        <div class="service-card service-card--image-only service-card--image-fullwidth">
+          <div class="service-card__figure">
+            <img src="assets/images/aligner-transparent.png" alt="Allineatore trasparente per ortodonzia" loading="lazy" decoding="async">
           </div>
         </div>
         <div class="service-card service-card--text">
@@ -1381,11 +1459,21 @@
             <p>Interventi implantari per sostituire denti mancanti in modo stabile e naturale.</p>
           </div>
         </div>
+        <div class="service-card service-card--image-only">
+          <div class="service-card__figure">
+            <img src="assets/images/morlino-main-door.webp" alt="Ingresso dello Studio Dentistico Morlino" loading="lazy" decoding="async">
+          </div>
+        </div>
         <div class="service-card service-card--text">
           <div class="service-card__top-accent" aria-hidden="true"></div>
           <div class="service-card__body">
             <h3>Protesi fissa e mobile</h3>
             <p>Soluzioni protesiche personalizzate per ripristinare funzione, comfort ed estetica.</p>
+          </div>
+        </div>
+        <div class="service-card service-card--image-only">
+          <div class="service-card__figure">
+            <img src="assets/images/morlino-team.webp" alt="Staff dello Studio Dentistico Morlino" loading="lazy" decoding="async">
           </div>
         </div>
         <div class="service-card service-card--text">
@@ -1395,6 +1483,16 @@
             <p>Estrazioni e interventi di chirurgia orale ambulatoriale quando indicati, dopo valutazione in studio.</p>
           </div>
         </div>
+        <div class="service-card service-card--image-only">
+          <div class="service-card__figure">
+            <img src="assets/images/morlino-waiting-room.webp" alt="Sala di attesa dello studio" loading="lazy" decoding="async">
+          </div>
+        </div>
+        <div class="service-card service-card--image-only">
+          <div class="service-card__figure">
+            <img src="assets/images/opt.png" alt="Ortopantomogramma: radiografia ortopanoramica delle arcate dentali" loading="lazy" decoding="async">
+          </div>
+        </div>
         <div class="service-card service-card--text">
           <div class="service-card__top-accent" aria-hidden="true"></div>
           <div class="service-card__body">
@@ -1402,20 +1500,51 @@
             <p>Cure canalari conservative per trattenere il dente naturale con tecniche moderne.</p>
           </div>
         </div>
+        <div class="service-card service-card--image-only service-card--image-contain">
+          <div class="service-card__figure">
+            <img src="assets/images/thoot-icon.png" alt="Odontoiatria e sorriso" loading="lazy" decoding="async">
+          </div>
+        </div>
+        <div class="service-card service-card--media">
+          <div class="service-card__image">
+            <img src="assets/images/whitening-blancone.jpeg" alt="Sbiancamento professionale e salute delle gengive">
+          </div>
+          <div class="service-card__body">
+            <h3>Igiene orale e sbiancamento dentale</h3>
+            <p>Pulizia professionale, prevenzione e controlli periodici; sbiancamento efficace e sicuro su indicazione clinica.</p>
+          </div>
+        </div>
+        <div class="service-card service-card--image-only">
+          <div class="service-card__figure">
+            <img src="assets/images/igiene-orale-piacere.webp" alt="Piacere nell'igiene orale e nella cura delle gengive" loading="lazy" decoding="async">
+          </div>
+        </div>
         <div class="service-card service-card--media service-card--extra">
           <span class="gallery-card__extra-badge" aria-hidden="true">Approfondimento</span>
           <div class="service-card__image">
-            <img src="assets/images/velvet-tmj-full.png" alt="Tecar Velvet TMJ">
+            <img src="assets/images/velvet-tmj-full.png" alt="Velvet TMJ: medical device in studio">
           </div>
           <div class="service-card__body">
             <h3>Tecar Velvet TMJ</h3>
-            <p>Tecnologia non invasiva che combina diatermia ed elettroporazione per il benessere dell'apparato temporo-mandibolare.</p>
+            <p>Nel nostro studio utilizziamo Velvet TMJ, un medical device che combina diatermia ed elettroporazione per trattamenti non invasivi verso il benessere dell'apparato temporo-mandibolare e del cavo orale.</p>
             <p class="service-card__more-row"><a href="#" class="service-card__more-link" data-modular-overlay-open="velvet-tmj-overlay" aria-haspopup="dialog">Informazioni sul trattamento</a></p>
+          </div>
+        </div>
+        <div class="service-card service-card--media service-card--extra">
+          <span class="gallery-card__extra-badge" aria-hidden="true">Approfondimento</span>
+          <div class="service-card__image">
+            <img src="assets/images/card-sinergia-vincente.png" alt="Sinergia vincente con Velvet TMJ">
+          </div>
+          <div class="service-card__body">
+            <h3>Benefici del Velvet TMJ</h3>
+            <p>Diatermia ed elettroporazione lavorano in sinergia per biostimolazione tessutale, riduzione dell'infiammazione e del dolore con percorsi rapidi, indolori e non invasivi. Scopri a quali sintomi e situazioni può essere utile e quali benefici attendersi nel tempo.</p>
             <p class="service-card__more-row"><a href="#" class="service-card__more-link" data-modular-overlay-open="velvet-consigli-overlay" aria-haspopup="dialog">Perché funziona</a></p>
           </div>
         </div>
-        <div class="service-card service-card--text">
-          <div class="service-card__top-accent" aria-hidden="true"></div>
+        <div class="service-card service-card--media">
+          <div class="service-card__image">
+            <img src="assets/images/opt-scans.jpg" alt="Scansioni panoramiche in esposizione in studio" loading="lazy" decoding="async">
+          </div>
           <div class="service-card__body">
             <h3>Radiografia ortopanoramica (OPT)</h3>
             <p>Vista panoramica delle arcate e delle strutture circostanti per diagnosi chiare e piani di cura condivisi.</p>
@@ -1426,15 +1555,6 @@
           <div class="service-card__body">
             <h3>Scanner intraorale per impronta ottica</h3>
             <p>Impronta digitale veloce e confortevole, senza paste tradizionali, per progetti protesici e ortodontici precisi.</p>
-          </div>
-        </div>
-        <div class="service-card service-card--media">
-          <div class="service-card__image">
-            <img src="assets/images/whitening-blancone.jpeg" alt="Sbiancamento professionale e salute delle gengive">
-          </div>
-          <div class="service-card__body">
-            <h3>Igiene orale e sbiancamento dentale</h3>
-            <p>Pulizia professionale, prevenzione e controlli periodici; sbiancamento efficace e sicuro su indicazione clinica.</p>
           </div>
         </div>
         <div class="service-card service-card--media service-card--extra service-card--disturbi-sonno">
@@ -1460,7 +1580,18 @@
           <div class="gallery-card__content">
             <h3 class="gallery-card__title"><a href="#" data-modular-overlay-open="velvet-tmj-overlay" aria-haspopup="dialog">Velvet TMJ</a></h3>
             <p class="gallery-card__text">Nel nostro studio utilizziamo Velvet TMJ, un medical device che combina diatermia ed elettroporazione per trattamenti non invasivi verso il benessere dell'apparato temporo-mandibolare e del cavo orale.</p>
-            <p class="gallery-card__text"><a href="#" class="gallery-card__link" data-modular-overlay-open="velvet-tmj-overlay" aria-haspopup="dialog">Per saperne di più</a></p>
+            <p class="gallery-card__text"><a href="#" class="gallery-card__link" data-modular-overlay-open="velvet-tmj-overlay" aria-haspopup="dialog">Informazioni sul trattamento</a></p>
+          </div>
+        </article>
+        <article class="gallery-card gallery-card--extra">
+          <span class="gallery-card__extra-badge" aria-hidden="true">Approfondimento</span>
+          <a href="#" class="gallery-card__media" data-modular-overlay-open="velvet-consigli-overlay" aria-haspopup="dialog">
+            <img src="assets/images/card-sinergia-vincente.png" alt="Sinergia vincente con Velvet TMJ">
+          </a>
+          <div class="gallery-card__content">
+            <h3 class="gallery-card__title"><a href="#" data-modular-overlay-open="velvet-consigli-overlay" aria-haspopup="dialog">Benefici del Velvet TMJ</a></h3>
+            <p class="gallery-card__text">Diatermia ed elettroporazione lavorano in sinergia per biostimolazione tessutale, riduzione dell'infiammazione e del dolore con percorsi rapidi, indolori e non invasivi. Indicazioni su bruxismo, ATM, cervicalgie, nevralgie e molte altre condizioni peri-orali: scopri sintomi, contesti clinici e benefici attesi.</p>
+            <p class="gallery-card__text"><a href="#" class="gallery-card__link" data-modular-overlay-open="velvet-consigli-overlay" aria-haspopup="dialog">Perché funziona</a></p>
           </div>
         </article>
         <article class="gallery-card">
@@ -1675,7 +1806,7 @@
         </div>
         <div class="modular-overlay__interleave-row modular-overlay__interleave-row--chess modular-overlay__interleave-row--chess-img-first">
           <figure class="modular-overlay__figure">
-            <img src="assets/images/brackets-silver-ceramic.webp" alt="Bracket metallici e bracket in ceramica estetica" loading="lazy" decoding="async">
+            <img src="assets/images/brackets-silver-ceramic.png" alt="Bracket metallici e bracket in ceramica estetica" loading="lazy" decoding="async">
           </figure>
           <div class="modular-overlay__prose">
             <p>Gli <strong>apparecchi fissi tradizionali</strong> utilizzano bracket <strong>metallici</strong> particolarmente versatili e robusti, spesso preferiti in casi complessi o in fasi di crescita. I bracket in <strong>ceramica</strong> o materiali più discreti offrono un profilo estetico più contenuto e sono una scelta frequente in età adulta o quando si desidera un impatto visivo minore nel tempo di trattamento.</p>
@@ -1702,7 +1833,7 @@
         </div>
         <div class="modular-overlay__interleave-row modular-overlay__interleave-row--chess modular-overlay__interleave-row--chess-text-first">
           <figure class="modular-overlay__figure">
-            <img src="assets/images/aligner-removing.webp" alt="Rimozione e gestione quotidiana degli allineatori" loading="lazy" decoding="async">
+            <img src="assets/images/aligner-removing.png" alt="Rimozione e gestione quotidiana degli allineatori" loading="lazy" decoding="async">
           </figure>
           <div class="modular-overlay__prose">
             <p>Un buon esito con gli allineatori dipende da <strong>compliance</strong>, igiene accurata e rispetto delle fasi di cambio calotta. In studio ti indichiamo come gestire la routine quotidiana, cosa fare in caso di irritazioni lievi e quando è necessario un controllo anticipato.</p>
@@ -1798,8 +1929,7 @@
     <button type="button" class="modular-overlay__backdrop js-modular-overlay-close" tabindex="-1" aria-label="Chiudi finestra"></button>
     <div class="modular-overlay__panel">
       <button type="button" class="modular-overlay__close js-modular-overlay-close" aria-label="Chiudi">&times;</button>
-      <h2 id="velvet-consigli-overlay-title" class="modular-overlay__title">Velvet TMJ a cosa serve</h2>
-      <p class="modular-overlay__tagline">Schede su sintomi, indicazioni e contesti clinici affrontati con Velvet TMJ nello studio.</p>
+      <h2 id="velvet-consigli-overlay-title" class="modular-overlay__title">Benefici del Velvet TMJ</h2>
       <div id="js-velvet-consigli-grid" class="modular-overlay__clone-gallery"></div>
     </div>
   </div>
@@ -1897,6 +2027,45 @@
           if (id) openOverlayById(id);
         });
       });
+
+      document.querySelectorAll('#servizi .service-card--extra').forEach(function (card) {
+        card.addEventListener('click', function (e) {
+          if (e.target.closest('a.service-card__more-link')) return;
+          var ids = [];
+          card.querySelectorAll('a[data-modular-overlay-open]').forEach(function (a) {
+            ids.push(a.getAttribute('data-modular-overlay-open'));
+          });
+          if (!ids.length) return;
+          e.preventDefault();
+          openOverlayById(ids[0]);
+        });
+      });
+
+      var galleryGrid = document.querySelector('#galleria .gallery-grid');
+      if (galleryGrid) {
+        galleryGrid.addEventListener('click', function (e) {
+          if (e.target.closest('.gallery-card__toggle')) return;
+          var article = e.target.closest('article.gallery-card');
+          if (!article) return;
+          if (e.target.closest('a[href^="tel:"]')) return;
+
+          var mediaFb = article.querySelector('a.gallery-card__media[href^="http"]');
+          if (mediaFb) {
+            if (e.target.closest('a.gallery-card__media')) return;
+            if (e.target.closest('.gallery-card__title a[href^="http"]')) return;
+            mediaFb.click();
+            return;
+          }
+
+          if (!article.classList.contains('gallery-card--extra')) return;
+          if (e.target.closest('a[data-modular-overlay-open]')) return;
+          var opener = article.querySelector('a[data-modular-overlay-open]');
+          var id = opener && opener.getAttribute('data-modular-overlay-open');
+          if (!id) return;
+          e.preventDefault();
+          openOverlayById(id);
+        });
+      }
 
       document.querySelectorAll('.js-modular-overlay-close').forEach(function (btn) {
         btn.addEventListener('click', function () {
