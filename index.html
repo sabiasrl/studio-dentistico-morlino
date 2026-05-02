@@ -349,10 +349,21 @@
     .service-card--media {
       display: none;
     }
+    @media (min-width: 640px) and (max-width: 991px) {
+      .service-card--media {
+        display: flex;
+      }
+      /* Disturbi del sonno: ultima riga su due colonne */
+      .services-grid > .service-card--disturbi-sonno {
+        grid-column: 1 / -1;
+      }
+    }
     @media (min-width: 992px) {
       .services-grid {
-        grid-template-columns: repeat(3, minmax(0, 1fr));
-        grid-auto-rows: minmax(220px, auto);
+        grid-template-columns: repeat(4, minmax(0, 1fr));
+        grid-auto-rows: minmax(min-content, auto);
+        grid-auto-flow: dense;
+        align-items: stretch;
       }
       .service-card--text {
         grid-row: span 1;
@@ -360,11 +371,6 @@
       .service-card--media {
         display: flex;
         grid-row: span 2;
-      }
-    }
-    @media (min-width: 1280px) {
-      .services-grid {
-        grid-template-columns: repeat(4, minmax(0, 1fr));
       }
     }
     .service-card {
@@ -898,11 +904,70 @@
     #ortodonzia-overlay .modular-overlay__interleave-row .modular-overlay__prose {
       margin-top: 0;
     }
+    /* Intro: desktop — testo a sinistra su due righe, immagine una colonna a destra su altezza doppia */
+    #ortodonzia-overlay .modular-overlay__interleave-row--intro-grid {
+      display: grid;
+      gap: 0.75rem;
+      align-items: start;
+    }
     @media (min-width: 992px) {
-      #ortodonzia-overlay .modular-overlay__interleave-row .modular-overlay__figure {
+      #ortodonzia-overlay .modular-overlay__interleave-row--intro-grid {
+        grid-template-columns: minmax(0, 1fr) minmax(0, 38%);
+        gap: 1.25rem 1.35rem;
+        align-items: start;
+      }
+      #ortodonzia-overlay .modular-overlay__interleave-row--intro-grid > .modular-overlay__prose:nth-child(1) {
+        grid-column: 1;
+        grid-row: 1;
+      }
+      #ortodonzia-overlay .modular-overlay__interleave-row--intro-grid > .modular-overlay__prose:nth-child(2) {
+        grid-column: 1;
+        grid-row: 2;
+      }
+      #ortodonzia-overlay .modular-overlay__interleave-row--intro-grid > .modular-overlay__figure {
+        grid-column: 2;
+        grid-row: 1 / span 2;
+        max-width: none;
+        width: 100%;
+        align-self: stretch;
+        margin: 0;
+        display: flex;
+      }
+      #ortodonzia-overlay .modular-overlay__interleave-row--intro-grid > .modular-overlay__figure img {
+        width: 100%;
+        height: 100%;
+        object-fit: contain;
+        object-position: top center;
+      }
+      #ortodonzia-overlay .modular-overlay__interleave-row:not(.modular-overlay__interleave-row--chess):not(
+          .modular-overlay__interleave-row--intro-grid
+        )
+        .modular-overlay__figure {
         max-width: min(420px, 72%);
         width: 100%;
         align-self: center;
+      }
+    }
+    #ortodonzia-overlay .modular-overlay__interleave-row--chess {
+      display: flex;
+      flex-direction: column;
+      gap: 0.75rem;
+    }
+    @media (min-width: 992px) {
+      #ortodonzia-overlay .modular-overlay__interleave-row--chess {
+        flex-direction: row;
+        align-items: center;
+        gap: 1.25rem;
+      }
+      #ortodonzia-overlay .modular-overlay__interleave-row--chess-img-first .modular-overlay__figure,
+      #ortodonzia-overlay .modular-overlay__interleave-row--chess-img-first .modular-overlay__prose,
+      #ortodonzia-overlay .modular-overlay__interleave-row--chess-text-first .modular-overlay__figure,
+      #ortodonzia-overlay .modular-overlay__interleave-row--chess-text-first .modular-overlay__prose {
+        flex: 1;
+        min-width: 0;
+      }
+      #ortodonzia-overlay .modular-overlay__interleave-row--chess-text-first {
+        flex-direction: row-reverse;
       }
     }
     #velvet-tmj-overlay .modular-overlay__interleave-row--chess {
@@ -1240,7 +1305,7 @@
     <section class="hero">
       <div class="hero-content">
         <h1 class="hero-title"><span class="logo-studio">Studio Dentistico</span><br><span class="hero-subtitle-name">Dott.ssa Marianna Morlino</span></h1>
-        <p class="hero-subtitle">Salute, funzione ed estetica del cavo orale e dell'articolazione temporo-mandibolare</p>
+        <p class="hero-subtitle">Benessere, funzione ed estetica del cavo orale e dell'articolazione temporo-mandibolare</p>
         <p class="hero-contact">
           <span class="hero-contact-line">Corso Papa Giovanni XXIII, 132</span>
           <span class="hero-contact-line">85020 Atella (PZ)</span>
@@ -1284,10 +1349,11 @@
           <li>Protesi fissa e mobile</li>
           <li>Chirurgia orale</li>
           <li>Endodonzia</li>
-          <li>Igiene orale e sbiancamento dentale</li>
+          <li>Tecar Velvet TMJ</li>
           <li>Radiografia ortopanoramica (OPT)</li>
           <li>Scanner intraorale per impronta ottica</li>
-          <li>Tecar Velvet TMJ</li>
+          <li>Igiene orale e sbiancamento dentale</li>
+          <li>Disturbi del sonno</li>
         </ul>
       </div>
     </section>
@@ -1299,68 +1365,13 @@
       </div>
       <div class="services-grid">
         <div class="service-card service-card--media service-card--extra">
-          <span class="gallery-card__extra-badge" aria-hidden="true">Approfondimento</span>
           <div class="service-card__image">
             <img src="assets/images/brackets-types.png" alt="Tipi di brackets e soluzioni ortodontiche">
           </div>
           <div class="service-card__body">
-            <h3>Ortodonzia</h3>
-            <p>Apparecchi fissi e mobili, allineatori trasparenti per un sorriso perfetto a ogni età.</p>
+            <h3>Ortodonzia e gnatologia</h3>
+            <p>Apparecchi fissi e mobili, allineatori trasparenti per un sorriso perfetto a ogni età; integrazione con la valutazione gnatologica quando necessario.</p>
             <p class="service-card__more-row"><a href="#" class="service-card__more-link" data-modular-overlay-open="ortodonzia-overlay" aria-haspopup="dialog">I servizi</a></p>
-          </div>
-        </div>
-        <div class="service-card service-card--media">
-          <div class="service-card__image">
-            <img src="assets/images/igiene-orale-piacere.webp" alt="Igiene orale professionale prevenzione e benessere">
-          </div>
-          <div class="service-card__body">
-            <h3>Igiene orale</h3>
-            <p>Pulizia professionale, prevenzione e controlli periodici per la salute dei tuoi denti.</p>
-          </div>
-        </div>
-        <div class="service-card service-card--media service-card--extra">
-          <span class="gallery-card__extra-badge" aria-hidden="true">Approfondimento</span>
-          <div class="service-card__image">
-            <img src="assets/images/velvet-tmj-full.png" alt="Velvet TMJ">
-          </div>
-          <div class="service-card__body">
-            <h3>Velvet TMJ</h3>
-            <p>Tecnologia non invasiva che combina diatermia ed elettroporazione per il benessere dell'apparato temporo-mandibolare.</p>
-            <p class="service-card__more-row"><a href="#" class="service-card__more-link" data-modular-overlay-open="velvet-tmj-overlay" aria-haspopup="dialog">Informazioni sul trattamento</a></p>
-            <p class="service-card__more-row"><a href="#" class="service-card__more-link" data-modular-overlay-open="velvet-consigli-overlay" aria-haspopup="dialog">Perché funziona</a></p>
-          </div>
-        </div>
-        <div class="service-card service-card--media service-card--extra">
-          <span class="gallery-card__extra-badge" aria-hidden="true">Approfondimento</span>
-          <div class="service-card__image">
-            <img src="assets/images/infocard-1.png" alt="Disturbi del sonno">
-          </div>
-          <div class="service-card__body">
-            <h3>Disturbi del sonno<span class="gallery-card__subtitle-line">in età pediatrica o adolescente</span></h3>
-            <p class="service-card__more-row"><a href="#" class="service-card__more-link" data-modular-overlay-open="disturbi-del-sonno-overlay" aria-haspopup="dialog">Per saperne di più</a></p>
-          </div>
-        </div>
-        <div class="service-card service-card--text">
-          <div class="service-card__top-accent" aria-hidden="true"></div>
-          <div class="service-card__body">
-            <h3>Odontoiatria generale</h3>
-            <p>Otturazioni, devitalizzazioni, estrazioni e cure conservative.</p>
-          </div>
-        </div>
-        <div class="service-card service-card--media">
-          <div class="service-card__image">
-            <img src="assets/images/whitening-blancone.jpeg" alt="Whitening professionale">
-          </div>
-          <div class="service-card__body">
-            <h3>Sbiancamento professionale</h3>
-            <p>Trattamento professionale per uno sbiancamento efficace e sicuro, pensato per valorizzare il tuo sorriso.</p>
-          </div>
-        </div>
-        <div class="service-card service-card--text">
-          <div class="service-card__top-accent" aria-hidden="true"></div>
-          <div class="service-card__body">
-            <h3>Estetica dentale</h3>
-            <p>Faccette e soluzioni per valorizzare il tuo sorriso.</p>
           </div>
         </div>
         <div class="service-card service-card--text">
@@ -1375,6 +1386,65 @@
           <div class="service-card__body">
             <h3>Protesi fissa e mobile</h3>
             <p>Soluzioni protesiche personalizzate per ripristinare funzione, comfort ed estetica.</p>
+          </div>
+        </div>
+        <div class="service-card service-card--text">
+          <div class="service-card__top-accent" aria-hidden="true"></div>
+          <div class="service-card__body">
+            <h3>Chirurgia orale</h3>
+            <p>Estrazioni e interventi di chirurgia orale ambulatoriale quando indicati, dopo valutazione in studio.</p>
+          </div>
+        </div>
+        <div class="service-card service-card--text">
+          <div class="service-card__top-accent" aria-hidden="true"></div>
+          <div class="service-card__body">
+            <h3>Endodonzia</h3>
+            <p>Cure canalari conservative per trattenere il dente naturale con tecniche moderne.</p>
+          </div>
+        </div>
+        <div class="service-card service-card--media service-card--extra">
+          <span class="gallery-card__extra-badge" aria-hidden="true">Approfondimento</span>
+          <div class="service-card__image">
+            <img src="assets/images/velvet-tmj-full.png" alt="Tecar Velvet TMJ">
+          </div>
+          <div class="service-card__body">
+            <h3>Tecar Velvet TMJ</h3>
+            <p>Tecnologia non invasiva che combina diatermia ed elettroporazione per il benessere dell'apparato temporo-mandibolare.</p>
+            <p class="service-card__more-row"><a href="#" class="service-card__more-link" data-modular-overlay-open="velvet-tmj-overlay" aria-haspopup="dialog">Informazioni sul trattamento</a></p>
+            <p class="service-card__more-row"><a href="#" class="service-card__more-link" data-modular-overlay-open="velvet-consigli-overlay" aria-haspopup="dialog">Perché funziona</a></p>
+          </div>
+        </div>
+        <div class="service-card service-card--text">
+          <div class="service-card__top-accent" aria-hidden="true"></div>
+          <div class="service-card__body">
+            <h3>Radiografia ortopanoramica (OPT)</h3>
+            <p>Vista panoramica delle arcate e delle strutture circostanti per diagnosi chiare e piani di cura condivisi.</p>
+          </div>
+        </div>
+        <div class="service-card service-card--text">
+          <div class="service-card__top-accent" aria-hidden="true"></div>
+          <div class="service-card__body">
+            <h3>Scanner intraorale per impronta ottica</h3>
+            <p>Impronta digitale veloce e confortevole, senza paste tradizionali, per progetti protesici e ortodontici precisi.</p>
+          </div>
+        </div>
+        <div class="service-card service-card--media">
+          <div class="service-card__image">
+            <img src="assets/images/whitening-blancone.jpeg" alt="Sbiancamento professionale e salute delle gengive">
+          </div>
+          <div class="service-card__body">
+            <h3>Igiene orale e sbiancamento dentale</h3>
+            <p>Pulizia professionale, prevenzione e controlli periodici; sbiancamento efficace e sicuro su indicazione clinica.</p>
+          </div>
+        </div>
+        <div class="service-card service-card--media service-card--extra service-card--disturbi-sonno">
+          <span class="gallery-card__extra-badge" aria-hidden="true">Approfondimento</span>
+          <div class="service-card__image">
+            <img src="assets/images/infocard-2.png" alt="Disturbi del sonno">
+          </div>
+          <div class="service-card__body">
+            <h3>Disturbi del sonno<span class="gallery-card__subtitle-line">in età pediatrica o adolescente</span></h3>
+            <p class="service-card__more-row"><a href="#" class="service-card__more-link" data-modular-overlay-open="disturbi-del-sonno-overlay" aria-haspopup="dialog">Per saperne di più</a></p>
           </div>
         </div>
       </div>
@@ -1592,16 +1662,18 @@
       <h2 id="ortodonzia-overlay-title" class="modular-overlay__title">Ortodonzia</h2>
       <p class="modular-overlay__tagline">Apparecchi fissi e mobili, allineatori trasparenti: percorso personalizzato a ogni età.</p>
       <div class="modular-overlay__interleave">
-        <div class="modular-overlay__interleave-row">
+        <div class="modular-overlay__interleave-row modular-overlay__interleave-row--intro-grid">
+          <div class="modular-overlay__prose">
+            <p>Nello <strong>Studio Dentistico Morlino</strong> l'ortodonzia si integra con la <strong>gnatologia</strong> e con la valutazione funzionale dell'apparato masticatorio quando il caso lo richiede. Ogni piano nasce dalla <strong>visita</strong>: analisi delle arcate, del morso e dell'età di crescita, obiettivi estetici e funzionali, tempi stimati e scelta condivisa del dispositivo più adatto a stile di vita, età e aspettative del paziente o della famiglia.</p>
+          </div>
+          <div class="modular-overlay__prose">
+            <p>La scelta tra <strong>bracket</strong> di diversa tipologia, materiali e tecniche non è «una taglia unica»: il professionista valuta indicazioni cliniche, igiene, collaborazione e complessità del caso per proporti un percorso chiaro fin dall'inizio.</p>
+          </div>
           <figure class="modular-overlay__figure">
             <img src="assets/images/brackets-types.png" alt="Panoramica di tipi di bracket ortodontici" loading="lazy" decoding="async">
           </figure>
-          <div class="modular-overlay__prose">
-            <p>Nello <strong>Studio Dentistico Morlino</strong> l'ortodonzia si integra con la <strong>gnatologia</strong> e con la valutazione funzionale dell'apparato masticatorio quando il caso lo richiede. Ogni piano nasce dalla <strong>visita</strong>: analisi delle arcate, del morso e dell'età di crescita, obiettivi estetici e funzionali, tempi stimati e scelta condivisa del dispositivo più adatto a stile di vita, età e aspettative del paziente o della famiglia.</p>
-            <p>La scelta tra <strong>bracket</strong> di diversa tipologia, materiali e tecniche non è «una taglia unica»: il professionista valuta indicazioni cliniche, igiene, collaborazione e complessità del caso per proporti un percorso chiaro fin dall'inizio.</p>
-          </div>
         </div>
-        <div class="modular-overlay__interleave-row">
+        <div class="modular-overlay__interleave-row modular-overlay__interleave-row--chess modular-overlay__interleave-row--chess-img-first">
           <figure class="modular-overlay__figure">
             <img src="assets/images/brackets-silver-ceramic.webp" alt="Bracket metallici e bracket in ceramica estetica" loading="lazy" decoding="async">
           </figure>
@@ -1610,7 +1682,7 @@
             <p>Entrambe le soluzioni agiscono con archi e attacchi che guidano i denti in sicurezza; il monitoraggio periodico in studio consente di regolare le forze, controllare l'igiene e rispettare le tappe del piano definito insieme.</p>
           </div>
         </div>
-        <div class="modular-overlay__interleave-row">
+        <div class="modular-overlay__interleave-row modular-overlay__interleave-row--chess modular-overlay__interleave-row--chess-text-first">
           <figure class="modular-overlay__figure">
             <img src="assets/images/bracket-colorful.webp" alt="Bracket colorati per pazienti pediatrici" loading="lazy" decoding="async">
           </figure>
@@ -1619,7 +1691,7 @@
             <p>In alcune fasi della crescita si valutano anche <strong>apparecchi mobili</strong> o dispositivi funzionali, utili a modulare abitudini e relazioni morso–articolazione prima o in affiancamento alla terapia fissa.</p>
           </div>
         </div>
-        <div class="modular-overlay__interleave-row">
+        <div class="modular-overlay__interleave-row modular-overlay__interleave-row--chess modular-overlay__interleave-row--chess-img-first">
           <figure class="modular-overlay__figure">
             <img src="assets/images/aligner-transparent.png" alt="Allineatori ortodontici trasparenti" loading="lazy" decoding="async">
           </figure>
@@ -1628,7 +1700,7 @@
             <p>Sono particolarmente apprezzati per <strong>disciplina</strong> nel portarli per le ore giornaliere previste e per la removibilità durante i pasti e l'igiene. Non tutte le malocclusioni sono trattabili solo con allineatori: la visita stabilisce se la tecnica è sufficiente da sola o se è preferibile o necessario un approccio misto o tradizionale.</p>
           </div>
         </div>
-        <div class="modular-overlay__interleave-row">
+        <div class="modular-overlay__interleave-row modular-overlay__interleave-row--chess modular-overlay__interleave-row--chess-text-first">
           <figure class="modular-overlay__figure">
             <img src="assets/images/aligner-removing.webp" alt="Rimozione e gestione quotidiana degli allineatori" loading="lazy" decoding="async">
           </figure>
@@ -1637,7 +1709,7 @@
             <p>Al termine della fase attiva del trattamento, la <strong>contenzione</strong> (fissa o mobile) aiuta a stabilizzare il risultato nel tempo: è una fase non trascurabile e va pianificata fin dall'inizio del percorso.</p>
           </div>
         </div>
-        <div class="modular-overlay__interleave-row">
+        <div class="modular-overlay__interleave-row modular-overlay__interleave-row--chess modular-overlay__interleave-row--chess-img-first">
           <figure class="modular-overlay__figure">
             <img src="assets/images/placca-funzionale-terza-classe.png" alt="Esempio di placca funzionale ortodontica" loading="lazy" decoding="async">
           </figure>
@@ -1674,37 +1746,48 @@
             <img src="assets/images/velvet-tmj.png" alt="Velvet TMJ: panoramica del sistema e del percorso in studio" loading="lazy" decoding="async">
           </figure>
           <div class="modular-overlay__prose">
-            <p>L'immagine introduce il sistema <strong>Velvet TMJ</strong> così come lo proponiamo nello <strong>Studio Dentistico Morlino</strong>: un medical device che integra due modalità complementari — <strong>diatermia</strong> e <strong>elettroporazione</strong> — tramite <strong>trasduttori dedicati</strong>, in percorsi <strong>non invasivi</strong> pensati per il comfort del paziente e per il benessere dell'<strong>apparato temporo-mandibolare</strong> e delle regioni peri-orali correlate.</p>
-          </div>
-        </div>
-        <div class="modular-overlay__interleave-row modular-overlay__interleave-row--chess modular-overlay__interleave-row--chess-img-first">
-          <figure class="modular-overlay__figure">
-            <img src="assets/images/velvet-tmj-diatermia.png" alt="Velvet TMJ: diatermia DCR — capacità e ambito di applicazione" loading="lazy" decoding="async">
-          </figure>
-          <div class="modular-overlay__prose">
-            <p>La scheda sulla <strong>diatermia DCR</strong> sintetizza come questa modalità si inserisce nel sistema e quali obiettivi di benessere muscolo-scheletrico può affiancare, nei limiti delle indicazioni del fabbricante; modalità, tempi e intensità li definiamo sempre in sede, sulla base della <strong>visita</strong> e dell'anamnesi.</p>
-          </div>
-        </div>
-        <div class="modular-overlay__interleave-row modular-overlay__interleave-row--chess modular-overlay__interleave-row--chess-text-first">
-          <figure class="modular-overlay__figure">
-            <img src="assets/images/velvet-tmj-trasduttore-diatermia-dcr.png" alt="Trasduttore diatermia DCR per Velvet TMJ" loading="lazy" decoding="async">
-          </figure>
-          <div class="modular-overlay__prose">
-            <p>Il <strong>trasduttore diatermia DCR</strong> è l'applicatore dedicato alla modalità diatermica: consente di lavorare sul piano concordato dal protocollo clinico, con effetto tipicamente rivolto ai tessuti profondi e al comfort muscolare, nel rispetto delle controindicazioni.</p>
-          </div>
-        </div>
-        <div class="modular-overlay__interleave-row modular-overlay__interleave-row--chess modular-overlay__interleave-row--chess-img-first">
-          <figure class="modular-overlay__figure">
-            <img src="assets/images/velvet-tmj-trasduttore-elettroporazione.png" alt="Trasduttore elettroporazione per Velvet TMJ" loading="lazy" decoding="async">
-          </figure>
-          <div class="modular-overlay__prose">
-            <p>Il <strong>trasduttore elettroporazione</strong> affianca il percorso quando è indicato dal caso: si alterna o si combina con la diatermia secondo il piano personalizzato, così da modulare il trattamento in modo coerente con valutazione specialistica e istruzioni del produttore.</p>
+            <p>Il sistema <strong>Velvet TMJ</strong> nello <strong>Studio Dentistico Morlino</strong> integra <strong>diatermia</strong> ed <strong>elettroporazione</strong> con <strong>trasduttori dedicati</strong>, in percorsi <strong>non invasivi</strong> per il benessere dell'apparato temporo-mandibolare e delle aree peri-orali. Le sezioni seguenti descrivono la diatermia e i trasduttori utilizzati in protocollo clinico.</p>
           </div>
         </div>
         <div class="modular-overlay__interleave-row">
           <div class="modular-overlay__prose">
-            <p>In modo trasversale possiamo considerare Velvet TMJ in situazioni che coinvolgono <strong>bruxismo</strong>, <strong>click</strong> mandibolare, <strong>dolori</strong> facciali o cervicali di origine miofasciale, <strong>limitazioni</strong> in apertura, tensioni muscolari o <strong>edemi</strong> peri-mandibolari; nulla sostituisce visita, anamnesi e eventuali approfondimenti diagnostici.</p>
-            <p>Il dispositivo si colloca nella <strong>sinergia</strong> con ortodonzia e prevenzione dello studio. Per appuntamenti e informazioni: <a href="tel:+393714196466">371 4196466</a>.</p>
+            <p>Una nuova linea di dispositivi per <strong>fornire agli specialisti odontoiatrici</strong> una tecnologia che sfrutta le possibilità offerte dalla <strong>medicina estetica e funzionale</strong>.</p>
+          </div>
+        </div>
+        <div class="modular-overlay__interleave-row modular-overlay__interleave-row--chess modular-overlay__interleave-row--chess-text-first">
+          <figure class="modular-overlay__figure">
+            <img src="assets/images/velvet-tmj-diatermia.png" alt="Diatermia Velvet TMJ" loading="lazy" decoding="async">
+          </figure>
+          <div class="modular-overlay__prose">
+            <p>La <strong>diatermia</strong> è una metodica capace di indurre un aumento di temperatura del derma, favorendo un incremento della circolazione sanguigna e della vasodilatazione sulla zona interessata; in ambito <strong>gnatologico</strong>, è in grado di trattare tutti i tessuti dell'apparato stomatognatico e i disordini temporo-mandibolari. In questo caso la terapia ha lo scopo di decomprimere le articolazioni, rilassare i muscoli e contribuire al riposizionamento della mandibola. Con l'aiuto di questa tecnologia si ricreano le condizioni ottimali affinché avvenga il processo di guarigione e di adattamento.</p>
+            <p>La tecnologia risulta particolarmente efficace per:</p>
+            <ul>
+              <li>➡️ Disfunzioni intracapsulari dell'articolazione temporo-mandibolare (click mandibolare, lock mandibolare, atrosi, atriti).</li>
+              <li>➡️ Disfunzioni extracapsulari dell'articolazione temporo-mandibolare (sublussazioni, algie muscolo-tensive, traumi facciali).</li>
+              <li>➡️ Pratica clinica quotidiana odontoiatrica (trismi e contratture muscolari, nevralgie cervico-facciali, edemi e tumefazioni post-ascessuali).</li>
+            </ul>
+            <p>L'obiettivo del trattamento, molto semplice e non invasivo, è quello di biostimolare il processo di guarigione affinché avvenga più velocemente, con conseguente ripristino della funzione e immediata scomparsa del dolore.</p>
+          </div>
+        </div>
+        <div class="modular-overlay__interleave-row modular-overlay__interleave-row--chess modular-overlay__interleave-row--chess-img-first">
+          <figure class="modular-overlay__figure">
+            <img src="assets/images/velvet-tmj-trasduttore-diatermia-dcr.png" alt="Trasduttore a diatermia Velvet TMJ" loading="lazy" decoding="async">
+          </figure>
+          <div class="modular-overlay__prose">
+            <p>Il <strong>trasduttore a diatermia capacitiva e resistiva</strong> di Velvet TMJ determina una biostimolazione selettiva sui tessuti atrofici, innescando risposte fisiologiche e velocizzando il processo di guarigione, con conseguente ripristino della funzione e immediata scomparsa del dolore.</p>
+          </div>
+        </div>
+        <div class="modular-overlay__interleave-row modular-overlay__interleave-row--chess modular-overlay__interleave-row--chess-text-first">
+          <figure class="modular-overlay__figure">
+            <img src="assets/images/velvet-tmj-trasduttore-elettroporazione.png" alt="Trasduttore ad elettroporazione Velvet TMJ" loading="lazy" decoding="async">
+          </figure>
+          <div class="modular-overlay__prose">
+            <p>Il <strong>trasduttore ad elettroporazione</strong> — attraverso l'applicazione su una superficie biologica di un particolare impulso elettrico — induce un aumento transitorio della permeabilità dei tessuti e permette di veicolare per via transdermica principi attivi allopatici o omeopatici.</p>
+          </div>
+        </div>
+        <div class="modular-overlay__interleave-row">
+          <div class="modular-overlay__prose">
+            <p>Indicatori clinici, controindicazioni e piano delle sedute vengono definiti in sede dopo anamnesi e valutazione. Per appuntamenti: <a href="tel:+393714196466">371 4196466</a>.</p>
           </div>
         </div>
       </div>
