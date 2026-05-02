@@ -385,6 +385,23 @@
       transform: translateY(-4px);
       box-shadow: var(--shadow-medium);
     }
+    .service-card.service-card--extra {
+      position: relative;
+      border: 2px solid rgba(0, 191, 255, 0.55);
+      box-shadow:
+        0 4px 28px rgba(0, 191, 255, 0.16),
+        var(--shadow-soft);
+    }
+    .service-card.service-card--extra:hover {
+      border-color: rgba(0, 191, 255, 0.9);
+      box-shadow:
+        0 12px 40px rgba(0, 191, 255, 0.22),
+        var(--shadow-medium);
+      transform: translateY(-4px);
+    }
+    .service-card.service-card--extra .service-card__body {
+      background: linear-gradient(180deg, rgba(160, 224, 255, 0.14) 0%, rgba(255, 255, 255, 0) 55%);
+    }
     .service-card__image {
       flex-shrink: 0;
       overflow: hidden;
@@ -423,6 +440,26 @@
       font-size: 0.95rem;
       flex: 1;
       line-height: 1.55;
+    }
+    .service-card__more-row {
+      margin: 0;
+      margin-top: 0.5rem;
+      padding-top: 0.15rem;
+      flex: 0 0 auto;
+    }
+    .service-card__more-row + .service-card__more-row {
+      margin-top: 0.35rem;
+    }
+    .service-card__more-link {
+      font-size: 0.85rem;
+      font-weight: 600;
+      color: var(--color-text-accent);
+    }
+    .service-card__more-link:hover {
+      color: var(--color-text-accent-dark);
+    }
+    .service-card h3 .gallery-card__subtitle-line {
+      font-size: clamp(0.82rem, 1.8vw, 0.92rem);
     }
     .services-list-wrap {
       margin-top: 2.25rem;
@@ -662,6 +699,9 @@
       color: var(--color-stone);
       line-height: 1.35;
     }
+    #galleria {
+      display: none;
+    }
     body.body--modular-overlay-open {
       overflow: hidden;
     }
@@ -779,6 +819,22 @@
     .modular-overlay__prose p + p {
       margin-top: 0.85rem;
     }
+    .modular-overlay__stack + .modular-overlay__prose {
+      margin-top: 1rem;
+    }
+    .modular-overlay__prose ul {
+      margin: 0.5rem 0 0;
+      padding-left: 1.2rem;
+      font-size: 0.94rem;
+      color: var(--color-stone);
+      line-height: 1.55;
+    }
+    .modular-overlay__prose p + ul {
+      margin-top: 0.55rem;
+    }
+    .modular-overlay__prose li + li {
+      margin-top: 0.35rem;
+    }
     .modular-overlay__prose a {
       font-weight: 600;
     }
@@ -799,6 +855,55 @@
     }
     #velvet-tmj-overlay .modular-overlay__interleave-row .modular-overlay__prose {
       margin-top: 0;
+    }
+    #velvet-consigli-overlay .modular-overlay__panel {
+      width: min(980px, 100%);
+      padding-bottom: 1.5rem;
+    }
+    #velvet-consigli-overlay .modular-overlay__clone-gallery {
+      display: grid;
+      grid-template-columns: 1fr;
+      gap: 1rem;
+      margin-top: 0.65rem;
+      max-height: min(70vh, 760px);
+      overflow-y: auto;
+      overflow-x: hidden;
+      padding: 0.15rem 0.35rem 0.35rem 0;
+      -webkit-overflow-scrolling: touch;
+    }
+    @media (min-width: 640px) {
+      #velvet-consigli-overlay .modular-overlay__clone-gallery {
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+      }
+    }
+    @media (min-width: 1100px) {
+      #velvet-consigli-overlay .modular-overlay__clone-gallery {
+        grid-template-columns: repeat(3, minmax(0, 1fr));
+      }
+    }
+    #ortodonzia-overlay .modular-overlay__panel {
+      width: min(920px, 100%);
+    }
+    #ortodonzia-overlay .modular-overlay__interleave {
+      display: flex;
+      flex-direction: column;
+      gap: 1.15rem;
+      margin-top: 0.65rem;
+    }
+    #ortodonzia-overlay .modular-overlay__interleave-row {
+      display: flex;
+      flex-direction: column;
+      gap: 0.75rem;
+    }
+    #ortodonzia-overlay .modular-overlay__interleave-row .modular-overlay__prose {
+      margin-top: 0;
+    }
+    @media (min-width: 992px) {
+      #ortodonzia-overlay .modular-overlay__interleave-row .modular-overlay__figure {
+        max-width: min(420px, 72%);
+        width: 100%;
+        align-self: center;
+      }
     }
     #velvet-tmj-overlay .modular-overlay__interleave-row--chess {
       display: flex;
@@ -1126,7 +1231,6 @@
         </a>
         <a href="#chi-siamo">Lo studio</a>
         <a href="#servizi">Servizi</a>
-        <a href="#galleria">Consigli utili</a>
         <a href="#contatti">Contatti</a>
       </nav>
     </div>
@@ -1136,7 +1240,7 @@
     <section class="hero">
       <div class="hero-content">
         <h1 class="hero-title"><span class="logo-studio">Studio Dentistico</span><br><span class="hero-subtitle-name">Dott.ssa Marianna Morlino</span></h1>
-        <p class="hero-subtitle">Il tuo sorriso è la nostra priorità. Cure dentali e ortodontiche di qualità.</p>
+        <p class="hero-subtitle">Salute, funzione ed estetica del cavo orale e dell'articolazione temporo-mandibolare</p>
         <p class="hero-contact">
           <span class="hero-contact-line">Corso Papa Giovanni XXIII, 132</span>
           <span class="hero-contact-line">85020 Atella (PZ)</span>
@@ -1168,8 +1272,8 @@
           <img src="assets/logo-big.jpg" alt="Studio Dentistico Morlino - Interno" onerror="this.src='data:image/svg+xml,%3Csvg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 600 400%22%3E%3Crect fill=%22%23e0f4ff%22 width=%22600%22 height=%22400%22/%3E%3Ctext x=%2250%25%22 y=%2250%25%22 dominant-baseline=%22middle%22 text-anchor=%22middle%22 fill=%22%230077B6%22 font-size=%2224%22 font-family=%22sans-serif%22%3EStudio Dentistico Morlino%3C/text%3E%3C/svg%3E'">
         </div>
         <div class="about-text">
-          <p>Lo <span class="logo-studio">Studio Dentistico</span> della Dott.ssa Marianna Morlino è il punto di riferimento per l'ortodonzia e le cure dentali ad Atella, in provincia di Potenza. Situato nel cuore della Basilicata, offriamo un servizio professionale e personalizzato a pazienti di ogni età.</p>
-          <p>Il nostro obiettivo è prenderti cura del tuo sorriso con competenza, tecnologia all'avanguardia e un'attenzione costante al tuo benessere. Scegli lo <span class="logo-studio">Studio Dentistico</span> della Dott.ssa Marianna Morlino per le tue cure dentali.</p>
+          <p>Lo <span class="logo-studio">Studio Dentistico</span> della Dott.ssa Marianna Morlino è il punto di riferimento per l'ortodonzia e le cure dentali ad Atella, in provincia di Potenza. Situato nel cuore della Basilicata, offre un servizio professionale e personalizzato a pazienti di ogni età.</p>
+          <p>L'obiettivo è prendersi cura del tuo sorriso con competenza, tecnologia all'avanguardia e un'attenzione costante al tuo benessere.</p>
         </div>
       </div>
       <div class="services-list-wrap">
@@ -1194,27 +1298,46 @@
         <p>I nostri servizi</p>
       </div>
       <div class="services-grid">
-        <div class="service-card service-card--text">
-          <div class="service-card__top-accent" aria-hidden="true"></div>
+        <div class="service-card service-card--media service-card--extra">
+          <span class="gallery-card__extra-badge" aria-hidden="true">Approfondimento</span>
+          <div class="service-card__image">
+            <img src="assets/images/brackets-types.png" alt="Tipi di brackets e soluzioni ortodontiche">
+          </div>
           <div class="service-card__body">
             <h3>Ortodonzia</h3>
             <p>Apparecchi fissi e mobili, allineatori trasparenti per un sorriso perfetto a ogni età.</p>
+            <p class="service-card__more-row"><a href="#" class="service-card__more-link" data-modular-overlay-open="ortodonzia-overlay" aria-haspopup="dialog">I servizi</a></p>
           </div>
         </div>
-        <div class="service-card service-card--text">
-          <div class="service-card__top-accent" aria-hidden="true"></div>
+        <div class="service-card service-card--media">
+          <div class="service-card__image">
+            <img src="assets/images/igiene-orale-piacere.webp" alt="Igiene orale professionale prevenzione e benessere">
+          </div>
           <div class="service-card__body">
             <h3>Igiene orale</h3>
             <p>Pulizia professionale, prevenzione e controlli periodici per la salute dei tuoi denti.</p>
           </div>
         </div>
-        <div class="service-card service-card--media">
+        <div class="service-card service-card--media service-card--extra">
+          <span class="gallery-card__extra-badge" aria-hidden="true">Approfondimento</span>
           <div class="service-card__image">
             <img src="assets/images/velvet-tmj-full.png" alt="Velvet TMJ">
           </div>
           <div class="service-card__body">
             <h3>Velvet TMJ</h3>
             <p>Tecnologia non invasiva che combina diatermia ed elettroporazione per il benessere dell'apparato temporo-mandibolare.</p>
+            <p class="service-card__more-row"><a href="#" class="service-card__more-link" data-modular-overlay-open="velvet-tmj-overlay" aria-haspopup="dialog">Informazioni sul trattamento</a></p>
+            <p class="service-card__more-row"><a href="#" class="service-card__more-link" data-modular-overlay-open="velvet-consigli-overlay" aria-haspopup="dialog">Perché funziona</a></p>
+          </div>
+        </div>
+        <div class="service-card service-card--media service-card--extra">
+          <span class="gallery-card__extra-badge" aria-hidden="true">Approfondimento</span>
+          <div class="service-card__image">
+            <img src="assets/images/infocard-1.png" alt="Disturbi del sonno">
+          </div>
+          <div class="service-card__body">
+            <h3>Disturbi del sonno<span class="gallery-card__subtitle-line">in età pediatrica o adolescente</span></h3>
+            <p class="service-card__more-row"><a href="#" class="service-card__more-link" data-modular-overlay-open="disturbi-del-sonno-overlay" aria-haspopup="dialog">Per saperne di più</a></p>
           </div>
         </div>
         <div class="service-card service-card--text">
@@ -1229,7 +1352,7 @@
             <img src="assets/images/whitening-blancone.jpeg" alt="Whitening professionale">
           </div>
           <div class="service-card__body">
-            <h3>Whitening</h3>
+            <h3>Sbiancamento professionale</h3>
             <p>Trattamento professionale per uno sbiancamento efficace e sicuro, pensato per valorizzare il tuo sorriso.</p>
           </div>
         </div>
@@ -1237,7 +1360,7 @@
           <div class="service-card__top-accent" aria-hidden="true"></div>
           <div class="service-card__body">
             <h3>Estetica dentale</h3>
-            <p>Sbiancamento, faccette e soluzioni per valorizzare il tuo sorriso.</p>
+            <p>Faccette e soluzioni per valorizzare il tuo sorriso.</p>
           </div>
         </div>
         <div class="service-card service-card--text">
@@ -1369,16 +1492,6 @@
             <p class="gallery-card__text">Presso lo Studio dentistico Morlino utilizziamo Velvet TMJ, un medical device in grado di offrirti un'esperienza diversa da quelle precedenti. La sinergia tra diatermia ed elettroporazione tratta in maniera non invasiva ed efficace:<br>📌 Acufene<br>📌 Bruxismo<br>📌 Click mandibolare<br>📌 Mal di testa<br>📌 Dolore cervicale<br>📌 Edemi e tumefazioni<br>📌 Trismi e contratture muscolari<br>📌 Difficolta'/dolore nell'apertura della bocca e nei movimenti mandibolari<br>📌 Nevralgie cervico-facciali<br>Chiedi allo staff se Velvet TMJ puo' essere la soluzione al tuo problema e trasforma la tua visita in un'esperienza positiva!</p>
           </div>
         </article>
-        <article class="gallery-card gallery-card--extra">
-          <span class="gallery-card__extra-badge" aria-hidden="true">Approfondimento</span>
-          <a href="#" class="gallery-card__media" data-modular-overlay-open="disturbi-del-sonno-overlay" aria-haspopup="dialog">
-            <img src="assets/images/infocard-1.png" alt="">
-          </a>
-          <div class="gallery-card__content">
-            <h3 class="gallery-card__title"><a href="#" data-modular-overlay-open="disturbi-del-sonno-overlay" aria-haspopup="dialog">Disturbi del sonno<span class="gallery-card__subtitle-line">in età pediatrica o adolescente</span></a></h3>
-            <p class="gallery-card__text"><a href="#" class="gallery-card__link" data-modular-overlay-open="disturbi-del-sonno-overlay" aria-haspopup="dialog">Per saperne di più</a></p>
-          </div>
-        </article>
       </div>
     </section>
 
@@ -1472,6 +1585,83 @@
     </div>
   </div>
 
+  <div id="ortodonzia-overlay" class="modular-overlay" aria-hidden="true" role="dialog" aria-modal="true" aria-labelledby="ortodonzia-overlay-title">
+    <button type="button" class="modular-overlay__backdrop js-modular-overlay-close" tabindex="-1" aria-label="Chiudi finestra"></button>
+    <div class="modular-overlay__panel">
+      <button type="button" class="modular-overlay__close js-modular-overlay-close" aria-label="Chiudi">&times;</button>
+      <h2 id="ortodonzia-overlay-title" class="modular-overlay__title">Ortodonzia</h2>
+      <p class="modular-overlay__tagline">Apparecchi fissi e mobili, allineatori trasparenti: percorso personalizzato a ogni età.</p>
+      <div class="modular-overlay__interleave">
+        <div class="modular-overlay__interleave-row">
+          <figure class="modular-overlay__figure">
+            <img src="assets/images/brackets-types.png" alt="Panoramica di tipi di bracket ortodontici" loading="lazy" decoding="async">
+          </figure>
+          <div class="modular-overlay__prose">
+            <p>Nello <strong>Studio Dentistico Morlino</strong> l'ortodonzia si integra con la <strong>gnatologia</strong> e con la valutazione funzionale dell'apparato masticatorio quando il caso lo richiede. Ogni piano nasce dalla <strong>visita</strong>: analisi delle arcate, del morso e dell'età di crescita, obiettivi estetici e funzionali, tempi stimati e scelta condivisa del dispositivo più adatto a stile di vita, età e aspettative del paziente o della famiglia.</p>
+            <p>La scelta tra <strong>bracket</strong> di diversa tipologia, materiali e tecniche non è «una taglia unica»: il professionista valuta indicazioni cliniche, igiene, collaborazione e complessità del caso per proporti un percorso chiaro fin dall'inizio.</p>
+          </div>
+        </div>
+        <div class="modular-overlay__interleave-row">
+          <figure class="modular-overlay__figure">
+            <img src="assets/images/brackets-silver-ceramic.webp" alt="Bracket metallici e bracket in ceramica estetica" loading="lazy" decoding="async">
+          </figure>
+          <div class="modular-overlay__prose">
+            <p>Gli <strong>apparecchi fissi tradizionali</strong> utilizzano bracket <strong>metallici</strong> particolarmente versatili e robusti, spesso preferiti in casi complessi o in fasi di crescita. I bracket in <strong>ceramica</strong> o materiali più discreti offrono un profilo estetico più contenuto e sono una scelta frequente in età adulta o quando si desidera un impatto visivo minore nel tempo di trattamento.</p>
+            <p>Entrambe le soluzioni agiscono con archi e attacchi che guidano i denti in sicurezza; il monitoraggio periodico in studio consente di regolare le forze, controllare l'igiene e rispettare le tappe del piano definito insieme.</p>
+          </div>
+        </div>
+        <div class="modular-overlay__interleave-row">
+          <figure class="modular-overlay__figure">
+            <img src="assets/images/bracket-colorful.webp" alt="Bracket colorati per pazienti pediatrici" loading="lazy" decoding="async">
+          </figure>
+          <div class="modular-overlay__prose">
+            <p>Per <strong>bambini e ragazzi</strong>, elementi colorati o personalizzabili possono rendere il percorso più familiare e favorire la <strong>collaborazione</strong> con le indicazioni di igiene e con i controlli programmati. L'obiettivo resta duplice: correggere il posizionamento dei denti e il rapporto tra le arcate e, al contempo, educare a una corretta igiene orale durante l'uso dell'apparecchio.</p>
+            <p>In alcune fasi della crescita si valutano anche <strong>apparecchi mobili</strong> o dispositivi funzionali, utili a modulare abitudini e relazioni morso–articolazione prima o in affiancamento alla terapia fissa.</p>
+          </div>
+        </div>
+        <div class="modular-overlay__interleave-row">
+          <figure class="modular-overlay__figure">
+            <img src="assets/images/aligner-transparent.png" alt="Allineatori ortodontici trasparenti" loading="lazy" decoding="async">
+          </figure>
+          <div class="modular-overlay__prose">
+            <p>Gli <strong>allineatori trasparenti</strong> rappresentano, ove indicato dal caso clinico, un'alternativa discreta all'apparecchio fisso: serie di calotte personalizzate che spostano progressivamente i denti secondo un piano digitale o analogico definito in fase di progettazione.</p>
+            <p>Sono particolarmente apprezzati per <strong>disciplina</strong> nel portarli per le ore giornaliere previste e per la removibilità durante i pasti e l'igiene. Non tutte le malocclusioni sono trattabili solo con allineatori: la visita stabilisce se la tecnica è sufficiente da sola o se è preferibile o necessario un approccio misto o tradizionale.</p>
+          </div>
+        </div>
+        <div class="modular-overlay__interleave-row">
+          <figure class="modular-overlay__figure">
+            <img src="assets/images/aligner-removing.webp" alt="Rimozione e gestione quotidiana degli allineatori" loading="lazy" decoding="async">
+          </figure>
+          <div class="modular-overlay__prose">
+            <p>Un buon esito con gli allineatori dipende da <strong>compliance</strong>, igiene accurata e rispetto delle fasi di cambio calotta. In studio ti indichiamo come gestire la routine quotidiana, cosa fare in caso di irritazioni lievi e quando è necessario un controllo anticipato.</p>
+            <p>Al termine della fase attiva del trattamento, la <strong>contenzione</strong> (fissa o mobile) aiuta a stabilizzare il risultato nel tempo: è una fase non trascurabile e va pianificata fin dall'inizio del percorso.</p>
+          </div>
+        </div>
+        <div class="modular-overlay__interleave-row">
+          <figure class="modular-overlay__figure">
+            <img src="assets/images/placca-funzionale-terza-classe.png" alt="Esempio di placca funzionale ortodontica" loading="lazy" decoding="async">
+          </figure>
+          <div class="modular-overlay__prose">
+            <p>Nei pazienti in crescita possono essere indicate <strong>placche funzionali</strong> o altri dispositivi mobili per favorire l'armonia tra mascella e mandibola e accompagnare lo sviluppo scheletrico. La scelta è sempre legata all'età, alla diagnosi e alla collaborazione in famiglia.</p>
+          </div>
+        </div>
+        <div class="modular-overlay__interleave-row">
+          <div class="modular-overlay__prose">
+            <p><strong>Servizi ortodontici in sintesi nello studio:</strong></p>
+            <ul>
+              <li>Diagnosi ortodontica e piani di trattamento personalizzati</li>
+              <li>Apparecchi fissi metallici ed estetici (bracket)</li>
+              <li>Allineatori trasparenti ove indicato</li>
+              <li>Apparecchi mobili, placche funzionali e contenzione</li>
+              <li>Follow-up in crescita per bambini, adolescenti e adulti</li>
+            </ul>
+            <p>Per un colloquio informativo o per fissare una visita: <a href="tel:+393714196466">371 4196466</a>.</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
   <div id="velvet-tmj-overlay" class="modular-overlay" aria-hidden="true" role="dialog" aria-modal="true" aria-labelledby="velvet-tmj-overlay-title">
     <button type="button" class="modular-overlay__backdrop js-modular-overlay-close" tabindex="-1" aria-label="Chiudi finestra"></button>
     <div class="modular-overlay__panel">
@@ -1521,6 +1711,16 @@
     </div>
   </div>
 
+  <div id="velvet-consigli-overlay" class="modular-overlay" aria-hidden="true" role="dialog" aria-modal="true" aria-labelledby="velvet-consigli-overlay-title">
+    <button type="button" class="modular-overlay__backdrop js-modular-overlay-close" tabindex="-1" aria-label="Chiudi finestra"></button>
+    <div class="modular-overlay__panel">
+      <button type="button" class="modular-overlay__close js-modular-overlay-close" aria-label="Chiudi">&times;</button>
+      <h2 id="velvet-consigli-overlay-title" class="modular-overlay__title">Velvet TMJ a cosa serve</h2>
+      <p class="modular-overlay__tagline">Schede su sintomi, indicazioni e contesti clinici affrontati con Velvet TMJ nello studio.</p>
+      <div id="js-velvet-consigli-grid" class="modular-overlay__clone-gallery"></div>
+    </div>
+  </div>
+
   <footer>
     <div class="footer-inner">
       <p class="footer-brandline"><strong><span class="logo-studio">Studio Dentistico</span> Dott.ssa Marianna Morlino</strong> — Ortodonzia e cure dentali ad Atella (PZ)</p>
@@ -1535,6 +1735,19 @@
       </p>
     </div>
   </footer>
+
+  <script id="velvet-consigli-clone-script">
+    (function () {
+      var grid = document.querySelector('#galleria .gallery-grid');
+      var mount = document.getElementById('js-velvet-consigli-grid');
+      if (!grid || !mount) return;
+      var articles = grid.querySelectorAll(':scope > article');
+      if (articles.length < 2) return;
+      for (var i = 1; i < articles.length; i++) {
+        mount.appendChild(articles[i].cloneNode(true));
+      }
+    })();
+  </script>
 
   <script>
     var menuToggle = document.querySelector('.menu-toggle');
@@ -1760,7 +1973,7 @@
 
       function syncGalleryText() {
         var isMobile = window.innerWidth <= MOBILE_BREAKPOINT;
-        document.querySelectorAll('.gallery-card__text').forEach(function (textEl) {
+        document.querySelectorAll('#galleria .gallery-grid .gallery-card__text').forEach(function (textEl) {
           if (isMobile) {
             applyMobileReadMore(textEl);
           } else {
