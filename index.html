@@ -307,16 +307,17 @@
     .hero-notice__media {
       flex: 0 0 42%;
       max-width: 13.5rem;
-      display: flex;
-      align-items: center;
+      align-self: stretch;
+      position: relative;
       background: linear-gradient(180deg, #b8ecef 0%, #f3e8cf 100%);
     }
     .hero-notice__media img {
+      position: absolute;
+      inset: 0;
       display: block;
       width: 100%;
-      height: auto;
-      aspect-ratio: 1920 / 1358;
-      object-fit: contain;
+      height: 100%;
+      object-fit: cover;
       object-position: left center;
     }
     .hero-notice__body {
@@ -367,8 +368,14 @@
         flex: none;
         max-width: none;
         width: 100%;
+        position: static;
       }
       .hero-notice__media img {
+        position: static;
+        inset: auto;
+        height: auto;
+        aspect-ratio: 1920 / 1358;
+        object-fit: contain;
         object-position: center;
       }
     }
