@@ -311,6 +311,13 @@
       position: relative;
       background: linear-gradient(180deg, #b8ecef 0%, #f3e8cf 100%);
     }
+    .hero-notice__media picture {
+      position: absolute;
+      inset: 0;
+      display: block;
+      width: 100%;
+      height: 100%;
+    }
     .hero-notice__media img {
       position: absolute;
       inset: 0;
@@ -370,11 +377,17 @@
         width: 100%;
         position: static;
       }
+      .hero-notice__media picture {
+        position: static;
+        inset: auto;
+        width: 100%;
+        height: auto;
+      }
       .hero-notice__media img {
         position: static;
         inset: auto;
         height: auto;
-        aspect-ratio: 1920 / 1358;
+        aspect-ratio: 900 / 637;
         object-fit: contain;
         object-position: center;
       }
@@ -1499,14 +1512,21 @@
         </div>
         <div class="hero-notice" role="note">
           <div class="hero-notice__media" aria-hidden="true">
-            <img
-              src="assets/images/summer-holidays.png"
-              alt=""
-              width="1920"
-              height="1358"
-              loading="lazy"
-              decoding="async"
-            >
+            <picture>
+              <source
+                type="image/webp"
+                srcset="assets/images/summer-holidays-540.webp 540w, assets/images/summer-holidays.webp 900w"
+                sizes="(max-width: 520px) 100vw, 13.5rem"
+              >
+              <img
+                src="assets/images/summer-holidays.webp"
+                alt=""
+                width="900"
+                height="637"
+                loading="lazy"
+                decoding="async"
+              >
+            </picture>
           </div>
           <div class="hero-notice__body">
             <span class="hero-notice__label">Chiusura periodo estivo</span>
