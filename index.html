@@ -231,7 +231,7 @@
       width: 100vw;
       height: 44%;
       transform: translateX(-50%) scale(1.04);
-      background-image: url('assets/waves.png');
+      background-image: url('assets/waves.webp');
       background-repeat: no-repeat;
       background-position: center bottom;
       background-size: 100% 100%;
@@ -442,6 +442,130 @@
 
     /* Services */
     .services { background: var(--color-bg-alt); }
+    .services-subsection {
+      scroll-margin-top: 5.5rem;
+    }
+    .services-subsection + .services-subsection {
+      margin-top: 3rem;
+      padding-top: 3rem;
+      border-top: 1px solid rgba(0, 119, 182, 0.12);
+    }
+    .services-subsection__title {
+      margin-bottom: 0.65rem;
+      color: var(--color-charcoal);
+      font-size: clamp(1.2rem, 2.5vw, 1.45rem);
+    }
+    .services-subsection__intro {
+      max-width: 46rem;
+      margin-bottom: 1.5rem;
+      color: var(--color-stone);
+      font-size: 0.98rem;
+      line-height: 1.65;
+    }
+    .services-subsection--disturbi-sonno {
+      padding: 1.75rem 1.35rem;
+      background: linear-gradient(180deg, rgba(255, 255, 255, 0.92) 0%, rgba(248, 250, 252, 0.55) 100%);
+      border: 1px solid rgba(0, 119, 182, 0.1);
+      border-radius: var(--radius-lg);
+      box-shadow: var(--shadow-soft);
+    }
+    .services-subsection--disturbi-sonno .services-subsection__title {
+      color: var(--color-text-accent-dark);
+    }
+    .services-subsection--velvet-tmj {
+      padding: 1.75rem 1.35rem;
+      background: linear-gradient(180deg, rgba(255, 255, 255, 0.95) 0%, rgba(240, 248, 255, 0.7) 100%);
+      border: 1px solid rgba(0, 119, 182, 0.12);
+      border-radius: var(--radius-lg);
+      box-shadow: var(--shadow-soft);
+    }
+    .services-subsection--cure-dentali .services-subsection__title,
+    .services-subsection--velvet-tmj .services-subsection__title {
+      color: var(--color-text-accent-dark);
+    }
+    @media (min-width: 768px) {
+      .services-subsection--disturbi-sonno,
+      .services-subsection--velvet-tmj {
+        padding: 2rem 1.75rem;
+      }
+    }
+    .services-topic-list {
+      list-style: none;
+      display: grid;
+      gap: 0.55rem;
+      margin: 0;
+      padding: 0;
+      max-width: 34rem;
+    }
+    .services-topic-list__item {
+      margin: 0;
+    }
+    .services-topic-list__link {
+      display: grid;
+      grid-template-columns: 3.25rem minmax(0, 1fr) auto;
+      gap: 0.65rem;
+      align-items: center;
+      padding: 0.6rem 0.75rem;
+      border-radius: 12px;
+      border: 1px solid rgba(0, 119, 182, 0.12);
+      background: rgba(255, 255, 255, 0.88);
+      color: inherit;
+      transition: var(--transition);
+    }
+    .services-topic-list__link:hover {
+      border-color: rgba(0, 119, 182, 0.28);
+      box-shadow: var(--shadow-soft);
+      color: inherit;
+    }
+    .services-topic-list__thumb {
+      border-radius: 8px;
+      overflow: hidden;
+      border: 1px solid rgba(0, 119, 182, 0.08);
+      aspect-ratio: 1 / 1;
+      background: white;
+    }
+    .services-topic-list__thumb img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      display: block;
+    }
+    .services-topic-list__title {
+      display: block;
+      margin-bottom: 0.1rem;
+      color: var(--color-charcoal);
+      font-size: 0.9rem;
+      font-weight: 600;
+      line-height: 1.3;
+    }
+    .services-topic-list__desc {
+      display: block;
+      color: var(--color-stone);
+      font-size: 0.8rem;
+      line-height: 1.4;
+    }
+    .services-topic-list__arrow {
+      color: var(--color-text-accent);
+      font-size: 0.95rem;
+      font-weight: 700;
+      line-height: 1;
+    }
+    @media (max-width: 520px) {
+      .services-topic-list {
+        max-width: none;
+      }
+      .services-topic-list__link {
+        grid-template-columns: 3rem minmax(0, 1fr) auto;
+        gap: 0.55rem;
+        padding: 0.55rem 0.7rem;
+      }
+      .services-topic-list__title {
+        font-size: 0.88rem;
+      }
+      .services-topic-list__desc {
+        font-size: 0.78rem;
+      }
+    }
     @media (max-width: 639px) {
       #servizi .services-grid > .hide-on-mobile {
         display: none !important;
@@ -467,10 +591,6 @@
     @media (min-width: 640px) and (max-width: 991px) {
       .service-card--media {
         display: flex;
-      }
-      /* Disturbi del sonno: ultima riga su due colonne */
-      .services-grid > .service-card--disturbi-sonno {
-        grid-column: 1 / -1;
       }
     }
     @media (min-width: 992px) {
@@ -1467,7 +1587,7 @@
   <header class="header" id="top">
     <div class="header-inner">
       <a href="#" class="logo">
-        <img src="assets/logo.png" alt="" class="logo-icon" width="40" height="40">
+        <img src="assets/logo.webp" alt="" class="logo-icon" width="40" height="40">
         <span class="logo-text">
           <span class="logo-studio">Studio Dentistico</span>
           <span class="logo-name">Dott.ssa Marianna Morlino</span>
@@ -1476,14 +1596,16 @@
       <button class="menu-toggle" aria-label="Menu" aria-expanded="false" aria-controls="site-nav">☰</button>
       <nav class="nav" id="site-nav">
         <a href="#top" class="nav-top-logo" aria-label="Torna in alto">
-          <img src="assets/logo.png" alt="" class="logo-icon" width="40" height="40">
+          <img src="assets/logo.webp" alt="" class="logo-icon" width="40" height="40">
           <span class="logo-text">
             <span class="logo-studio">Studio Dentistico</span>
             <span class="logo-name">Dott.ssa Marianna Morlino</span>
           </span>
         </a>
         <a href="#chi-siamo">Lo studio</a>
-        <a href="#servizi">Servizi</a>
+        <a href="#servizi-dello-studio">Cure dentali</a>
+        <a href="#velvet-tmj">Terapia gnatologica</a>
+        <a href="#disturbi-del-sonno">Medicina del sonno</a>
         <a href="#contatti">Contatti</a>
       </nav>
     </div>
@@ -1551,7 +1673,7 @@
     <section id="chi-siamo" class="about">
       <div class="about-grid">
         <div class="about-image">
-          <img src="assets/logo-big.jpg" alt="Studio Dentistico Morlino - Interno" onerror="this.src='data:image/svg+xml,%3Csvg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 600 400%22%3E%3Crect fill=%22%23e0f4ff%22 width=%22600%22 height=%22400%22/%3E%3Ctext x=%2250%25%22 y=%2250%25%22 dominant-baseline=%22middle%22 text-anchor=%22middle%22 fill=%22%230077B6%22 font-size=%2224%22 font-family=%22sans-serif%22%3EStudio Dentistico Morlino%3C/text%3E%3C/svg%3E'">
+          <img src="assets/logo-big.webp" alt="Studio Dentistico Morlino - Interno" onerror="this.src='data:image/svg+xml,%3Csvg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 600 400%22%3E%3Crect fill=%22%23e0f4ff%22 width=%22600%22 height=%22400%22/%3E%3Ctext x=%2250%25%22 y=%2250%25%22 dominant-baseline=%22middle%22 text-anchor=%22middle%22 fill=%22%230077B6%22 font-size=%2224%22 font-family=%22sans-serif%22%3EStudio Dentistico Morlino%3C/text%3E%3C/svg%3E'">
         </div>
         <div class="about-text">
           <p>Lo <span class="logo-studio">Studio Dentistico</span> della Dott.ssa Marianna Morlino è il punto di riferimento per l'ortodonzia e le cure dentali ad Atella, in provincia di Potenza. Situato nel cuore della Basilicata, offre un servizio professionale e personalizzato a pazienti di ogni età.</p>
@@ -1559,7 +1681,7 @@
         </div>
       </div>
       <div class="services-list-wrap">
-        <h3 class="services-list-title">Tutti i servizi dello studio</h3>
+        <!-- <h3 class="services-list-title">I nostri servizi</h3> -->
         <ul class="services-list">
           <li>Ortodonzia e gnatologia</li>
           <li>Implantologia</li>
@@ -1576,14 +1698,13 @@
     </section>
 
     <section id="servizi" class="services">
-      <!-- <div class="section-title">
-        <h2>In evidenza</h2>
-        <p>I nostri servizi</p>
-      </div> -->
-      <div class="services-grid">
+      <div id="servizi-dello-studio" class="services-subsection services-subsection--cure-dentali">
+        <h3 class="services-subsection__title">Cure dentali</h3>
+        <p class="services-subsection__intro">Ortodonzia, implantologia, protesi, chirurgia ed endodonzia: tecnologie e percorsi dedicati al benessere orale a ogni età.</p>
+        <div class="services-grid">
         <div class="service-card service-card--media service-card--extra">
           <div class="service-card__image">
-            <img src="assets/images/brackets-silver-ceramic.png" alt="Brackets in metallo e ceramica per ortodonzia" loading="lazy" decoding="async">
+            <img src="assets/images/brackets-silver-ceramic.webp" alt="Brackets in metallo e ceramica per ortodonzia" loading="lazy" decoding="async">
           </div>
           <div class="service-card__body">
             <h3>Ortodonzia e gnatologia</h3>
@@ -1593,7 +1714,7 @@
         </div>
         <div class="service-card service-card--image-only service-card--image-fullwidth">
           <div class="service-card__figure">
-            <img src="assets/images/aligner-transparent.png" alt="Allineatore trasparente per ortodonzia" loading="lazy" decoding="async">
+            <img src="assets/images/aligner-transparent.webp" alt="Allineatore trasparente per ortodonzia" loading="lazy" decoding="async">
           </div>
         </div>
         <div class="service-card service-card--text">
@@ -1629,12 +1750,12 @@
         </div>
         <div class="service-card service-card--image-only hide-on-mobile">
           <div class="service-card__figure">
-            <img src="assets/images/morlino-waiting-room.jpeg" alt="Sala di attesa dello studio" loading="lazy" decoding="async">
+            <img src="assets/images/morlino-waiting-room.webp" alt="Sala di attesa dello studio" loading="lazy" decoding="async">
           </div>
         </div>
         <div class="service-card service-card--image-only hide-on-mobile">
           <div class="service-card__figure">
-            <img src="assets/images/opt.png" alt="Ortopantomogramma: radiografia ortopanoramica delle arcate dentali" loading="lazy" decoding="async">
+            <img src="assets/images/opt.webp" alt="Ortopantomogramma: radiografia ortopanoramica delle arcate dentali" loading="lazy" decoding="async">
           </div>
         </div>
         <div class="service-card service-card--text">
@@ -1646,12 +1767,12 @@
         </div>
         <div class="service-card service-card--image-only service-card--image-contain hide-on-mobile">
           <div class="service-card__figure">
-            <img src="assets/images/thoot-icon.png" alt="Odontoiatria e sorriso" loading="lazy" decoding="async">
+            <img src="assets/images/thoot-icon.webp" alt="Odontoiatria e sorriso" loading="lazy" decoding="async">
           </div>
         </div>
         <div class="service-card service-card--media">
           <div class="service-card__image">
-            <img src="assets/images/whitening-blancone.jpeg" alt="Sbiancamento professionale e salute delle gengive">
+            <img src="assets/images/whitening-blancone.webp" alt="Sbiancamento professionale e salute delle gengive">
           </div>
           <div class="service-card__body">
             <h3>Igiene orale e sbiancamento dentale</h3>
@@ -1663,31 +1784,9 @@
             <img src="assets/images/igiene-orale-piacere.webp" alt="Piacere nell'igiene orale e nella cura delle gengive" loading="lazy" decoding="async">
           </div>
         </div>
-        <div class="service-card service-card--media service-card--extra">
-          <span class="gallery-card__extra-badge" aria-hidden="true">Approfondimento</span>
-          <div class="service-card__image">
-            <img src="assets/images/velvet-tmj-full.png" alt="Velvet TMJ: medical device in studio">
-          </div>
-          <div class="service-card__body">
-            <h3>Tecar Velvet TMJ</h3>
-            <p>Nel nostro studio utilizziamo Velvet TMJ, un medical device che combina diatermia ed elettroporazione per trattamenti non invasivi verso il benessere dell'apparato temporo-mandibolare e del cavo orale.</p>
-            <p class="service-card__more-row"><a href="#" class="service-card__more-link" data-modular-overlay-open="velvet-tmj-overlay" aria-haspopup="dialog">Informazioni sul trattamento</a></p>
-          </div>
-        </div>
-        <div class="service-card service-card--media service-card--extra hide-on-mobile">
-          <span class="gallery-card__extra-badge" aria-hidden="true">Approfondimento</span>
-          <div class="service-card__image">
-            <img src="assets/images/card-sinergia-vincente.png" alt="Sinergia vincente con Velvet TMJ">
-          </div>
-          <div class="service-card__body">
-            <h3>Benefici del Velvet TMJ</h3>
-            <p>Diatermia ed elettroporazione lavorano in sinergia per biostimolazione tessutale, riduzione dell'infiammazione e del dolore con percorsi rapidi, indolori e non invasivi. Scopri a quali sintomi e situazioni può essere utile e quali benefici attendersi nel tempo.</p>
-            <p class="service-card__more-row"><a href="#" class="service-card__more-link" data-modular-overlay-open="velvet-consigli-overlay" aria-haspopup="dialog">Perché funziona</a></p>
-          </div>
-        </div>
         <div class="service-card service-card--media">
           <div class="service-card__image">
-            <img src="assets/images/opt-scans.jpg" alt="Scansioni panoramiche in esposizione in studio" loading="lazy" decoding="async">
+            <img src="assets/images/opt-scans.webp" alt="Scansioni panoramiche in esposizione in studio" loading="lazy" decoding="async">
           </div>
           <div class="service-card__body">
             <h3>Radiografia ortopanoramica (OPT)</h3>
@@ -1701,16 +1800,81 @@
             <p>Impronta digitale veloce e confortevole, senza paste tradizionali, per progetti protesici e ortodontici precisi.</p>
           </div>
         </div>
-        <div class="service-card service-card--media service-card--extra service-card--disturbi-sonno hide-on-mobile">
-          <span class="gallery-card__extra-badge" aria-hidden="true">Approfondimento</span>
-          <div class="service-card__image">
-            <img src="assets/images/infocard-2.png" alt="Disturbi del sonno">
-          </div>
-          <div class="service-card__body">
-            <h3>Disturbi del sonno<span class="gallery-card__subtitle-line">in età pediatrica o adolescente</span></h3>
-            <p class="service-card__more-row"><a href="#" class="service-card__more-link" data-modular-overlay-open="disturbi-del-sonno-overlay" aria-haspopup="dialog">Per saperne di più</a></p>
-          </div>
         </div>
+      </div>
+
+      <div id="velvet-tmj" class="services-subsection services-subsection--velvet-tmj">
+        <h3 class="services-subsection__title">Terapia gnatologica</h3>
+        <p class="services-subsection__intro">Velvet TMJ: tecar con diatermia ed elettroporazione per trattamenti non invasivi dell'apparato temporo-mandibolare e del cavo orale.</p>
+        <ul class="services-topic-list">
+          <li class="services-topic-list__item">
+            <a href="#" class="services-topic-list__link" data-modular-overlay-open="velvet-tmj-overlay" aria-haspopup="dialog">
+              <span class="services-topic-list__thumb">
+                <img src="assets/images/velvet-tmj-full.webp" alt="" loading="lazy" decoding="async">
+              </span>
+              <span>
+                <span class="services-topic-list__title">Informazioni sul trattamento</span>
+                <span class="services-topic-list__desc">Diatermia, elettroporazione e trasduttori dedicati per percorsi non invasivi</span>
+              </span>
+              <span class="services-topic-list__arrow" aria-hidden="true">→</span>
+            </a>
+          </li>
+          <li class="services-topic-list__item">
+            <a href="#" class="services-topic-list__link" data-modular-overlay-open="velvet-consigli-overlay" aria-haspopup="dialog">
+              <span class="services-topic-list__thumb">
+                <img src="assets/images/card-sinergia-vincente.webp" alt="" loading="lazy" decoding="async">
+              </span>
+              <span>
+                <span class="services-topic-list__title">Perché funziona</span>
+                <span class="services-topic-list__desc">Sintomi, contesti clinici e benefici attesi con Velvet TMJ</span>
+              </span>
+              <span class="services-topic-list__arrow" aria-hidden="true">→</span>
+            </a>
+          </li>
+        </ul>
+      </div>
+
+      <div id="disturbi-del-sonno" class="services-subsection services-subsection--disturbi-sonno">
+        <h3 class="services-subsection__title">Medicina del sonno</h3>
+        <p class="services-subsection__intro">Valutazione e gestione dei disturbi respiratori del sonno in età pediatrica e adolescenziale, con screening in studio e terapie orali su indicazione clinica.</p>
+        <ul class="services-topic-list">
+          <li class="services-topic-list__item">
+            <a href="#" class="services-topic-list__link" data-modular-overlay-open="disturbi-sonno-pediatrica-overlay" aria-haspopup="dialog">
+              <span class="services-topic-list__thumb">
+                <img src="assets/infographics/disturbi-sonno-eta-pediatrica-adolescenziale.webp" alt="" loading="lazy" decoding="async">
+              </span>
+              <span>
+                <span class="services-topic-list__title">Età pediatrica e adolescenziale</span>
+                <span class="services-topic-list__desc">Prevalenza, segnali clinici e gestione SRBD in età pediatrica</span>
+              </span>
+              <span class="services-topic-list__arrow" aria-hidden="true">→</span>
+            </a>
+          </li>
+          <li class="services-topic-list__item">
+            <a href="#" class="services-topic-list__link" data-modular-overlay-open="disturbi-sonno-fisiologia-overlay" aria-haspopup="dialog">
+              <span class="services-topic-list__thumb">
+                <img src="assets/infographics/fisiopatologia-disturbi-respiratori-del-sonno-srbd.webp" alt="" loading="lazy" decoding="async">
+              </span>
+              <span>
+                <span class="services-topic-list__title">Fisiopatologia</span>
+                <span class="services-topic-list__desc">Meccanismi dei disturbi respiratori, riconoscimento clinico e rischi associati</span>
+              </span>
+              <span class="services-topic-list__arrow" aria-hidden="true">→</span>
+            </a>
+          </li>
+          <li class="services-topic-list__item">
+            <a href="#" class="services-topic-list__link" data-modular-overlay-open="disturbi-sonno-trattamenti-overlay" aria-haspopup="dialog">
+              <span class="services-topic-list__thumb">
+                <img src="assets/infographics/screening-disturbi-sonno-nello-studio-dentistico.webp" alt="" loading="lazy" decoding="async">
+              </span>
+              <span>
+                <span class="services-topic-list__title">Trattamenti dal dentista</span>
+                <span class="services-topic-list__desc">Screening in studio e terapie con dispositivi orali (OAT)</span>
+              </span>
+              <span class="services-topic-list__arrow" aria-hidden="true">→</span>
+            </a>
+          </li>
+        </ul>
       </div>
     </section>
 
@@ -1719,7 +1883,7 @@
         <article class="gallery-card gallery-card--extra">
           <span class="gallery-card__extra-badge" aria-hidden="true">Approfondimento</span>
           <a href="#" class="gallery-card__media" data-modular-overlay-open="velvet-tmj-overlay" aria-haspopup="dialog">
-            <img src="assets/images/velvet-tmj-full.png" alt="Velvet TMJ">
+            <img src="assets/images/velvet-tmj-full.webp" alt="Velvet TMJ">
           </a>
           <div class="gallery-card__content">
             <h3 class="gallery-card__title"><a href="#" data-modular-overlay-open="velvet-tmj-overlay" aria-haspopup="dialog">Velvet TMJ</a></h3>
@@ -1730,7 +1894,7 @@
         <article class="gallery-card gallery-card--extra hide-on-mobile">
           <span class="gallery-card__extra-badge" aria-hidden="true">Approfondimento</span>
           <a href="#" class="gallery-card__media" data-modular-overlay-open="velvet-consigli-overlay" aria-haspopup="dialog">
-            <img src="assets/images/card-sinergia-vincente.png" alt="Sinergia vincente con Velvet TMJ">
+            <img src="assets/images/card-sinergia-vincente.webp" alt="Sinergia vincente con Velvet TMJ">
           </a>
           <div class="gallery-card__content">
             <h3 class="gallery-card__title"><a href="#" data-modular-overlay-open="velvet-consigli-overlay" aria-haspopup="dialog">Benefici del Velvet TMJ</a></h3>
@@ -1740,7 +1904,7 @@
         </article>
         <article class="gallery-card">
           <a href="https://www.facebook.com/photo/?fbid=1319553045663125&set=pb.100028253273647.-2207520000" target="_blank" rel="noopener" class="gallery-card__media">
-            <img src="assets/images/card-digrignamento-notturno.png" alt="Studio Dentistico Marianna Morlino - Galleria">
+            <img src="assets/images/card-digrignamento-notturno.webp" alt="Studio Dentistico Marianna Morlino - Galleria">
           </a>
           <div class="gallery-card__content">
             <h3 class="gallery-card__title"><a href="https://www.facebook.com/photo/?fbid=1319553045663125&set=pb.100028253273647.-2207520000" target="_blank" rel="noopener">Digrignamento notturno</a></h3>
@@ -1749,7 +1913,7 @@
         </article>
         <article class="gallery-card">
           <a href="https://www.facebook.com/photo/?fbid=1319549202330176&set=pb.100028253273647.-2207520000" target="_blank" rel="noopener" class="gallery-card__media">
-            <img src="assets/images/card-click-mandibolare.png" alt="Studio Dentistico Marianna Morlino - Galleria">
+            <img src="assets/images/card-click-mandibolare.webp" alt="Studio Dentistico Marianna Morlino - Galleria">
           </a>
           <div class="gallery-card__content">
             <h3 class="gallery-card__title"><a href="https://www.facebook.com/photo/?fbid=1319549202330176&set=pb.100028253273647.-2207520000" target="_blank" rel="noopener">Click mandibolare</a></h3>
@@ -1758,7 +1922,7 @@
         </article>
         <article class="gallery-card">
           <a href="https://www.facebook.com/photo.php?fbid=1354720838813012&set=pb.100028253273647.-2207520000&type=3" target="_blank" rel="noopener" class="gallery-card__media">
-            <img src="assets/images/card-acufene-e-benessere-mandibolare.png" alt="Acufene e contratture mandibolari">
+            <img src="assets/images/card-acufene-e-benessere-mandibolare.webp" alt="Acufene e contratture mandibolari">
           </a>
           <div class="gallery-card__content">
             <h3 class="gallery-card__title"><a href="https://www.facebook.com/photo.php?fbid=1354720838813012&set=pb.100028253273647.-2207520000&type=3" target="_blank" rel="noopener">Acufene e benessere mandibolare</a></h3>
@@ -1767,7 +1931,7 @@
         </article>
         <article class="gallery-card">
           <a href="https://www.facebook.com/photo.php?fbid=1319560422329054&set=pb.100028253273647.-2207520000&type=3" target="_blank" rel="noopener" class="gallery-card__media">
-            <img src="assets/images/card-dolore-facciale-e-mandibolare.png" alt="Studio Dentistico Marianna Morlino - Galleria">
+            <img src="assets/images/card-dolore-facciale-e-mandibolare.webp" alt="Studio Dentistico Marianna Morlino - Galleria">
           </a>
           <div class="gallery-card__content">
             <h3 class="gallery-card__title"><a href="https://www.facebook.com/photo.php?fbid=1319560422329054&set=pb.100028253273647.-2207520000&type=3" target="_blank" rel="noopener">Dolore facciale e mandibolare</a></h3>
@@ -1776,7 +1940,7 @@
         </article>
         <article class="gallery-card">
           <a href="https://www.facebook.com/photo/?fbid=1336374897314273&set=pb.100028253273647.-2207520000" target="_blank" rel="noopener" class="gallery-card__media">
-            <img src="assets/images/card-salute-orale-e-prevenzione.png" alt="Studio Dentistico Marianna Morlino - Galleria">
+            <img src="assets/images/card-salute-orale-e-prevenzione.webp" alt="Studio Dentistico Marianna Morlino - Galleria">
           </a>
           <div class="gallery-card__content">
             <h3 class="gallery-card__title"><a href="https://www.facebook.com/photo/?fbid=1336374897314273&set=pb.100028253273647.-2207520000" target="_blank" rel="noopener">Salute orale e prevenzione</a></h3>
@@ -1785,7 +1949,7 @@
         </article>
         <article class="gallery-card">
           <a href="https://www.facebook.com/photo/?fbid=1354720088813087&set=pb.100028253273647.-2207520000" target="_blank" rel="noopener" class="gallery-card__media">
-            <img src="assets/images/card-infiammazioni-a-bocca-e-mandibola.png" alt="Studio Dentistico Marianna Morlino - Galleria">
+            <img src="assets/images/card-infiammazioni-a-bocca-e-mandibola.webp" alt="Studio Dentistico Marianna Morlino - Galleria">
           </a>
           <div class="gallery-card__content">
             <h3 class="gallery-card__title"><a href="https://www.facebook.com/photo/?fbid=1354720088813087&set=pb.100028253273647.-2207520000" target="_blank" rel="noopener">Infiammazioni a bocca e mandibola</a></h3>
@@ -1794,7 +1958,7 @@
         </article>
         <article class="gallery-card">
           <a href="https://www.facebook.com/photo/?fbid=1336367260648370&set=pb.100028253273647.-2207520000" target="_blank" rel="noopener" class="gallery-card__media">
-            <img src="assets/images/card-cose-unalgia-mandibolare.png" alt="Studio Dentistico Marianna Morlino - Galleria">
+            <img src="assets/images/card-cose-unalgia-mandibolare.webp" alt="Studio Dentistico Marianna Morlino - Galleria">
           </a>
           <div class="gallery-card__content">
             <h3 class="gallery-card__title"><a href="https://www.facebook.com/photo/?fbid=1336367260648370&set=pb.100028253273647.-2207520000" target="_blank" rel="noopener">Cos'e' un'algia mandibolare</a></h3>
@@ -1803,7 +1967,7 @@
         </article>
         <article class="gallery-card">
           <a href="https://www.facebook.com/photo/?fbid=1354719375479825&set=pb.100028253273647.-2207520000" target="_blank" rel="noopener" class="gallery-card__media">
-            <img src="assets/images/card-riabilitazione-mandibolare.png" alt="Studio Dentistico Marianna Morlino - Galleria">
+            <img src="assets/images/card-riabilitazione-mandibolare.webp" alt="Studio Dentistico Marianna Morlino - Galleria">
           </a>
           <div class="gallery-card__content">
             <h3 class="gallery-card__title"><a href="https://www.facebook.com/photo/?fbid=1354719375479825&set=pb.100028253273647.-2207520000" target="_blank" rel="noopener">Riabilitazione mandibolare</a></h3>
@@ -1812,7 +1976,7 @@
         </article>
         <article class="gallery-card">
           <a href="https://www.facebook.com/photo/?fbid=1354709028814193&set=pb.100028253273647.-2207520000" target="_blank" rel="noopener" class="gallery-card__media">
-            <img src="assets/images/card-visita-senza-paura.png" alt="Studio Dentistico Marianna Morlino - Galleria">
+            <img src="assets/images/card-visita-senza-paura.webp" alt="Studio Dentistico Marianna Morlino - Galleria">
           </a>
           <div class="gallery-card__content">
             <h3 class="gallery-card__title"><a href="https://www.facebook.com/photo/?fbid=1354709028814193&set=pb.100028253273647.-2207520000" target="_blank" rel="noopener">Visita senza paura</a></h3>
@@ -1821,7 +1985,7 @@
         </article>
         <article class="gallery-card">
           <a href="https://www.facebook.com/photo/?fbid=1336366440648452&set=pb.100028253273647.-2207520000" target="_blank" rel="noopener" class="gallery-card__media">
-            <img src="assets/images/card-infiammazioni-mandibolari.png" alt="Studio Dentistico Marianna Morlino - Galleria">
+            <img src="assets/images/card-infiammazioni-mandibolari.webp" alt="Studio Dentistico Marianna Morlino - Galleria">
           </a>
           <div class="gallery-card__content">
             <h3 class="gallery-card__title"><a href="https://www.facebook.com/photo/?fbid=1336366440648452&set=pb.100028253273647.-2207520000" target="_blank" rel="noopener">Infiammazioni mandibolari</a></h3>
@@ -1830,7 +1994,7 @@
         </article>
         <article class="gallery-card">
           <div class="gallery-card__media">
-            <img src="assets/images/card-sinergia-vincente.png" alt="Sinergia vincente con Velvet TMJ">
+            <img src="assets/images/card-sinergia-vincente.webp" alt="Sinergia vincente con Velvet TMJ">
           </div>
           <div class="gallery-card__content">
             <h3 class="gallery-card__title">Sinergia vincente con Velvet TMJ</h3>
@@ -1910,21 +2074,55 @@
     </section>
   </main>
 
-  <div id="disturbi-del-sonno-overlay" class="modular-overlay" aria-hidden="true" role="dialog" aria-modal="true" aria-labelledby="disturbi-overlay-title">
+  <div id="disturbi-sonno-pediatrica-overlay" class="modular-overlay" aria-hidden="true" role="dialog" aria-modal="true" aria-labelledby="disturbi-pediatrica-overlay-title">
     <button type="button" class="modular-overlay__backdrop js-modular-overlay-close" tabindex="-1" aria-label="Chiudi finestra"></button>
     <div class="modular-overlay__panel">
       <button type="button" class="modular-overlay__close js-modular-overlay-close" aria-label="Chiudi">&times;</button>
-      <h2 id="disturbi-overlay-title" class="modular-overlay__title">Disturbi del sonno</h2>
-      <p class="modular-overlay__tagline">in età pediatrica o adolescente</p>
+      <h2 id="disturbi-pediatrica-overlay-title" class="modular-overlay__title">Disturbi del sonno</h2>
+      <p class="modular-overlay__tagline">in età pediatrica e adolescenziale</p>
       <div class="modular-overlay__stack">
         <figure class="modular-overlay__figure">
-          <img src="assets/images/infocard-1.png" alt="" loading="lazy" decoding="async">
+          <img src="assets/infographics/disturbi-sonno-eta-pediatrica-adolescenziale.webp" alt="Disturbi del sonno in età pediatrica e adolescenziale: prevalenza, ricerca e segnali clinici" loading="lazy" decoding="async">
         </figure>
         <figure class="modular-overlay__figure">
-          <img src="assets/images/infocard-2.png" alt="" loading="lazy" decoding="async">
+          <img src="assets/infographics/gestione-disturbi-respiratori-srbd-eta-pediatrica.webp" alt="Gestione dei disturbi respiratori del sonno (SRBD) in età pediatrica" loading="lazy" decoding="async">
         </figure>
         <figure class="modular-overlay__figure">
-          <img src="assets/images/infocard-3.png" alt="" loading="lazy" decoding="async">
+          <img src="assets/infographics/srdb-guida-riconoscimento-clinico.webp" alt="SRBD: guida al riconoscimento clinico" loading="lazy" decoding="async">
+        </figure>
+      </div>
+    </div>
+  </div>
+
+  <div id="disturbi-sonno-fisiologia-overlay" class="modular-overlay" aria-hidden="true" role="dialog" aria-modal="true" aria-labelledby="disturbi-fisiologia-overlay-title">
+    <button type="button" class="modular-overlay__backdrop js-modular-overlay-close" tabindex="-1" aria-label="Chiudi finestra"></button>
+    <div class="modular-overlay__panel">
+      <button type="button" class="modular-overlay__close js-modular-overlay-close" aria-label="Chiudi">&times;</button>
+      <h2 id="disturbi-fisiologia-overlay-title" class="modular-overlay__title">Fisiopatologia</h2>
+      <p class="modular-overlay__tagline">dei disturbi del sonno</p>
+      <div class="modular-overlay__stack">
+        <figure class="modular-overlay__figure">
+          <img src="assets/infographics/fisiopatologia-disturbi-respiratori-del-sonno-srbd.webp" alt="Fisiopatologia dei disturbi respiratori del sonno (SRBD)" loading="lazy" decoding="async">
+        </figure>
+        <figure class="modular-overlay__figure">
+          <img src="assets/infographics/rischi-nascosti-sonno-obesita-ipertensione.webp" alt="Rischi nascosti del sonno: obesità e ipertensione" loading="lazy" decoding="async">
+        </figure>
+      </div>
+    </div>
+  </div>
+
+  <div id="disturbi-sonno-trattamenti-overlay" class="modular-overlay" aria-hidden="true" role="dialog" aria-modal="true" aria-labelledby="disturbi-trattamenti-overlay-title">
+    <button type="button" class="modular-overlay__backdrop js-modular-overlay-close" tabindex="-1" aria-label="Chiudi finestra"></button>
+    <div class="modular-overlay__panel">
+      <button type="button" class="modular-overlay__close js-modular-overlay-close" aria-label="Chiudi">&times;</button>
+      <h2 id="disturbi-trattamenti-overlay-title" class="modular-overlay__title">Trattamenti dal dentista</h2>
+      <p class="modular-overlay__tagline">screening e terapie orali</p>
+      <div class="modular-overlay__stack">
+        <figure class="modular-overlay__figure">
+          <img src="assets/infographics/screening-disturbi-sonno-nello-studio-dentistico.webp" alt="Screening dei disturbi del sonno nello studio dentistico" loading="lazy" decoding="async">
+        </figure>
+        <figure class="modular-overlay__figure">
+          <img src="assets/infographics/addio-russamento-terapia-con-dispositivi-orali-oat.webp" alt="Addio russamento: terapia con dispositivi orali (OAT)" loading="lazy" decoding="async">
         </figure>
       </div>
     </div>
@@ -1945,12 +2143,12 @@
             <p>La scelta tra <strong>bracket</strong> di diversa tipologia, materiali e tecniche non è «una taglia unica»: il professionista valuta indicazioni cliniche, igiene, collaborazione e complessità del caso per proporti un percorso chiaro fin dall'inizio.</p>
           </div>
           <figure class="modular-overlay__figure">
-            <img src="assets/images/brackets-types.png" alt="Panoramica di tipi di bracket ortodontici" loading="lazy" decoding="async">
+            <img src="assets/images/brackets-types.webp" alt="Panoramica di tipi di bracket ortodontici" loading="lazy" decoding="async">
           </figure>
         </div>
         <div class="modular-overlay__interleave-row modular-overlay__interleave-row--chess modular-overlay__interleave-row--chess-img-first">
           <figure class="modular-overlay__figure">
-            <img src="assets/images/brackets-silver-ceramic.png" alt="Bracket metallici e bracket in ceramica estetica" loading="lazy" decoding="async">
+            <img src="assets/images/brackets-silver-ceramic.webp" alt="Bracket metallici e bracket in ceramica estetica" loading="lazy" decoding="async">
           </figure>
           <div class="modular-overlay__prose">
             <p>Gli <strong>apparecchi fissi tradizionali</strong> utilizzano bracket <strong>metallici</strong> particolarmente versatili e robusti, spesso preferiti in casi complessi o in fasi di crescita. I bracket in <strong>ceramica</strong> o materiali più discreti offrono un profilo estetico più contenuto e sono una scelta frequente in età adulta o quando si desidera un impatto visivo minore nel tempo di trattamento.</p>
@@ -1968,7 +2166,7 @@
         </div>
         <div class="modular-overlay__interleave-row modular-overlay__interleave-row--chess modular-overlay__interleave-row--chess-img-first">
           <figure class="modular-overlay__figure">
-            <img src="assets/images/aligner-transparent.png" alt="Allineatori ortodontici trasparenti" loading="lazy" decoding="async">
+            <img src="assets/images/aligner-transparent.webp" alt="Allineatori ortodontici trasparenti" loading="lazy" decoding="async">
           </figure>
           <div class="modular-overlay__prose">
             <p>Gli <strong>allineatori trasparenti</strong> rappresentano, ove indicato dal caso clinico, un'alternativa discreta all'apparecchio fisso: serie di calotte personalizzate che spostano progressivamente i denti secondo un piano digitale o analogico definito in fase di progettazione.</p>
@@ -1977,7 +2175,7 @@
         </div>
         <div class="modular-overlay__interleave-row modular-overlay__interleave-row--chess modular-overlay__interleave-row--chess-text-first">
           <figure class="modular-overlay__figure">
-            <img src="assets/images/aligner-removing.png" alt="Rimozione e gestione quotidiana degli allineatori" loading="lazy" decoding="async">
+            <img src="assets/images/aligner-removing.webp" alt="Rimozione e gestione quotidiana degli allineatori" loading="lazy" decoding="async">
           </figure>
           <div class="modular-overlay__prose">
             <p>Un buon esito con gli allineatori dipende da <strong>compliance</strong>, igiene accurata e rispetto delle fasi di cambio calotta. In studio ti indichiamo come gestire la routine quotidiana, cosa fare in caso di irritazioni lievi e quando è necessario un controllo anticipato.</p>
@@ -1986,7 +2184,7 @@
         </div>
         <div class="modular-overlay__interleave-row modular-overlay__interleave-row--chess modular-overlay__interleave-row--chess-img-first">
           <figure class="modular-overlay__figure">
-            <img src="assets/images/placca-funzionale-terza-classe.png" alt="Esempio di placca funzionale ortodontica" loading="lazy" decoding="async">
+            <img src="assets/images/placca-funzionale-terza-classe.webp" alt="Esempio di placca funzionale ortodontica" loading="lazy" decoding="async">
           </figure>
           <div class="modular-overlay__prose">
             <p>Nei pazienti in crescita possono essere indicate <strong>placche funzionali</strong> o altri dispositivi mobili per favorire l'armonia tra mascella e mandibola e accompagnare lo sviluppo scheletrico. La scelta è sempre legata all'età, alla diagnosi e alla collaborazione in famiglia.</p>
@@ -2018,7 +2216,7 @@
       <div class="modular-overlay__interleave">
         <div class="modular-overlay__interleave-row">
           <figure class="modular-overlay__figure">
-            <img src="assets/images/velvet-tmj.png" alt="Velvet TMJ: panoramica del sistema e del percorso in studio" loading="lazy" decoding="async">
+            <img src="assets/images/velvet-tmj.webp" alt="Velvet TMJ: panoramica del sistema e del percorso in studio" loading="lazy" decoding="async">
           </figure>
           <div class="modular-overlay__prose">
             <p>Il sistema <strong>Velvet TMJ</strong> nello <strong>Studio Dentistico Morlino</strong> integra <strong>diatermia</strong> ed <strong>elettroporazione</strong> con <strong>trasduttori dedicati</strong>, in percorsi <strong>non invasivi</strong> per il benessere dell'apparato temporo-mandibolare e delle aree peri-orali. Le sezioni seguenti descrivono la diatermia e i trasduttori utilizzati in protocollo clinico.</p>
@@ -2031,7 +2229,7 @@
         </div>
         <div class="modular-overlay__interleave-row modular-overlay__interleave-row--chess modular-overlay__interleave-row--chess-text-first">
           <figure class="modular-overlay__figure">
-            <img src="assets/images/velvet-tmj-diatermia.png" alt="Diatermia Velvet TMJ" loading="lazy" decoding="async">
+            <img src="assets/images/velvet-tmj-diatermia.webp" alt="Diatermia Velvet TMJ" loading="lazy" decoding="async">
           </figure>
           <div class="modular-overlay__prose">
             <p>La <strong>diatermia</strong> è una metodica capace di indurre un aumento di temperatura del derma, favorendo un incremento della circolazione sanguigna e della vasodilatazione sulla zona interessata; in ambito <strong>gnatologico</strong>, è in grado di trattare tutti i tessuti dell'apparato stomatognatico e i disordini temporo-mandibolari. In questo caso la terapia ha lo scopo di decomprimere le articolazioni, rilassare i muscoli e contribuire al riposizionamento della mandibola. Con l'aiuto di questa tecnologia si ricreano le condizioni ottimali affinché avvenga il processo di guarigione e di adattamento.</p>
@@ -2046,7 +2244,7 @@
         </div>
         <div class="modular-overlay__interleave-row modular-overlay__interleave-row--chess modular-overlay__interleave-row--chess-img-first">
           <figure class="modular-overlay__figure">
-            <img src="assets/images/velvet-tmj-trasduttore-diatermia-dcr.png" alt="Trasduttore a diatermia Velvet TMJ" loading="lazy" decoding="async">
+            <img src="assets/images/velvet-tmj-trasduttore-diatermia-dcr.webp" alt="Trasduttore a diatermia Velvet TMJ" loading="lazy" decoding="async">
           </figure>
           <div class="modular-overlay__prose">
             <p>Il <strong>trasduttore a diatermia capacitiva e resistiva</strong> di Velvet TMJ determina una biostimolazione selettiva sui tessuti atrofici, innescando risposte fisiologiche e velocizzando il processo di guarigione, con conseguente ripristino della funzione e immediata scomparsa del dolore.</p>
@@ -2054,7 +2252,7 @@
         </div>
         <div class="modular-overlay__interleave-row modular-overlay__interleave-row--chess modular-overlay__interleave-row--chess-text-first">
           <figure class="modular-overlay__figure">
-            <img src="assets/images/velvet-tmj-trasduttore-elettroporazione.png" alt="Trasduttore ad elettroporazione Velvet TMJ" loading="lazy" decoding="async">
+            <img src="assets/images/velvet-tmj-trasduttore-elettroporazione.webp" alt="Trasduttore ad elettroporazione Velvet TMJ" loading="lazy" decoding="async">
           </figure>
           <div class="modular-overlay__prose">
             <p>Il <strong>trasduttore ad elettroporazione</strong> — attraverso l'applicazione su una superficie biologica di un particolare impulso elettrico — induce un aumento transitorio della permeabilità dei tessuti e permette di veicolare per via transdermica principi attivi allopatici o omeopatici.</p>
@@ -2087,7 +2285,7 @@
       <p class="footer-powered">
         <a href="https://www.sabiasrl.com" target="_blank" rel="noopener noreferrer">
           <span>Powered by</span>
-          <img src="assets/powered-by.png" alt="Sabia Srl" loading="lazy" decoding="async" />
+          <img src="assets/powered-by.webp" alt="Sabia Srl" loading="lazy" decoding="async" />
         </a>
       </p>
     </div>
@@ -2117,6 +2315,10 @@
       document.body.classList.remove('menu-open');
     }
 
+    function isMobileNav() {
+      return window.innerWidth <= 640;
+    }
+
     menuToggle.addEventListener('click', function() {
       var isOpen = siteNav.classList.toggle('active');
       menuToggle.setAttribute('aria-expanded', String(isOpen));
@@ -2126,7 +2328,7 @@
 
     siteNav.querySelectorAll('a').forEach(function(link) {
       link.addEventListener('click', function() {
-        if (window.innerWidth <= 640) closeMobileNav();
+        if (isMobileNav()) closeMobileNav();
       });
     });
 
@@ -2291,7 +2493,7 @@
 
       var icon = document.createElement('img');
       icon.className = 'vcard-on-phone__icon';
-      icon.src = 'assets/contacts.png';
+      icon.src = 'assets/contacts.webp';
       icon.alt = '';
       icon.setAttribute('aria-hidden', 'true');
       icon.loading = 'lazy';
