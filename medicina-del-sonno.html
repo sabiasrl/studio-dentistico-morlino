@@ -1,0 +1,756 @@
+<!DOCTYPE html>
+<html lang="it">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="icon" type="image/png" sizes="32x32" href="assets/favicon/favicon-32x32.png">
+  <link rel="icon" type="image/png" sizes="16x16" href="assets/favicon/favicon-16x16.png">
+  <link rel="icon" type="image/png" sizes="48x48" href="assets/favicon/favicon-48x48.png">
+  <link rel="apple-touch-icon" sizes="180x180" href="assets/favicon/apple-touch-icon.png">
+  <meta name="description" content="Medicina del sonno nello Studio Dentistico Morlino ad Atella (PZ): screening SRBD, età pediatrica, fisiopatologia e terapia con dispositivi orali (OAT).">
+  <meta name="robots" content="index, follow, max-image-preview:large, max-snippet:-1, max-video-preview:-1">
+  <link rel="canonical" href="https://www.studiodentisticomorlino.it/medicina-del-sonno.html">
+  <title>Medicina del sonno | Studio Dentistico Marianna Morlino</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;600;700&display=swap" rel="stylesheet">
+  <style>
+    :root {
+      --color-bg: #ffffff;
+      --color-bg-alt: #f8fafc;
+      --color-charcoal: #1A2A3A;
+      --color-text-accent: #0077B6;
+      --color-text-accent-dark: #005691;
+      --color-stone: #5a6c7d;
+      --color-white: #ffffff;
+      --color-wave-light: #2E638E;
+      --color-wave-dark: #1C3D5A;
+      --color-orange: #e07a3d;
+      --shadow-soft: 0 4px 24px rgba(0, 119, 182, 0.1);
+      --shadow-medium: 0 8px 40px rgba(0, 119, 182, 0.15);
+      --radius: 16px;
+      --radius-lg: 24px;
+      --transition: 0.3s ease;
+    }
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+    html { scroll-behavior: smooth; }
+    body {
+      font-family: 'Montserrat', -apple-system, BlinkMacSystemFont, sans-serif;
+      font-size: 16px;
+      line-height: 1.6;
+      color: var(--color-charcoal);
+      background: var(--color-bg);
+      overflow-x: hidden;
+    }
+    h1, h2, h3 { font-family: 'Montserrat', sans-serif; }
+    .logo-studio { font-weight: 700; }
+    h1 { font-size: clamp(1.85rem, 4.5vw, 2.75rem); font-weight: 700; }
+    h2 { font-size: clamp(1.45rem, 3.5vw, 2rem); font-weight: 600; margin-bottom: 0.75rem; }
+    h3 { font-size: clamp(1.1rem, 2.2vw, 1.3rem); font-weight: 600; }
+    a { color: var(--color-text-accent); text-decoration: none; transition: color var(--transition); }
+    a:hover { color: var(--color-text-accent-dark); }
+    img { max-width: 100%; height: auto; display: block; }
+
+    .header {
+      position: fixed; top: 0; left: 0; right: 0; z-index: 1000;
+      background: rgba(255, 255, 255, 0.9);
+      backdrop-filter: blur(20px);
+      -webkit-backdrop-filter: blur(20px);
+      box-shadow: 0 1px 0 rgba(0, 119, 182, 0.08);
+    }
+    .header-inner {
+      max-width: 1200px; margin: 0 auto; padding: 1rem 1.5rem;
+      display: flex; align-items: center; justify-content: space-between; flex-wrap: wrap; gap: 1rem;
+    }
+    .logo {
+      display: flex; align-items: center; gap: 0.75rem;
+      text-decoration: none; color: inherit;
+    }
+    .logo-text { display: flex; flex-direction: column; line-height: 1.2; }
+    .logo-studio { text-transform: uppercase; font-size: 1rem; font-weight: 700; color: var(--color-charcoal); }
+    .logo-name { font-size: 0.8rem; font-weight: 500; color: var(--color-text-accent); }
+    .nav { display: flex; gap: 1.5rem; flex-wrap: wrap; }
+    .nav a { font-weight: 500; font-size: 0.95rem; color: var(--color-charcoal); }
+    .nav a:hover, .nav a.is-active { color: var(--color-text-accent); }
+    .nav .nav-top-logo { display: none; }
+    .menu-toggle {
+      display: none; background: none; border: none; font-size: 1.5rem;
+      cursor: pointer; padding: 0.5rem; color: var(--color-charcoal);
+    }
+    @media (max-width: 640px) {
+      .menu-toggle { display: block; z-index: 1002; }
+      .menu-toggle[aria-expanded="true"] { color: #ffffff; }
+      .nav {
+        display: none; position: fixed; inset: 0; z-index: 1001;
+        width: 100%; min-height: 100vh; min-height: 100dvh;
+        padding: 4.75rem 1.5rem 2.5rem; flex-direction: column;
+        justify-content: flex-start; align-items: center; row-gap: 1.35rem;
+        background: #ffffff;
+      }
+      .nav.active { display: flex; }
+      .nav a {
+        color: var(--color-charcoal); font-size: 1.15rem; font-weight: 600;
+        letter-spacing: 0.02em; line-height: 1.25;
+        width: 100%; max-width: 320px; text-align: center; padding: 0.45rem 0;
+      }
+      .nav .nav-top-logo {
+        display: inline-flex; flex-direction: row; align-items: center; justify-content: center;
+        gap: 0.75rem; margin-bottom: 0.8rem; color: var(--color-charcoal);
+      }
+      .nav .nav-top-logo img {
+        width: 40px; height: 40px; object-fit: contain; border-radius: 999px;
+      }
+      .nav .nav-top-logo .logo-studio {
+        text-transform: uppercase; font-size: 0.95rem; font-weight: 700; color: var(--color-charcoal);
+      }
+      .nav .nav-top-logo .logo-name {
+        font-size: 0.78rem; font-weight: 500; color: var(--color-text-accent);
+      }
+      .footer-brandline {
+        display: none;
+      }
+      .footer-tagline-mobile {
+        display: block;
+        font-size: 0.95rem;
+        line-height: 1.45;
+        color: rgba(255,255,255,0.8);
+      }
+    }
+    body.menu-open { overflow: hidden; }
+
+    main { padding-top: 5.25rem; }
+    section {
+      max-width: 1200px; margin: 0 auto; padding: 3.5rem 1.5rem;
+    }
+    .page-hero {
+      padding-top: 2.5rem; padding-bottom: 2rem;
+      background: linear-gradient(180deg, rgba(0, 119, 182, 0.06) 0%, transparent 100%);
+    }
+    .page-hero__inner { max-width: 46rem; }
+    .page-hero__eyebrow {
+      display: inline-block; margin-bottom: 0.65rem;
+      font-size: 0.78rem; font-weight: 600; letter-spacing: 0.05em;
+      text-transform: uppercase; color: var(--color-text-accent-dark);
+    }
+    .page-hero h1 {
+      font-size: clamp(1.2rem, 2.5vw, 1.45rem);
+      font-weight: 600;
+      margin-bottom: 0.65rem;
+      color: var(--color-text-accent-dark);
+    }
+    .page-hero p {
+      margin-top: 0;
+      margin-bottom: 0;
+      max-width: 46rem;
+      color: var(--color-stone);
+      font-size: 0.98rem;
+      line-height: 1.65;
+    }
+    .section-title { margin-bottom: 2rem; }
+    .section-title h2 {
+      font-size: clamp(1.2rem, 2.5vw, 1.45rem);
+      font-weight: 600;
+      margin-bottom: 0.65rem;
+      color: var(--color-text-accent-dark);
+    }
+    .section-title p { color: var(--color-stone); margin-top: 0.4rem; font-size: 0.98rem; line-height: 1.65; }
+
+    .sleep-content { background: var(--color-bg-alt); }
+    .sleep-block {
+      display: grid; gap: 1.5rem; align-items: center;
+      margin-bottom: 2.75rem;
+      padding: 1.5rem;
+      background: white;
+      border: 1px solid rgba(0, 119, 182, 0.1);
+      border-radius: var(--radius-lg);
+      box-shadow: var(--shadow-soft);
+    }
+    .sleep-block:last-child { margin-bottom: 0; }
+    @media (min-width: 768px) {
+      .sleep-block {
+        grid-template-columns: minmax(0, 0.95fr) minmax(0, 1.05fr);
+        gap: 2rem; padding: 1.75rem;
+      }
+      .sleep-block--flip { grid-template-columns: minmax(0, 1.05fr) minmax(0, 0.95fr); }
+      .sleep-block--flip .sleep-block__media { order: 2; }
+      .sleep-block--flip .sleep-block__body { order: 1; }
+    }
+    .sleep-block__media {
+      display: block;
+      position: relative;
+      border-radius: var(--radius);
+      overflow: hidden;
+      border: 1px solid rgba(0, 119, 182, 0.1);
+      background: #f4f8fb;
+      aspect-ratio: 4 / 5;
+      max-height: 22rem;
+      color: inherit;
+      text-decoration: none;
+    }
+    .sleep-block__media:hover {
+      border-color: rgba(0, 119, 182, 0.28);
+      box-shadow: var(--shadow-soft);
+      color: inherit;
+    }
+    .sleep-block__media img {
+      position: absolute;
+      inset: 0;
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      object-position: top center;
+      display: block;
+    }
+    .sleep-block__media--mid img { object-position: center top 18%; }
+    .sleep-block__media--lower img { object-position: center top 28%; }
+    .sleep-block__media--focus-body img { object-position: center 12%; }
+    .sleep-block__media::after {
+      content: 'Apri infografica';
+      position: absolute;
+      left: 0.75rem;
+      bottom: 0.75rem;
+      padding: 0.35rem 0.7rem;
+      border-radius: 999px;
+      background: rgba(26, 42, 58, 0.72);
+      color: #fff;
+      font-size: 0.72rem;
+      font-weight: 600;
+      letter-spacing: 0.02em;
+      pointer-events: none;
+    }
+    .sleep-block__kicker {
+      display: block; margin-bottom: 0.35rem;
+      font-size: 0.75rem; font-weight: 600; letter-spacing: 0.04em;
+      text-transform: uppercase; color: var(--color-text-accent);
+    }
+    .sleep-block__body h3 { margin-bottom: 0.65rem; color: var(--color-text-accent-dark); }
+    .sleep-block__body p { color: var(--color-stone); margin-bottom: 0.75rem; }
+    .sleep-block__body p:last-child { margin-bottom: 0; }
+    .sleep-stats {
+      display: grid; grid-template-columns: repeat(2, minmax(0, 1fr));
+      gap: 0.75rem; margin: 1rem 0 0.25rem;
+    }
+    @media (min-width: 640px) {
+      .sleep-stats { grid-template-columns: repeat(3, minmax(0, 1fr)); }
+    }
+    .sleep-stat {
+      padding: 0.75rem 0.85rem;
+      border-radius: 12px;
+      background: rgba(0, 119, 182, 0.06);
+      border: 1px solid rgba(0, 119, 182, 0.1);
+    }
+    .sleep-stat__value {
+      display: block; font-size: 1.15rem; font-weight: 700;
+      color: var(--color-text-accent-dark); line-height: 1.2;
+    }
+    .sleep-stat__label {
+      display: block; margin-top: 0.2rem;
+      font-size: 0.78rem; color: var(--color-stone); line-height: 1.35;
+    }
+    .sleep-list {
+      list-style: none; display: grid; gap: 0.45rem; margin: 0.75rem 0 0;
+    }
+    .sleep-list li {
+      position: relative; padding-left: 1.05rem;
+      color: var(--color-stone); font-size: 0.95rem;
+    }
+    .sleep-list li::before {
+      content: ''; position: absolute; top: 0.55em; left: 0;
+      width: 7px; height: 7px; border-radius: 999px;
+      background: var(--color-text-accent);
+    }
+
+    .sleep-cta {
+      text-align: center; padding-bottom: 4rem;
+    }
+    .sleep-cta p { color: var(--color-stone); max-width: 36rem; margin: 0.5rem auto 1.25rem; }
+    .sleep-cta__btn {
+      display: inline-flex; align-items: center; justify-content: center;
+      padding: 0.8rem 1.35rem; border-radius: 999px;
+      background: var(--color-text-accent); color: white !important;
+      font-weight: 600; font-size: 0.95rem;
+    }
+    .sleep-cta__btn:hover { background: var(--color-text-accent-dark); }
+
+    /* Footer */
+    footer {
+      background: linear-gradient(180deg, var(--color-wave-light) 0%, var(--color-wave-dark) 100%);
+      color: white;
+      padding: 3rem 1.5rem;
+      text-align: center;
+    }
+    .footer-inner { max-width: 1200px; margin: 0 auto; }
+    .footer-social {
+      display: flex;
+      justify-content: center;
+      gap: 1rem;
+      margin-bottom: 1.5rem;
+    }
+    .footer-social a {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      padding: 0.5rem 1rem;
+      min-width: 44px;
+      background: rgba(255,255,255,0.1);
+      border-radius: var(--radius);
+      color: white;
+      white-space: nowrap;
+      transition: var(--transition);
+    }
+    .footer-social a:hover { background: #00BFFF; color: white; }
+    .footer p {
+      color: rgba(255,255,255,0.8);
+    }
+    .footer-brandline {
+      font-size: 0.95rem;
+      line-height: 1.45;
+    }
+    .footer-fiscal {
+      margin-top: 0;
+      font-size: 0.82rem;
+      line-height: 1.55;
+      color: rgba(255,255,255,0.72);
+      letter-spacing: 0.02em;
+    }
+    .footer-tagline-mobile + .footer-fiscal {
+      margin-top: 0.5rem;
+    }
+    .footer-fiscal + .footer-fiscal {
+      margin-top: 0.38rem;
+    }
+    .footer-powered {
+      margin-top: 0.6rem;
+      text-align: center;
+      font-size: 0.82rem;
+      line-height: 1.55;
+      color: rgba(255,255,255,0.72);
+      letter-spacing: 0.02em;
+    }
+    .footer-powered a {
+      display: inline-flex;
+      align-items: center;
+      gap: 0.45rem;
+      color: inherit;
+      text-decoration: none;
+      font-size: inherit;
+    }
+    .footer-powered a:hover {
+      color: rgba(255,255,255,0.95);
+    }
+    .footer-powered img {
+      height: 14px;
+      width: auto;
+      flex-shrink: 0;
+      display: block;
+    }
+    .footer a { color: white; }
+    .footer .footer-powered a {
+      color: inherit;
+    }
+    .footer strong,
+    footer .logo-studio {
+      color: #ffffff;
+    }
+    .footer-tagline-mobile {
+      display: none;
+    }
+
+    body.body--modular-overlay-open { overflow: hidden; }
+    .modular-overlay {
+      position: fixed; inset: 0; z-index: 2000;
+      display: none; align-items: center; justify-content: center;
+      padding: 1rem;
+    }
+    .modular-overlay.is-open { display: flex; }
+    .modular-overlay__backdrop {
+      position: absolute; inset: 0; border: none; padding: 0;
+      background: rgba(26, 42, 58, 0.62); cursor: pointer;
+    }
+    .modular-overlay__panel {
+      position: relative; z-index: 1;
+      width: min(720px, 100%);
+      max-height: min(92vh, 920px);
+      overflow: auto;
+      background: white;
+      border-radius: var(--radius-lg);
+      box-shadow: var(--shadow-medium);
+      padding: 1.25rem 1.25rem 1.5rem;
+    }
+    .modular-overlay__close {
+      position: sticky; top: 0; float: right;
+      width: 2.25rem; height: 2.25rem;
+      border: none; border-radius: 999px;
+      background: rgba(0, 119, 182, 0.08);
+      color: var(--color-charcoal);
+      font-size: 1.5rem; line-height: 1; cursor: pointer;
+    }
+    .modular-overlay__title {
+      clear: both; margin: 0.25rem 2.5rem 0.35rem 0;
+      font-size: clamp(1.15rem, 2.5vw, 1.45rem);
+      color: var(--color-text-accent-dark);
+    }
+    .modular-overlay__tagline {
+      margin-bottom: 1rem; color: var(--color-stone); font-size: 0.95rem;
+    }
+    .modular-overlay__figure {
+      margin: 0; border-radius: 12px; overflow: hidden;
+      border: 1px solid rgba(0, 119, 182, 0.1);
+    }
+    .modular-overlay__figure img { width: 100%; height: auto; display: block; }
+  </style>
+</head>
+<body>
+  <header class="header" id="top">
+    <div class="header-inner">
+      <a href="index.html" class="logo">
+        <img src="assets/logo.webp" alt="" class="logo-icon" width="40" height="40">
+        <span class="logo-text">
+          <span class="logo-studio">Studio Dentistico</span>
+          <span class="logo-name">Dott.ssa Marianna Morlino</span>
+        </span>
+      </a>
+      <button class="menu-toggle" aria-label="Menu" aria-expanded="false" aria-controls="site-nav">☰</button>
+      <nav class="nav" id="site-nav">
+        <a href="index.html#top" class="nav-top-logo" aria-label="Torna in alto">
+          <img src="assets/logo.webp" alt="" class="logo-icon" width="40" height="40">
+          <span class="logo-text">
+            <span class="logo-studio">Studio Dentistico</span>
+            <span class="logo-name">Dott.ssa Marianna Morlino</span>
+          </span>
+        </a>
+        <a href="index.html#chi-siamo">Lo studio</a>
+        <a href="index.html#servizi-dello-studio">Cure dentali</a>
+        <a href="terapia-gnatologica.html">Terapia gnatologica</a>
+        <a href="medicina-del-sonno.html" class="is-active" aria-current="page">Medicina del sonno</a>
+        <a href="index.html#contatti">Contatti</a>
+      </nav>
+    </div>
+  </header>
+
+  <main>
+    <section class="page-hero">
+      <div class="page-hero__inner">
+        <span class="page-hero__eyebrow">Studio Dentistico Morlino</span>
+        <h1>Medicina del sonno</h1>
+        <p>Valutazione e gestione dei disturbi respiratori del sonno (SRBD) in età pediatrica, adolescenziale e adulta: screening in studio, riconoscimento dei segnali clinici e terapie con dispositivi orali su indicazione professionale.</p>
+      </div>
+    </section>
+
+    <section id="contenuti" class="sleep-content">
+      <div class="section-title">
+        <h2>Cosa sapere sui disturbi del sonno</h2>
+        <p>Sintesi cliniche ricavate dalle nostre infografiche di approfondimento</p>
+      </div>
+
+      <article class="sleep-block">
+        <a href="#" class="sleep-block__media" data-modular-overlay-open="infographic-pediatrica" aria-haspopup="dialog" aria-label="Apri infografica: Disturbi del sonno in età pediatrica">
+          <img src="assets/infographics/disturbi-sonno-eta-pediatrica-adolescenziale.webp" alt="Disturbi del sonno in età pediatrica e adolescenziale" loading="lazy" decoding="async">
+        </a>
+        <div class="sleep-block__body">
+          <span class="sleep-block__kicker">Età pediatrica e adolescenziale</span>
+          <h3>Disturbi del sonno spesso non diagnosticati</h3>
+          <p>Il sonno nei bambini e negli adolescenti è dinamico e unico. Molti disturbi restano non diagnosticati perché si manifestano attraverso problemi comportamentali o sintomi fisici sottili, nonostante l’aumento della ricerca scientifica sul tema.</p>
+          <div class="sleep-stats">
+            <div class="sleep-stat">
+              <span class="sleep-stat__value">25–50%</span>
+              <span class="sleep-stat__label">prevalenza stimata di disturbi del sonno non diagnosticati</span>
+            </div>
+            <div class="sleep-stat">
+              <span class="sleep-stat__value">+1226%</span>
+              <span class="sleep-stat__label">incremento della ricerca scientifica dagli anni 2000</span>
+            </div>
+            <div class="sleep-stat">
+              <span class="sleep-stat__value">SRBD</span>
+              <span class="sleep-stat__label">insonnia, bruxismo e gambe senza riposo tra i quadri più frequenti</span>
+            </div>
+          </div>
+          <p>Segnali di allarme tipici: respirazione orale, mal di testa e apatia, spesso legati a possibili ostruzioni delle vie aeree e a prestazioni diurne ridotte.</p>
+        </div>
+      </article>
+
+      <article class="sleep-block sleep-block--flip">
+        <a href="#" class="sleep-block__media sleep-block__media--focus-body" data-modular-overlay-open="infographic-fisiopatologia" aria-haspopup="dialog" aria-label="Apri infografica: Fisiopatologia SRBD">
+          <img src="assets/infographics/fisiopatologia-disturbi-respiratori-del-sonno-srbd.webp" alt="Fisiopatologia dei disturbi respiratori del sonno" loading="lazy" decoding="async">
+        </a>
+        <div class="sleep-block__body">
+          <span class="sleep-block__kicker">Fisiopatologia SRBD</span>
+          <h3>Le tre zone di rischio delle vie aeree</h3>
+          <p>I disturbi respiratori del sonno coinvolgono nasofaringe, orofaringe e ipofaringe. La discesa della laringe, evolutivamente utile al linguaggio, rende le vie aeree umane più soggette al collasso rispetto ad altri primati.</p>
+          <p>La lingua, idrostato muscolare senza supporto osseo, può occupare l’intera orofaringe quando rilassata. Il quadro è spesso progressivo: respirazione orale cronica → russamento → apnea ostruttiva (OSA), con frequente associazione all’insonnia.</p>
+        </div>
+      </article>
+
+      <article class="sleep-block">
+        <a href="#" class="sleep-block__media sleep-block__media--focus-body" data-modular-overlay-open="infographic-riconoscimento" aria-haspopup="dialog" aria-label="Apri infografica: Guida al riconoscimento clinico">
+          <img src="assets/infographics/srdb-guida-riconoscimento-clinico.webp" alt="Guida al riconoscimento clinico SRBD" loading="lazy" decoding="async">
+        </a>
+        <div class="sleep-block__body">
+          <span class="sleep-block__kicker">Riconoscimento clinico</span>
+          <h3>Come riconoscere gli SRBD nei bambini</h3>
+          <p>Russamento e apnea notturna incidono su crescita e comportamento. Spesso non diagnosticati, emergono con segni facciali e cambiamenti comportamentali diversi tra età prescolare e adolescenza.</p>
+          <ul class="sleep-list">
+            <li><strong>Segni facciali:</strong> faccia adenoidea, occhiaie (allergic shiners), labbra socchiuse</li>
+            <li><strong>Impatto cognitivo:</strong> irritabilità, deficit di attenzione (ADHD), scarso rendimento scolastico</li>
+            <li><strong>Gravità:</strong> AHI &gt; 10 definisce un’apnea notturna grave in età pediatrica</li>
+            <li><strong>Crescita:</strong> la frammentazione del sonno può ridurre l’ormone della crescita</li>
+          </ul>
+        </div>
+      </article>
+
+      <article class="sleep-block sleep-block--flip">
+        <a href="#" class="sleep-block__media sleep-block__media--mid" data-modular-overlay-open="infographic-gestione" aria-haspopup="dialog" aria-label="Apri infografica: Gestione SRBD in età pediatrica">
+          <img src="assets/infographics/gestione-disturbi-respiratori-srbd-eta-pediatrica.webp" alt="Gestione dei disturbi respiratori del sonno in età pediatrica" loading="lazy" decoding="async">
+        </a>
+        <div class="sleep-block__body">
+          <span class="sleep-block__kicker">Gestione pediatrica</span>
+          <h3>Approccio multidisciplinare al trattamento</h3>
+          <p>Gli SRBD richiedono un intervento tempestivo e multidisciplinare per prevenire l’apnea: dalla chirurgia e dalla farmacologia all’ortodonzia, con ricadute importanti sul comportamento del bambino.</p>
+          <ul class="sleep-list">
+            <li><strong>Tonsillectomia e adenoidectomia (T&amp;A):</strong> terapia di prima linea in caso di ipertrofia adeno-tonsillare</li>
+            <li><strong>Terapie anti-infiammatorie:</strong> utili nel breve termine sull’ipertrofia adenoidea</li>
+            <li><strong>Espansione palatale ortodontica:</strong> migliora il flusso aereo e riduce russamento e sonnolenza diurna</li>
+            <li><strong>Terapia miofunzionale:</strong> corregge postura linguale e deglutizione</li>
+          </ul>
+          <p>I bambini con ADHD hanno probabilità circa tripla di russare; dopo T&amp;A i problemi comportamentali spesso migliorano entro un anno.</p>
+        </div>
+      </article>
+
+      <article class="sleep-block">
+        <a href="#" class="sleep-block__media" data-modular-overlay-open="infographic-screening" aria-haspopup="dialog" aria-label="Apri infografica: Screening nello studio dentistico">
+          <img src="assets/infographics/screening-disturbi-sonno-nello-studio-dentistico.webp" alt="Screening dei disturbi del sonno nello studio dentistico" loading="lazy" decoding="async">
+        </a>
+        <div class="sleep-block__body">
+          <span class="sleep-block__kicker">Ruolo del dentista</span>
+          <h3>Screening nello studio dentistico</h3>
+          <p>Lo screening non è una diagnosi: serve a identificare pazienti asintomatici o a rischio e a indirizzarli verso specialisti del sonno o test diagnostici formali, con questionari validati e osservazione clinica.</p>
+          <ul class="sleep-list">
+            <li><strong>STOP-Bang:</strong> tra gli strumenti più accurati per sospettare OSA</li>
+            <li><strong>5 domande chiave:</strong> russamento, stanchezza diurna, cefalea mattutina, concentrazione, pause respiratorie</li>
+            <li><strong>Epworth (ESS):</strong> misura la sonnolenza nelle attività quotidiane</li>
+            <li><strong>Pediatria (BEARS):</strong> Bedtime, Excessive sleepiness, Awakenings, Regularity, Snoring</li>
+            <li><strong>Segni anatomici:</strong> lingua ingrossata e ostruzione nasale (score BATE)</li>
+          </ul>
+          <p>Fattori di rischio adulti: BMI &gt; 30, circonferenza collo &gt; 40 cm, età &gt; 50 anni, genere maschile, russamento rumoroso e pause osservate.</p>
+        </div>
+      </article>
+
+      <article class="sleep-block sleep-block--flip">
+        <a href="#" class="sleep-block__media sleep-block__media--mid" data-modular-overlay-open="infographic-rischi" aria-haspopup="dialog" aria-label="Apri infografica: Sonno, obesità e ipertensione">
+          <img src="assets/infographics/rischi-nascosti-sonno-obesita-ipertensione.webp" alt="Sonno, obesità e ipertensione: i rischi nascosti" loading="lazy" decoding="async">
+        </a>
+        <div class="sleep-block__body">
+          <span class="sleep-block__kicker">Rischi sistemici</span>
+          <h3>Sonno, obesità e ipertensione</h3>
+          <p>Dormire poco o male non causa solo stanchezza: può innescare rischi cardiovascolari e metabolici. Gli SRBD sono strettamente collegati all’obesità e l’OSA è un fattore di rischio indipendente per l’ipertensione.</p>
+          <div class="sleep-stats">
+            <div class="sleep-stat">
+              <span class="sleep-stat__value">7–9 ore</span>
+              <span class="sleep-stat__label">durata di sonno consigliata per ridurre i rischi</span>
+            </div>
+            <div class="sleep-stat">
+              <span class="sleep-stat__value">20–70%</span>
+              <span class="sleep-stat__label">dei pazienti con OSA presenta ipertensione</span>
+            </div>
+            <div class="sleep-stat">
+              <span class="sleep-stat__value">Girovita</span>
+              <span class="sleep-stat__label">&gt; 101 cm uomini · &gt; 89 cm donne (attenzione all’obesità centrale)</span>
+            </div>
+          </div>
+        </div>
+      </article>
+
+      <article class="sleep-block">
+        <a href="#" class="sleep-block__media sleep-block__media--focus-body" data-modular-overlay-open="infographic-oat" aria-haspopup="dialog" aria-label="Apri infografica: Terapia con dispositivi orali OAT">
+          <img src="assets/infographics/addio-russamento-terapia-con-dispositivi-orali-oat.webp" alt="Addio russamento: terapia con dispositivi orali OAT" loading="lazy" decoding="async">
+        </a>
+        <div class="sleep-block__body">
+          <span class="sleep-block__kicker">Terapia OAT</span>
+          <h3>Dispositivi orali contro il russamento</h3>
+          <p>Il dispositivo orale sposta in avanti la mandibola, impedendo a lingua e tessuti molli di collassare e bloccare l’aria. È indicato per russamento primario, OSA lieve-moderata e per chi non tollera la maschera CPAP.</p>
+          <ul class="sleep-list">
+            <li>Maggiore adesione rispetto alla CPAP grazie al comfort</li>
+            <li>Gli apparecchi <strong>su misura regolabili</strong> sono più efficaci dei modelli standard «bolli e morde»</li>
+            <li>Indicazione e personalizzazione dopo valutazione in studio</li>
+          </ul>
+        </div>
+      </article>
+    </section>
+
+    <section class="sleep-cta">
+      <h2>Ti svegli stanco o hai difficoltà a riposare?</h2>
+      <p>Ritrova l'energia di cui hai bisogno. Contattaci per uno screening in studio e un percorso personalizzato di medicina del sonno.</p>
+      <a class="sleep-cta__btn" href="index.html#contatti">Prenota uno screening</a>
+    </section>
+  </main>
+
+  <div id="infographic-pediatrica" class="modular-overlay" aria-hidden="true" role="dialog" aria-modal="true" aria-labelledby="infographic-pediatrica-title">
+    <button type="button" class="modular-overlay__backdrop js-modular-overlay-close" tabindex="-1" aria-label="Chiudi finestra"></button>
+    <div class="modular-overlay__panel">
+      <button type="button" class="modular-overlay__close js-modular-overlay-close" aria-label="Chiudi">&times;</button>
+      <h2 id="infographic-pediatrica-title" class="modular-overlay__title">Disturbi del sonno in età pediatrica e adolescenziale</h2>
+      <p class="modular-overlay__tagline">Prevalenza, ricerca e segnali clinici</p>
+      <figure class="modular-overlay__figure">
+        <img src="assets/infographics/disturbi-sonno-eta-pediatrica-adolescenziale.webp" alt="Infografica completa: Disturbi del sonno in età pediatrica e adolescenziale" loading="lazy" decoding="async">
+      </figure>
+    </div>
+  </div>
+
+  <div id="infographic-fisiopatologia" class="modular-overlay" aria-hidden="true" role="dialog" aria-modal="true" aria-labelledby="infographic-fisiopatologia-title">
+    <button type="button" class="modular-overlay__backdrop js-modular-overlay-close" tabindex="-1" aria-label="Chiudi finestra"></button>
+    <div class="modular-overlay__panel">
+      <button type="button" class="modular-overlay__close js-modular-overlay-close" aria-label="Chiudi">&times;</button>
+      <h2 id="infographic-fisiopatologia-title" class="modular-overlay__title">Fisiopatologia dei disturbi respiratori del sonno</h2>
+      <p class="modular-overlay__tagline">SRBD: vie aeree e progressione clinica</p>
+      <figure class="modular-overlay__figure">
+        <img src="assets/infographics/fisiopatologia-disturbi-respiratori-del-sonno-srbd.webp" alt="Infografica completa: Fisiopatologia SRBD" loading="lazy" decoding="async">
+      </figure>
+    </div>
+  </div>
+
+  <div id="infographic-riconoscimento" class="modular-overlay" aria-hidden="true" role="dialog" aria-modal="true" aria-labelledby="infographic-riconoscimento-title">
+    <button type="button" class="modular-overlay__backdrop js-modular-overlay-close" tabindex="-1" aria-label="Chiudi finestra"></button>
+    <div class="modular-overlay__panel">
+      <button type="button" class="modular-overlay__close js-modular-overlay-close" aria-label="Chiudi">&times;</button>
+      <h2 id="infographic-riconoscimento-title" class="modular-overlay__title">Guida al riconoscimento clinico SRBD</h2>
+      <p class="modular-overlay__tagline">Segni, impatto e gravità in età pediatrica</p>
+      <figure class="modular-overlay__figure">
+        <img src="assets/infographics/srdb-guida-riconoscimento-clinico.webp" alt="Infografica completa: Guida al riconoscimento clinico SRBD" loading="lazy" decoding="async">
+      </figure>
+    </div>
+  </div>
+
+  <div id="infographic-gestione" class="modular-overlay" aria-hidden="true" role="dialog" aria-modal="true" aria-labelledby="infographic-gestione-title">
+    <button type="button" class="modular-overlay__backdrop js-modular-overlay-close" tabindex="-1" aria-label="Chiudi finestra"></button>
+    <div class="modular-overlay__panel">
+      <button type="button" class="modular-overlay__close js-modular-overlay-close" aria-label="Chiudi">&times;</button>
+      <h2 id="infographic-gestione-title" class="modular-overlay__title">Gestione SRBD in età pediatrica</h2>
+      <p class="modular-overlay__tagline">Opzioni cliniche e terapie di supporto</p>
+      <figure class="modular-overlay__figure">
+        <img src="assets/infographics/gestione-disturbi-respiratori-srbd-eta-pediatrica.webp" alt="Infografica completa: Gestione SRBD in età pediatrica" loading="lazy" decoding="async">
+      </figure>
+    </div>
+  </div>
+
+  <div id="infographic-screening" class="modular-overlay" aria-hidden="true" role="dialog" aria-modal="true" aria-labelledby="infographic-screening-title">
+    <button type="button" class="modular-overlay__backdrop js-modular-overlay-close" tabindex="-1" aria-label="Chiudi finestra"></button>
+    <div class="modular-overlay__panel">
+      <button type="button" class="modular-overlay__close js-modular-overlay-close" aria-label="Chiudi">&times;</button>
+      <h2 id="infographic-screening-title" class="modular-overlay__title">Screening nello studio dentistico</h2>
+      <p class="modular-overlay__tagline">Questionari e indicatori fisici</p>
+      <figure class="modular-overlay__figure">
+        <img src="assets/infographics/screening-disturbi-sonno-nello-studio-dentistico.webp" alt="Infografica completa: Screening nello studio dentistico" loading="lazy" decoding="async">
+      </figure>
+    </div>
+  </div>
+
+  <div id="infographic-rischi" class="modular-overlay" aria-hidden="true" role="dialog" aria-modal="true" aria-labelledby="infographic-rischi-title">
+    <button type="button" class="modular-overlay__backdrop js-modular-overlay-close" tabindex="-1" aria-label="Chiudi finestra"></button>
+    <div class="modular-overlay__panel">
+      <button type="button" class="modular-overlay__close js-modular-overlay-close" aria-label="Chiudi">&times;</button>
+      <h2 id="infographic-rischi-title" class="modular-overlay__title">Sonno, obesità e ipertensione</h2>
+      <p class="modular-overlay__tagline">I rischi nascosti</p>
+      <figure class="modular-overlay__figure">
+        <img src="assets/infographics/rischi-nascosti-sonno-obesita-ipertensione.webp" alt="Infografica completa: Sonno, obesità e ipertensione" loading="lazy" decoding="async">
+      </figure>
+    </div>
+  </div>
+
+  <div id="infographic-oat" class="modular-overlay" aria-hidden="true" role="dialog" aria-modal="true" aria-labelledby="infographic-oat-title">
+    <button type="button" class="modular-overlay__backdrop js-modular-overlay-close" tabindex="-1" aria-label="Chiudi finestra"></button>
+    <div class="modular-overlay__panel">
+      <button type="button" class="modular-overlay__close js-modular-overlay-close" aria-label="Chiudi">&times;</button>
+      <h2 id="infographic-oat-title" class="modular-overlay__title">Terapia con dispositivi orali (OAT)</h2>
+      <p class="modular-overlay__tagline">Addio russamento</p>
+      <figure class="modular-overlay__figure">
+        <img src="assets/infographics/addio-russamento-terapia-con-dispositivi-orali-oat.webp" alt="Infografica completa: Terapia con dispositivi orali OAT" loading="lazy" decoding="async">
+      </figure>
+    </div>
+  </div>
+
+  <footer>
+    <div class="footer-inner">
+      <p class="footer-brandline"><strong><span class="logo-studio">Studio Dentistico</span> Dott.ssa Marianna Morlino</strong> — Ortodonzia e cure dentali ad Atella (PZ)</p>
+      <p class="footer-tagline-mobile">Ortodonzia e cure dentali ad Atella (PZ)</p>
+      <p class="footer-fiscal">P.IVA IT 01843060763 — C.F. MRL MNN 84C60 G942Z</p>
+      <p class="footer-fiscal">© 2026 Studio Dentistico Dott.ssa Marianna Morlino. Tutti i diritti riservati.</p>
+      <p class="footer-powered">
+        <a href="https://www.sabiasrl.com" target="_blank" rel="noopener noreferrer">
+          <span>Powered by</span>
+          <img src="assets/powered-by.webp" alt="Sabia Srl" loading="lazy" decoding="async" />
+        </a>
+      </p>
+    </div>
+  </footer>
+
+  <script>
+    var menuToggle = document.querySelector('.menu-toggle');
+    var siteNav = document.querySelector('.nav');
+    function closeMobileNav() {
+      siteNav.classList.remove('active');
+      menuToggle.setAttribute('aria-expanded', 'false');
+      menuToggle.textContent = '☰';
+      document.body.classList.remove('menu-open');
+    }
+    menuToggle.addEventListener('click', function () {
+      var isOpen = siteNav.classList.toggle('active');
+      menuToggle.setAttribute('aria-expanded', String(isOpen));
+      menuToggle.textContent = isOpen ? '✕' : '☰';
+      document.body.classList.toggle('menu-open', isOpen);
+    });
+    siteNav.querySelectorAll('a').forEach(function (link) {
+      link.addEventListener('click', function () {
+        if (window.innerWidth <= 640) closeMobileNav();
+      });
+    });
+    window.addEventListener('resize', function () {
+      if (window.innerWidth > 640) closeMobileNav();
+    });
+  </script>
+  <script>
+    (function () {
+      function refreshBodyScrollLock() {
+        if (document.querySelector('.modular-overlay.is-open')) {
+          document.body.classList.add('body--modular-overlay-open');
+        } else {
+          document.body.classList.remove('body--modular-overlay-open');
+        }
+      }
+      function openOverlayById(id) {
+        var el = document.getElementById(id);
+        if (!el || !el.classList.contains('modular-overlay')) return;
+        document.querySelectorAll('.modular-overlay.is-open').forEach(function (o) {
+          o.classList.remove('is-open');
+          o.setAttribute('aria-hidden', 'true');
+        });
+        el.classList.add('is-open');
+        el.setAttribute('aria-hidden', 'false');
+        refreshBodyScrollLock();
+      }
+      function closeOverlayEl(overlay) {
+        if (!overlay) return;
+        overlay.classList.remove('is-open');
+        overlay.setAttribute('aria-hidden', 'true');
+        refreshBodyScrollLock();
+      }
+      document.querySelectorAll('[data-modular-overlay-open]').forEach(function (btn) {
+        btn.addEventListener('click', function (e) {
+          e.preventDefault();
+          var id = btn.getAttribute('data-modular-overlay-open');
+          if (id) openOverlayById(id);
+        });
+      });
+      document.querySelectorAll('.js-modular-overlay-close').forEach(function (btn) {
+        btn.addEventListener('click', function () {
+          closeOverlayEl(btn.closest('.modular-overlay'));
+        });
+      });
+      document.addEventListener('keydown', function (e) {
+        if (e.key !== 'Escape') return;
+        var open = document.querySelector('.modular-overlay.is-open');
+        if (open) closeOverlayEl(open);
+      });
+    })();
+  </script>
+</body>
+</html>

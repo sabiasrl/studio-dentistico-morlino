@@ -1,0 +1,10 @@
+# https://www.studiodentisticomorlino.it/robots.txt
+User-agent: *
+Allow: /
+
+# Block non-public / tooling paths if ever published
+Disallow: /.git/
+Disallow: /.venv/
+Disallow: /Note.md
+
+Sitemap: https://www.studiodentisticomorlino.it/sitemap.xml
