@@ -1,0 +1,293 @@
+<!DOCTYPE html>
+<html lang="it">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="icon" type="image/png" sizes="32x32" href="assets/favicon/favicon-32x32.png">
+  <link rel="icon" type="image/png" sizes="16x16" href="assets/favicon/favicon-16x16.png">
+  <link rel="icon" type="image/png" sizes="48x48" href="assets/favicon/favicon-48x48.png">
+  <link rel="apple-touch-icon" sizes="180x180" href="assets/favicon/apple-touch-icon.png">
+  <meta name="description" content="Ortodonzia ad Atella e in Basilicata: apparecchi fissi, allineatori trasparenti, ortodonzia bambini e adulti. Studio Dentistico Dott.ssa Marianna Morlino, provincia di Potenza.">
+  <meta name="keywords" content="ortodontista Atella, ortodontista Basilicata, ortodontista Potenza, ortodonzia Atella, ortodonzia Basilicata, ortodonzia adulti Basilicata, ortodonzia bambini Basilicata, apparecchio dentale Basilicata, allineatori trasparenti Basilicata, ortodonzia invisibile Basilicata">
+  <meta name="robots" content="index, follow, max-image-preview:large, max-snippet:-1, max-video-preview:-1">
+  <link rel="canonical" href="https://www.studiodentisticomorlino.it/ortodonzia.html">
+  <title>Ortodonzia Atella e Basilicata | Studio Dentistico Marianna Morlino</title>
+  <meta property="og:type" content="website">
+  <meta property="og:locale" content="it_IT">
+  <meta property="og:url" content="https://www.studiodentisticomorlino.it/ortodonzia.html">
+  <meta property="og:title" content="Ortodonzia Atella e Basilicata | Studio Dentistico Morlino">
+  <meta property="og:description" content="Ortodontista ad Atella (PZ): apparecchi fissi, allineatori trasparenti, ortodonzia bambini, adolescenti e adulti in Basilicata.">
+  <meta property="og:image" content="https://www.studiodentisticomorlino.it/assets/images/brackets-silver-ceramic.webp">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;600;700&display=swap" rel="stylesheet">
+  <style>
+    :root {
+      --color-bg: #ffffff; --color-bg-alt: #f8fafc; --color-charcoal: #1A2A3A;
+      --color-text-accent: #0077B6; --color-text-accent-dark: #005691; --color-stone: #5a6c7d;
+      --color-wave-light: #2E638E; --color-wave-dark: #1C3D5A;
+      --shadow-soft: 0 4px 24px rgba(0, 119, 182, 0.1); --shadow-medium: 0 8px 40px rgba(0, 119, 182, 0.15);
+      --radius: 16px; --transition: 0.3s ease;
+    }
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+    html { scroll-behavior: auto; }
+    body { font-family: 'Montserrat', -apple-system, BlinkMacSystemFont, sans-serif; font-size: 16px; line-height: 1.6; color: var(--color-charcoal); background: var(--color-bg); overflow-x: hidden; }
+    h1, h2, h3 { font-family: 'Montserrat', sans-serif; }
+    .logo-studio { font-weight: 700; }
+    a { color: var(--color-text-accent); text-decoration: none; transition: color var(--transition); }
+    a:hover { color: var(--color-text-accent-dark); }
+    img { max-width: 100%; height: auto; display: block; }
+    .header { position: fixed; top: 0; left: 0; right: 0; z-index: 1000; background: rgba(255,255,255,0.9); backdrop-filter: blur(20px); -webkit-backdrop-filter: blur(20px); box-shadow: 0 1px 0 rgba(0,119,182,0.08); }
+    .header-inner { max-width: 1200px; margin: 0 auto; padding: 1rem 1.5rem; display: flex; align-items: center; justify-content: space-between; flex-wrap: wrap; gap: 1rem; }
+    .logo { display: flex; align-items: center; gap: 0.75rem; text-decoration: none; color: inherit; }
+    .logo-text { display: flex; flex-direction: column; line-height: 1.2; }
+    .logo-studio { text-transform: uppercase; font-size: 1rem; font-weight: 700; color: var(--color-charcoal); }
+    .logo-name { font-size: 0.8rem; font-weight: 500; color: var(--color-text-accent); }
+    .nav { display: flex; gap: 1.5rem; flex-wrap: wrap; }
+    .nav a { font-weight: 500; font-size: 0.95rem; color: var(--color-charcoal); }
+    .nav a:hover, .nav a.is-active { color: var(--color-text-accent); }
+    .nav .nav-top-logo { display: none; }
+    .menu-toggle { display: none; background: none; border: none; font-size: 1.5rem; cursor: pointer; padding: 0.5rem; color: var(--color-charcoal); }
+    @media (max-width: 640px) {
+      .menu-toggle { display: block; z-index: 1002; }
+      .menu-toggle[aria-expanded="true"] { color: #ffffff; }
+      .nav { display: none; position: fixed; inset: 0; z-index: 1001; width: 100%; min-height: 100vh; min-height: 100dvh; padding: 4.75rem 1.5rem 2.5rem; flex-direction: column; justify-content: flex-start; align-items: center; row-gap: 1.35rem; background: #fff; }
+      .nav.active { display: flex; }
+      .nav a { color: var(--color-charcoal); font-size: 1.15rem; font-weight: 600; width: 100%; max-width: 320px; text-align: center; padding: 0.45rem 0; }
+      .nav .nav-top-logo { display: inline-flex; flex-direction: row; align-items: center; justify-content: center; gap: 0.75rem; margin-bottom: 0.8rem; color: var(--color-charcoal); }
+      .nav .nav-top-logo img { width: 40px; height: 40px; object-fit: contain; border-radius: 999px; }
+      .footer-brandline { display: none; }
+      .footer-tagline-mobile { display: block; font-size: 0.95rem; line-height: 1.45; color: rgba(255,255,255,0.8); }
+    }
+    body.menu-open { overflow: hidden; }
+    main { padding-top: 5.25rem; }
+    section { max-width: 1200px; margin: 0 auto; padding: 3.5rem 1.5rem; }
+    .page-hero { padding-top: 2.5rem; padding-bottom: 2rem; background: linear-gradient(180deg, rgba(0,119,182,0.06) 0%, transparent 100%); }
+    .page-hero__inner { max-width: 46rem; }
+    .page-hero__eyebrow { display: inline-block; margin-bottom: 0.65rem; font-size: 0.78rem; font-weight: 600; letter-spacing: 0.05em; text-transform: uppercase; color: var(--color-text-accent-dark); }
+    .page-hero h1 { font-size: clamp(1.2rem, 2.5vw, 1.45rem); font-weight: 600; margin-bottom: 0.65rem; color: var(--color-text-accent-dark); }
+    .page-hero p { margin: 0; max-width: 46rem; color: var(--color-stone); font-size: 0.98rem; line-height: 1.65; }
+    .section-title { margin-bottom: 2rem; }
+    .section-title h2 { font-size: clamp(1.2rem, 2.5vw, 1.45rem); font-weight: 600; margin-bottom: 0.65rem; color: var(--color-text-accent-dark); }
+    .section-title p { color: var(--color-stone); margin-top: 0.4rem; font-size: 0.98rem; line-height: 1.65; }
+    .orto-section { background: var(--color-bg-alt); }
+    .orto-section--plain { background: var(--color-bg); }
+    .orto-block { display: grid; gap: 1.5rem; align-items: center; margin-bottom: 2.75rem; }
+    .orto-block:last-child { margin-bottom: 0; }
+    @media (min-width: 768px) {
+      .orto-block--split { grid-template-columns: minmax(0, 0.95fr) minmax(0, 1.05fr); gap: 2rem; }
+      .orto-block--flip { grid-template-columns: minmax(0, 1.05fr) minmax(0, 0.95fr); }
+      .orto-block--flip .orto-block__media { order: 2; }
+      .orto-block--flip .orto-block__body { order: 1; }
+    }
+    .orto-block__media { border-radius: var(--radius); overflow: hidden; border: 1px solid rgba(0,119,182,0.1); background: #f4f8fb; }
+    .orto-block__media img { width: 100%; height: auto; display: block; }
+    .orto-block__body h3 { margin-bottom: 0.65rem; color: var(--color-text-accent-dark); }
+    .orto-block__body p { color: var(--color-stone); margin-bottom: 0.75rem; }
+    .orto-block__body p:last-child { margin-bottom: 0; }
+    .orto-list { list-style: none; display: grid; gap: 0.45rem; margin: 0.75rem 0 0.25rem; }
+    .orto-list li { position: relative; padding-left: 1.05rem; color: var(--color-stone); font-size: 0.95rem; }
+    .orto-list li::before { content: ''; position: absolute; top: 0.55em; left: 0; width: 7px; height: 7px; border-radius: 999px; background: var(--color-text-accent); }
+    .seo-related { background: var(--color-bg); }
+    .seo-related__links { display: grid; gap: 0.75rem; }
+    @media (min-width: 640px) { .seo-related__links { grid-template-columns: repeat(2, minmax(0,1fr)); } }
+    .seo-related__links a { display: block; padding: 1rem 1.1rem; border-radius: var(--radius); border: 1px solid rgba(0,119,182,0.14); background: #fff; box-shadow: var(--shadow-soft); font-weight: 600; color: var(--color-text-accent-dark); }
+    .seo-related__links a:hover { border-color: rgba(0,119,182,0.35); }
+    .seo-related__links span { display: block; margin-top: 0.25rem; font-weight: 500; font-size: 0.88rem; color: var(--color-stone); }
+    .page-cta { text-align: center; padding-bottom: 4rem; }
+    .page-cta p { color: var(--color-stone); max-width: 36rem; margin: 0.5rem auto 1.25rem; }
+    .page-cta__btn { display: inline-flex; align-items: center; justify-content: center; padding: 0.8rem 1.35rem; border-radius: 999px; background: var(--color-text-accent); color: white !important; font-weight: 600; font-size: 0.95rem; }
+    .page-cta__btn:hover { background: var(--color-text-accent-dark); }
+    footer { background: linear-gradient(180deg, var(--color-wave-light) 0%, var(--color-wave-dark) 100%); color: white; padding: 3rem 1.5rem; text-align: center; }
+    .footer-inner { max-width: 1200px; margin: 0 auto; }
+    .footer p { color: rgba(255,255,255,0.8); }
+    .footer-brandline { font-size: 0.95rem; line-height: 1.45; }
+    .footer-fiscal { margin-top: 0; font-size: 0.82rem; line-height: 1.55; color: rgba(255,255,255,0.72); }
+    .footer-tagline-mobile + .footer-fiscal { margin-top: 0.5rem; }
+    .footer-fiscal + .footer-fiscal { margin-top: 0.38rem; }
+    .footer-powered { margin-top: 0.6rem; font-size: 0.82rem; color: rgba(255,255,255,0.72); }
+    .footer-powered a { display: inline-flex; align-items: center; gap: 0.45rem; color: inherit; text-decoration: none; }
+    .footer-powered img { height: 14px; width: auto; }
+    .footer a { color: white; }
+    .footer .footer-powered a { color: inherit; }
+    .footer strong, footer .logo-studio { color: #fff; }
+    .footer-tagline-mobile { display: none; }
+  </style>
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "MedicalWebPage",
+    "name": "Ortodonzia Atella e Basilicata",
+    "url": "https://www.studiodentisticomorlino.it/ortodonzia.html",
+    "description": "Ortodonzia per bambini, adolescenti e adulti ad Atella e in Basilicata: apparecchi fissi, allineatori trasparenti e piani personalizzati.",
+    "about": {"@type": "MedicalSpecialty", "name": "Orthodontics"},
+    "mainEntity": {
+      "@type": "Dentist",
+      "name": "Studio Dentistico Dott.ssa Marianna Morlino",
+      "address": {
+        "@type": "PostalAddress",
+        "streetAddress": "Corso Papa Giovanni XXIII, 132",
+        "addressLocality": "Atella",
+        "addressRegion": "PZ",
+        "postalCode": "85020",
+        "addressCountry": "IT"
+      }
+    }
+  }
+  </script>
+</head>
+<body>
+  <header class="header" id="top">
+    <div class="header-inner">
+      <a href="index.html" class="logo">
+        <img src="assets/logo.webp" alt="" class="logo-icon" width="40" height="40">
+        <span class="logo-text">
+          <span class="logo-studio">Studio Dentistico</span>
+          <span class="logo-name">Dott.ssa Marianna Morlino</span>
+        </span>
+      </a>
+      <button class="menu-toggle" aria-label="Menu" aria-expanded="false" aria-controls="site-nav">☰</button>
+      <nav class="nav" id="site-nav">
+        <a href="index.html" class="nav-top-logo" aria-label="Torna alla home">
+          <img src="assets/logo.webp" alt="" class="logo-icon" width="40" height="40">
+          <span class="logo-text">
+            <span class="logo-studio">Studio Dentistico</span>
+            <span class="logo-name">Dott.ssa Marianna Morlino</span>
+          </span>
+        </a>
+        <a href="index.html#chi-siamo">Lo studio</a>
+        <a href="index.html#servizi-dello-studio">Cure dentali</a>
+        <a href="terapia-gnatologica.html">Terapia gnatologica</a>
+        <a href="medicina-del-sonno.html">Medicina del sonno</a>
+        <a href="index.html#contatti">Contatti</a>
+      </nav>
+    </div>
+  </header>
+
+  <main>
+    <section class="page-hero">
+      <div class="page-hero__inner">
+        <span class="page-hero__eyebrow">Studio Dentistico Morlino</span>
+        <h1>Ortodonzia</h1>
+        <p>Apparecchi fissi, allineatori trasparenti e percorsi per bambini, adolescenti e adulti nello Studio Dentistico Morlino, provincia di Potenza (Vulture-Melfese).</p>
+      </div>
+    </section>
+
+    <section class="orto-section">
+      <div class="section-title">
+        <h2>Un piano ortodontico nato dalla visita</h2>
+        <p>Ortodonzia e gnatologia integrate, quando il caso lo richiede</p>
+      </div>
+      <article class="orto-block orto-block--split">
+        <div class="orto-block__media">
+          <img src="assets/images/brackets-types.webp" alt="Tipologie di bracket ortodontici" loading="lazy" decoding="async">
+        </div>
+        <div class="orto-block__body">
+          <h3>Ortodontista ad Atella, provincia di Potenza</h3>
+          <p>Nello <strong>Studio Dentistico Morlino</strong> l'<strong>ortodonzia</strong> si integra con la <strong>gnatologia</strong> e con la valutazione funzionale dell'apparato masticatorio. Ogni piano nasce dalla visita: analisi delle arcate, del morso e dell'età di crescita, obiettivi estetici e funzionali, tempi stimati e scelta condivisa del dispositivo.</p>
+          <p>Accogliamo pazienti da <strong>Atella</strong>, dal <strong>Vulture-Melfese</strong> (Melfi, Rionero, Venosa e comuni limitrofi) e dalla provincia di Potenza che cercano un percorso ortodontico chiaro e personalizzato.</p>
+        </div>
+      </article>
+      <article class="orto-block orto-block--split orto-block--flip">
+        <div class="orto-block__media">
+          <img src="assets/images/brackets-silver-ceramic.webp" alt="Apparecchio fisso metallico e ceramica" loading="lazy" decoding="async">
+        </div>
+        <div class="orto-block__body">
+          <h3>Apparecchi fissi metallici ed estetici</h3>
+          <p>Gli apparecchi fissi con bracket metallici o in ceramica guidano i denti in sicurezza. Il monitoraggio in studio consente di regolare le forze, controllare l'igiene e rispettare le tappe del piano.</p>
+        </div>
+      </article>
+      <article class="orto-block orto-block--split">
+        <div class="orto-block__media">
+          <img src="assets/images/bracket-colorful.webp" alt="Ortodonzia bambini e ragazzi" loading="lazy" decoding="async">
+        </div>
+        <div class="orto-block__body">
+          <h3>Ortodonzia bambini e adolescenti</h3>
+          <p>Per bambini e ragazzi, elementi personalizzabili possono favorire la collaborazione. In alcune fasi della crescita si valutano anche apparecchi mobili o dispositivi funzionali, utili a modulare abitudini e relazioni morso–articolazione.</p>
+        </div>
+      </article>
+      <article class="orto-block orto-block--split orto-block--flip">
+        <div class="orto-block__media">
+          <img src="assets/images/aligner-transparent.webp" alt="Allineatori trasparenti ortodontici" loading="lazy" decoding="async">
+        </div>
+        <div class="orto-block__body">
+          <h3>Allineatori trasparenti e ortodonzia adulti</h3>
+          <p>Gli <strong>allineatori trasparenti</strong>, ove indicato dal caso clinico, sono un'alternativa discreta all'apparecchio fisso. Non tutte le malocclusioni sono trattabili solo con allineatori: la visita stabilisce se la tecnica è sufficiente o se è preferibile un approccio misto o tradizionale.</p>
+          <p>Un buon esito dipende da compliance, igiene e contenzione finale — fasi spiegate fin dall'inizio del percorso.</p>
+        </div>
+      </article>
+      <article class="orto-block orto-block--split">
+        <div class="orto-block__media">
+          <img src="assets/images/placca-funzionale-terza-classe.webp" alt="Placca funzionale ortodontica" loading="lazy" decoding="async">
+        </div>
+        <div class="orto-block__body">
+          <h3>In sintesi</h3>
+          <ul class="orto-list">
+            <li>Diagnosi ortodontica e piani personalizzati</li>
+            <li>Apparecchi fissi metallici ed estetici</li>
+            <li>Allineatori trasparenti ove indicato</li>
+            <li>Apparecchi mobili, placche funzionali e contenzione</li>
+            <li>Follow-up per bambini, adolescenti e adulti</li>
+          </ul>
+        </div>
+      </article>
+    </section>
+
+    <section class="seo-related orto-section--plain">
+      <div class="section-title">
+        <h2>Approfondimenti correlati</h2>
+        <p>Quando l'ortodonzia si incontra con gnatologia e disturbi del sonno</p>
+      </div>
+      <div class="seo-related__links">
+        <a href="terapia-gnatologica.html">Gnatologia e Velvet TMJ<span>Dolore mandibolare, ATM, bruxismo e percorsi non invasivi</span></a>
+        <a href="medicina-del-sonno.html">Medicina del sonno<span>Russamento, apnee e dispositivi orali (OAT)</span></a>
+      </div>
+    </section>
+
+    <section class="page-cta">
+      <h2>Prenota una visita ortodontica</h2>
+      <p>Contattaci per un colloquio informativo ad Atella (PZ) o per fissare un appuntamento.</p>
+      <a class="page-cta__btn" href="index.html#contatti">Contatta lo studio</a>
+    </section>
+  </main>
+
+  <footer>
+    <div class="footer-inner">
+      <p class="footer-brandline"><strong><span class="logo-studio">Studio Dentistico</span> Dott.ssa Marianna Morlino</strong> — Ortodonzia e cure dentali ad Atella (PZ)</p>
+      <p class="footer-tagline-mobile">Ortodonzia e cure dentali ad Atella (PZ)</p>
+      <p class="footer-fiscal">P.IVA IT 01843060763 — C.F. MRL MNN 84C60 G942Z</p>
+      <p class="footer-fiscal">© 2026 Studio Dentistico Dott.ssa Marianna Morlino. Tutti i diritti riservati.</p>
+      <p class="footer-powered">
+        <a href="https://www.sabiasrl.com" target="_blank" rel="noopener noreferrer">
+          <span>Powered by</span>
+          <img src="assets/powered-by.webp" alt="Sabia Srl" loading="lazy" decoding="async" />
+        </a>
+      </p>
+    </div>
+  </footer>
+  <script>
+    var menuToggle = document.querySelector('.menu-toggle');
+    var siteNav = document.querySelector('.nav');
+    function closeMobileNav() {
+      siteNav.classList.remove('active');
+      menuToggle.setAttribute('aria-expanded', 'false');
+      menuToggle.textContent = '☰';
+      document.body.classList.remove('menu-open');
+    }
+    menuToggle.addEventListener('click', function () {
+      var isOpen = siteNav.classList.toggle('active');
+      menuToggle.setAttribute('aria-expanded', String(isOpen));
+      menuToggle.textContent = isOpen ? '✕' : '☰';
+      document.body.classList.toggle('menu-open', isOpen);
+    });
+    siteNav.querySelectorAll('a').forEach(function (link) {
+      link.addEventListener('click', function () {
+        if (window.innerWidth <= 640) closeMobileNav();
+      });
+    });
+    window.addEventListener('resize', function () {
+      if (window.innerWidth > 640) closeMobileNav();
+    });
+  </script>
+</body>
+</html>

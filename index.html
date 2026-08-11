@@ -7,10 +7,55 @@
   <link rel="icon" type="image/png" sizes="16x16" href="assets/favicon/favicon-16x16.png">
   <link rel="icon" type="image/png" sizes="48x48" href="assets/favicon/favicon-48x48.png">
   <link rel="apple-touch-icon" sizes="180x180" href="assets/favicon/apple-touch-icon.png">
-  <meta name="description" content="STUDIO DENTISTICO Morlino - Ortodonzia e cure dentali ad Atella (PZ). Il tuo sorriso è la nostra priorità.">
+  <meta name="description" content="STUDIO DENTISTICO Morlino - Ortodonzia e cure dentali ad Atella (PZ). Il tuo sorriso è la nostra priorità. Ortodonzia, gnatologia ATM, medicina del sonno, implantologia e cure dentali nel Vulture-Melfese.">
+  <meta name="keywords" content="dentista Atella, dentista Basilicata, dentista Potenza, studio dentistico Atella, studio odontoiatrico Basilicata, dentista Vulture Melfese, ortodontista Atella, gnatologo Basilicata, medicina del sonno Basilicata, implantologia Basilicata, cure dentali Atella">
   <meta name="robots" content="index, follow, max-image-preview:large, max-snippet:-1, max-video-preview:-1">
+  <meta name="geo.region" content="IT-77">
+  <meta name="geo.placename" content="Atella">
   <link rel="canonical" href="https://www.studiodentisticomorlino.it/">
-  <title>STUDIO DENTISTICO Marianna Morlino | Ortodonzia Atella, PZ</title>
+  <title>Dentista Atella e Basilicata | Studio Dentistico Marianna Morlino</title>
+  <meta property="og:type" content="website">
+  <meta property="og:locale" content="it_IT">
+  <meta property="og:url" content="https://www.studiodentisticomorlino.it/">
+  <meta property="og:title" content="Dentista Atella e Basilicata | Studio Dentistico Marianna Morlino">
+  <meta property="og:description" content="Ortodonzia, gnatologia ATM, medicina del sonno e cure dentali ad Atella (PZ), nel cuore del Vulture-Melfese.">
+  <meta property="og:image" content="https://www.studiodentisticomorlino.it/assets/logo-big.webp">
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "Dentist",
+    "name": "Studio Dentistico Dott.ssa Marianna Morlino",
+    "image": "https://www.studiodentisticomorlino.it/assets/logo-big.webp",
+    "url": "https://www.studiodentisticomorlino.it/",
+    "telephone": "+393714196466",
+    "email": "morlino.studiodentistico@gmail.com",
+    "address": {
+      "@type": "PostalAddress",
+      "streetAddress": "Corso Papa Giovanni XXIII, 132",
+      "addressLocality": "Atella",
+      "addressRegion": "PZ",
+      "postalCode": "85020",
+      "addressCountry": "IT"
+    },
+    "geo": {
+      "@type": "GeoCoordinates",
+      "latitude": 40.877,
+      "longitude": 15.650
+    },
+    "areaServed": [
+      {"@type": "AdministrativeArea", "name": "Basilicata"},
+      {"@type": "AdministrativeArea", "name": "Provincia di Potenza"},
+      {"@type": "City", "name": "Atella"},
+      {"@type": "Place", "name": "Vulture-Melfese"}
+    ],
+    "medicalSpecialty": ["Dentistry", "Orthodontics"],
+    "priceRange": "$$",
+    "sameAs": [
+      "https://www.facebook.com/MorlinodentistaAtella/",
+      "https://www.instagram.com/studio_dentistico_morlino"
+    ]
+  }
+  </script>
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;600;700&display=swap" rel="stylesheet">
@@ -447,6 +492,12 @@
     .services-subsection {
       scroll-margin-top: 5.5rem;
     }
+    #chi-siamo {
+      scroll-margin-top: 4rem;
+    }
+    #contatti {
+      scroll-margin-top: 1rem;
+    }
     .services-subsection + .services-subsection {
       margin-top: 3rem;
       padding-top: 3rem;
@@ -623,6 +674,12 @@
       object-fit: contain;
       object-position: center;
       display: block;
+    }
+    /* Utility: hide decorative/image-only cards on mobile (matches menu breakpoint) */
+    @media (max-width: 640px) {
+      .hide-on-mobile {
+        display: none !important;
+      }
     }
     .service-card__top-accent {
       flex-shrink: 0;
@@ -1540,7 +1597,7 @@
           <div class="service-card__body">
             <h3>Ortodonzia e gnatologia</h3>
             <p>Apparecchi fissi e mobili, allineatori trasparenti per un sorriso perfetto a ogni età; integrazione con la valutazione gnatologica quando necessario.</p>
-            <p class="service-card__more-row"><a href="#" class="service-card__more-link" data-modular-overlay-open="ortodonzia-overlay" aria-haspopup="dialog">Maggiori informazioni</a></p>
+            <p class="service-card__more-row"><a href="ortodonzia.html" class="service-card__more-link">Maggiori informazioni</a></p>
           </div>
         </div>
         <div class="service-card service-card--image-only service-card--image-fullwidth">
@@ -1643,7 +1700,7 @@
         </div>
         <div class="service-card service-card--media service-card--extra">
           <div class="service-card__image">
-            <img src="assets/infographics/addio-russamento-terapia-con-dispositivi-orali-oat.webp" alt="Medicina del sonno e dispositivi orali" loading="lazy" decoding="async">
+            <img src="assets/infographics/rischi-nascosti-sonno-obesita-ipertensione.webp" alt="Disturbi del sonno, obesità e ipertensione" loading="lazy" decoding="async">
           </div>
           <div class="service-card__body">
             <h3>Medicina del sonno</h3>
@@ -1651,7 +1708,19 @@
             <p class="service-card__more-row"><a href="medicina-del-sonno.html" class="service-card__more-link">Maggiori informazioni</a></p>
           </div>
         </div>
+
+        <div class="service-card service-card--image-only hide-on-mobile">
+          <div class="service-card__figure">
+            <img src="assets/images/elf-moondance-child.webp" alt="Bambino che si lava i denti, igiene orale pediatrica" loading="lazy" decoding="async">
+          </div>
         </div>
+
+        <div class="service-card service-card--image-only service-card--image-contain hide-on-mobile">
+          <div class="service-card__figure">
+            <img src="assets/images/dioboada-tooth.webp" alt="Dente e igiene orale" loading="lazy" decoding="async">
+          </div>
+        </div>
+              </div>
       </div>
 
     </section>
@@ -2023,13 +2092,16 @@
       document.querySelectorAll('#servizi .service-card--extra').forEach(function (card) {
         card.addEventListener('click', function (e) {
           if (e.target.closest('a.service-card__more-link')) return;
-          var ids = [];
-          card.querySelectorAll('a[data-modular-overlay-open]').forEach(function (a) {
-            ids.push(a.getAttribute('data-modular-overlay-open'));
-          });
-          if (!ids.length) return;
-          e.preventDefault();
-          openOverlayById(ids[0]);
+          var opener = card.querySelector('a[data-modular-overlay-open]');
+          if (opener) {
+            e.preventDefault();
+            openOverlayById(opener.getAttribute('data-modular-overlay-open'));
+            return;
+          }
+          var more = card.querySelector('a.service-card__more-link[href]');
+          if (more && more.getAttribute('href') && more.getAttribute('href') !== '#') {
+            window.location.href = more.getAttribute('href');
+          }
         });
       });
 
