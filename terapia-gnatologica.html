@@ -152,8 +152,94 @@
     }
     .section-title p { color: var(--color-stone); margin-top: 0.4rem; font-size: 0.98rem; line-height: 1.65; }
 
-    .gnato-section { background: var(--color-bg-alt); }
-    .gnato-section--plain { background: var(--color-bg); }
+    .gnato-section { background: transparent; }
+    .gnato-section--plain { background: transparent; }
+
+    .gnato-accordions {
+      max-width: 1200px;
+      margin: 0 auto;
+      padding: 1.5rem 1.5rem 2rem;
+      display: grid;
+      gap: 1rem;
+    }
+    .gnato-accordion {
+      border: 1px solid rgba(0, 119, 182, 0.14);
+      border-radius: var(--radius-lg);
+      background: #fff;
+      box-shadow: var(--shadow-soft);
+      overflow: hidden;
+      scroll-margin-top: 5.5rem;
+    }
+    .gnato-accordion.is-open {
+      border-color: rgba(0, 119, 182, 0.35);
+      box-shadow: var(--shadow-medium);
+    }
+    .gnato-accordion__trigger {
+      width: 100%;
+      display: flex;
+      align-items: flex-start;
+      justify-content: space-between;
+      gap: 1rem;
+      padding: 1.25rem 1.35rem;
+      border: 0;
+      background: linear-gradient(180deg, rgba(0, 119, 182, 0.06) 0%, rgba(255,255,255,0) 100%);
+      cursor: pointer;
+      text-align: left;
+      font-family: inherit;
+      color: inherit;
+    }
+    .gnato-accordion__trigger:hover {
+      background: linear-gradient(180deg, rgba(0, 119, 182, 0.1) 0%, rgba(255,255,255,0) 100%);
+    }
+    .gnato-accordion__titles {
+      display: grid;
+      gap: 0.35rem;
+      min-width: 0;
+    }
+    .gnato-accordion__titles h2 {
+      margin: 0;
+      font-size: clamp(1.15rem, 2.4vw, 1.4rem);
+      font-weight: 600;
+      color: var(--color-text-accent-dark);
+    }
+    .gnato-accordion__titles p {
+      margin: 0;
+      color: var(--color-stone);
+      font-size: 0.95rem;
+      line-height: 1.55;
+    }
+    .gnato-accordion__icon {
+      flex-shrink: 0;
+      width: 2rem;
+      height: 2rem;
+      border-radius: 999px;
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      background: rgba(0, 119, 182, 0.1);
+      color: var(--color-text-accent);
+      font-size: 1.35rem;
+      font-weight: 600;
+      line-height: 1;
+      transition: transform var(--transition), background var(--transition);
+    }
+    .gnato-accordion.is-open .gnato-accordion__icon {
+      background: var(--color-text-accent);
+      color: #fff;
+      transform: rotate(45deg);
+    }
+    .gnato-accordion__panel {
+      padding: 0 1.35rem 1.5rem;
+      border-top: 1px solid rgba(0, 119, 182, 0.1);
+    }
+    .gnato-accordion.is-open .gnato-accordion__panel {
+      padding-top: 1.35rem;
+    }
+    .gnato-accordion__panel[hidden] {
+      display: none !important;
+    }
+    .gnato-accordion .gnato-block:first-child { margin-top: 0; }
+    .gnato-accordion .benefit-grid { margin-top: 0.25rem; }
     .gnato-block {
       display: grid; gap: 1.5rem; align-items: center;
       margin-bottom: 2.75rem;
@@ -331,13 +417,17 @@
       </div>
     </section>
 
-    <section id="trattamento" class="gnato-section">
-      <div class="section-title">
-        <h2>Informazioni sul trattamento</h2>
-        <p>Diatermia, elettroporazione e trasduttori dedicati per percorsi non invasivi</p>
-      </div>
-
-      <article class="gnato-block gnato-block--split">
+    <div class="gnato-accordions">
+      <article id="trattamento" class="gnato-accordion" data-accordion>
+        <button type="button" class="gnato-accordion__trigger" aria-expanded="false" aria-controls="panel-trattamento" id="trigger-trattamento">
+          <span class="gnato-accordion__titles">
+            <h2>Informazioni sul trattamento</h2>
+            <p>Diatermia, elettroporazione e trasduttori dedicati per percorsi non invasivi</p>
+          </span>
+          <span class="gnato-accordion__icon" aria-hidden="true">+</span>
+        </button>
+        <div class="gnato-accordion__panel" id="panel-trattamento" role="region" aria-labelledby="trigger-trattamento" hidden>
+<article class="gnato-block gnato-block--split">
         <div class="gnato-block__media">
           <img src="assets/images/velvet-tmj.webp" alt="Velvet TMJ: panoramica del sistema e del percorso in studio" loading="lazy" decoding="async">
         </div>
@@ -389,15 +479,19 @@
           <p>Indicatori clinici, controindicazioni e piano delle sedute vengono definiti in sede dopo anamnesi e valutazione. Per appuntamenti: <a href="tel:+393714196466">371 4196466</a>.</p>
         </div>
       </article>
-    </section>
+        </div>
+      </article>
 
-    <section id="benefici" class="gnato-section gnato-section--plain">
-      <div class="section-title">
-        <h2>Perché funziona</h2>
-        <p>Sintomi, contesti clinici e benefici attesi con Velvet TMJ</p>
-      </div>
-
-      <div class="benefit-grid">
+      <article id="benefici" class="gnato-accordion" data-accordion>
+        <button type="button" class="gnato-accordion__trigger" aria-expanded="false" aria-controls="panel-benefici" id="trigger-benefici">
+          <span class="gnato-accordion__titles">
+            <h2>Perché funziona</h2>
+            <p>Sintomi, contesti clinici e benefici attesi con Velvet TMJ</p>
+          </span>
+          <span class="gnato-accordion__icon" aria-hidden="true">+</span>
+        </button>
+        <div class="gnato-accordion__panel" id="panel-benefici" role="region" aria-labelledby="trigger-benefici" hidden>
+<div class="benefit-grid">
         <article class="benefit-card">
           <div class="benefit-card__media">
             <img src="assets/images/card-sinergia-vincente.webp" alt="Sinergia vincente con Velvet TMJ" loading="lazy" decoding="async">
@@ -507,7 +601,9 @@
           </div>
         </article>
       </div>
-    </section>
+        </div>
+      </article>
+    </div>
 
     <section class="gnato-cta">
       <h2>Prenota una valutazione gnatologica su misura</h2>
@@ -555,5 +651,47 @@
       if (window.innerWidth > 640) closeMobileNav();
     });
   </script>
+
+  <script>
+    (function () {
+      var items = Array.prototype.slice.call(document.querySelectorAll('[data-accordion]'));
+      if (!items.length) return;
+
+      function setOpen(item, open) {
+        var btn = item.querySelector('.gnato-accordion__trigger');
+        var panel = item.querySelector('.gnato-accordion__panel');
+        if (!btn || !panel) return;
+        item.classList.toggle('is-open', open);
+        btn.setAttribute('aria-expanded', String(open));
+        if (open) panel.removeAttribute('hidden');
+        else panel.setAttribute('hidden', '');
+      }
+
+      function openByHash() {
+        var id = (location.hash || '').replace('#', '');
+        if (!id) return;
+        var target = document.getElementById(id);
+        if (!target || !target.hasAttribute('data-accordion')) return;
+        items.forEach(function (item) { setOpen(item, item === target); });
+        target.scrollIntoView({ behavior: 'auto', block: 'start' });
+      }
+
+      items.forEach(function (item) {
+        var btn = item.querySelector('.gnato-accordion__trigger');
+        if (!btn) return;
+        btn.addEventListener('click', function () {
+          var willOpen = !item.classList.contains('is-open');
+          items.forEach(function (other) { setOpen(other, other === item && willOpen); });
+          if (willOpen && item.id) {
+            history.replaceState(null, '', '#' + item.id);
+          }
+        });
+      });
+
+      openByHash();
+      window.addEventListener('hashchange', openByHash);
+    })();
+  </script>
+
 </body>
 </html>
